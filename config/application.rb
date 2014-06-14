@@ -11,6 +11,6 @@ Bundler.require(*Rails.groups)
 
 module Kodets
   class Application < Rails::Application
-    config.time_zone = 'UTC +00:00'
+    config.time_zone = 'Europe/London'
   end
 end
