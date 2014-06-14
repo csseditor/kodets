@@ -11,5 +11,11 @@ gem 'jquery-rails'
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
