@@ -1,4 +1,4 @@
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require theme
 //= require_tree .
