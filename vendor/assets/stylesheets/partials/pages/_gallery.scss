@@ -1,9 +1,9 @@
 #gallery {
-	
+
 	#showcase {
 		margin-top: 25px;
 		-webkit-font-smoothing: antialiased;
-		
+
 		.header {
 			text-align: left;
 			h3 {
@@ -44,7 +44,7 @@
 					margin: 0px 8px;
 					&:first-child {
 						margin-left: 0px;
-					}					
+					}
 					a {
 						color: #888;
 						font-weight: 400;
@@ -53,7 +53,7 @@
 						font-size: 16px;
 						position: relative;
 						@include transition(color 0.25s linear);
-						
+
 						&.active {
 							color: #2B69A2;
 							font-weight: 400;
@@ -73,7 +73,7 @@
 						&:hover {
 							color: #2B69A2;
 							background: none;
-							text-decoration: none;					
+							text-decoration: none;
 						}
 					}
 				}
@@ -86,7 +86,7 @@
 		.pic {
 			margin-bottom: 40px;
 			position: relative;
-			display: block;			
+			display: block;
 			@include transition(.5s cubic-bezier(.25,1.45,.51,1.13));
 
 			&.fluidbox-opened:hover {
@@ -158,12 +158,12 @@ a[data-fluidbox] {
   cursor: -webkit-zoom-in;
   cursor: -moz-zoom-in;
   margin-bottom: 1.5rem;
-  
+
   &.fluidbox-opened {
     cursor: -webkit-zoom-out;
-    cursor: -moz-zoom-out;    
+    cursor: -moz-zoom-out;
   }
-  
+
   & img {
     display: block;
     margin: 0 auto;
@@ -178,7 +178,7 @@ a[class^='float'] {
   margin: 1rem;
   margin-top: 0;
   width: 33.33333%;
-  
+
   &.float-left {
     float: left;
     margin-left: 0;
@@ -209,7 +209,7 @@ a[class^='float'] {
   position: relative;
   z-index: 400;
   transition: all .25s ease-in-out;
-  
+
   .fluidbox-opened & {
     z-index: 600;
   }

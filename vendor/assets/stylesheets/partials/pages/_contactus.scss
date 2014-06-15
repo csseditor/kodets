@@ -60,7 +60,7 @@
 				@media(max-width: 767px) {
 					width: 100%;
 				}
-				
+
 				input[type="text"],
 				input[type="email"] {
 					width: 70%;
@@ -91,11 +91,11 @@
 					padding: 5px 7px !important;
 					background: #4B9FCF !important;
 					border-radius: 4px !important;
-					
+
 					&.valid {
 						display: none !important;
 					}
-					
+
 					&:after {
 						bottom: 100%;
 						border: solid transparent;
@@ -156,7 +156,7 @@
 				a {
 					border: 0px;
 					@include transition(all 0.2s linear);
-					
+
 					&.tw {
 						position: relative;
 						top: 2px;
@@ -165,7 +165,7 @@
 						opacity: 0.8;
 						filter: alpha(opacity=80);
 					}
-				}				
+				}
 			}
 		}
 	}
@@ -213,7 +213,7 @@
 		-moz-box-shadow: 0 0 20px rgba(117, 170, 242, 0.5), inset 0 0 10px rgba(117, 170, 242, 0.8);
 		box-shadow: 0 0 20px rgba(117, 170, 242, 0.5), inset 0 0 10px rgba(117, 170, 242, 0.8);
 		color: 0 0 20px rgba(117, 170, 242, 0.5) inset 0 0 10px rgba(117, 170, 242, 0.8);
-		
+
 		@include animation(map 2s infinite linear);
 	}
 }

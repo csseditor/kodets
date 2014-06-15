@@ -9,7 +9,7 @@
     background: -o-radial-gradient(center, ellipse cover, #fff 0%, #F4F9FF 100%);
     background: -ms-radial-gradient(center, ellipse cover, #fff 0%, #F4F9FF 100%);
     background: radial-gradient(ellipse at center, #fff 0%, #F4F9FF 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#fff', endColorstr = '#F4F9FF', GradientType = 1);    
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#fff', endColorstr = '#F4F9FF', GradientType = 1);
 
     &.dark {
     	border-top: 5px solid #DAEEF8;
@@ -178,7 +178,7 @@
 					height: inherit;
 					display: block;
 
-					&:before, 
+					&:before,
 					&:after {
 						display: table;
 						content: "";
@@ -186,7 +186,7 @@
 
 					&.minutes,
 					&.seconds {
-						.flip-clock-label { 
+						.flip-clock-label {
 							right: -74px !important;
 						}
 					}
@@ -201,7 +201,7 @@
 
 				&.minutes,
 				&.seconds {
-					.flip-clock-label { 
+					.flip-clock-label {
 						right: -102px;
 					}
 				}

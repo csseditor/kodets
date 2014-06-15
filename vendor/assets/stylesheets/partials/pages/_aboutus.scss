@@ -1,4 +1,4 @@
-#about-us {	
+#about-us {
 
 	#slider {
 		margin-top: 45px;
@@ -28,7 +28,7 @@
 			margin-top: 30px;
 			box-shadow: none;
 			border-radius: 0px;
-			.slides {				
+			.slides {
 				img {
 					max-height: 400px;
 				}
@@ -110,7 +110,7 @@
 				top: 0px;
 				box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.4);
 				@include transition(top 0.15s linear);
-				
+
 				@media(max-width: 991px) {
 					margin: 0px 10px 20px 0;
 				}
@@ -125,7 +125,7 @@
 				-webkit-animation-fill-mode: both;
 				-moz-animation-fill-mode: both;
 				-o-animation-fill-mode: both;
-				animation-fill-mode: both;				
+				animation-fill-mode: both;
 			}
 			.tooltip-inner {
 				padding: 12px 18px;
@@ -153,7 +153,7 @@
 			border: 1px solid #EAEDF7;
 			border-radius: 8px;
 			padding: 30px 60px;
-			box-shadow: inset rgba(100, 100, 100, 0.25) 0 1px 1px;			
+			box-shadow: inset rgba(100, 100, 100, 0.25) 0 1px 1px;
 			margin: 0 auto;
 
 			@media(max-width: 991px) {

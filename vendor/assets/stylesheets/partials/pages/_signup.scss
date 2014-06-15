@@ -14,14 +14,14 @@
 		.logo {
 			margin-top: 40px;
 			text-align: center;
-			
+
 			a {
 				color: #fff;
 				font-size: 31px;
 				font-family: $lato;
 				text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
 				@include transition(color .25s linear);
-				
+
 				&:hover {
 					text-decoration: none;
 					color: #bbb;
@@ -44,7 +44,7 @@
 			text-align: center;
 		}
 	}
-	
+
 	.wrapper {
 		margin: 0 auto;
 		width: 51%;

@@ -1,7 +1,7 @@
 #signup-rotate {
 	height: 100%;
 	background-attachment: fixed !important;
-	
+
 	background: #5E7A9B;
 	background: -webkit-linear-gradient(top, #355069 0, #5E7A9B 100%);
 	background: -moz-linear-gradient(top, #355069 0, #5E7A9B 100%);
@@ -39,7 +39,7 @@
 			text-align: center;
 		}
 	}
-	
+
 	.rotate-container {
 		-webkit-perspective: 1000;
 		-moz-perspective: 1000;
@@ -52,7 +52,7 @@
 		min-height: 445px;
 
 		@include transitionPrefix(transform, 1s);
-		
+
 		-webkit-transform-style: preserve-3d;
 		-moz-transform-style: preserve-3d;
 	    -ms-transform-style: preserve-3d;
