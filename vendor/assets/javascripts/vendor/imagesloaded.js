@@ -13,7 +13,7 @@
  */
 
 (function () {
-  
+
 
   /**
    * Class for managing events.
