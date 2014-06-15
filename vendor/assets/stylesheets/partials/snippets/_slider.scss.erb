@@ -21,7 +21,7 @@
 		border-bottom: 1px solid #E4E4E4;
 
 		.slideshow {
-			background: url("../../images/slider-bg.png") 0 0 no-repeat;
+			background: url("<%= image_path 'slider-bg.png' %>") 0 0 no-repeat;
 			margin: 0 auto;
 			margin-top: 35px;
 			width: 844px;
@@ -69,7 +69,7 @@
 				}
 
 				&.prev {
-					background: url("../../images/slider/slide-left.png")  0 0 no-repeat;
+					background: url("<%= image_path 'slide-arrow.png' %>")  0 0 no-repeat;
 					left: 91px;
 					@include transform(translateX(-48px));
 
@@ -78,7 +78,7 @@
 					}
 				}
 				&.next {
-					background: url("../../images/slider/slide-right.png")  0 0 no-repeat;
+					background: url("<%= image_path 'slide-arrow.png' %>")  0 0 no-repeat;
 					right: 91px;
 					@include transform(translateX(48px));
 
@@ -86,12 +86,12 @@
 						right: 29px;
 					}
 				}
-			}			
+			}
 
 			.slide {
 				width: 100%;
 				height: 100%;
-				position: absolute;				
+				position: absolute;
 
 				&.active {
 					img {
@@ -123,6 +123,6 @@
 					}
 				}
 			}
-		}		
+		}
 	}
 }
