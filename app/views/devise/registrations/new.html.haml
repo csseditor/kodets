@@ -3,8 +3,6 @@
 .container
   .row.header
     .col-md-12
-      %h3.logo
-        %a{href: root_path} Kodets
       %h4
         Create a new
         = "#{resource.class.name}"
@@ -51,6 +49,5 @@
                     = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
                   .submit
                     = f.submit "Sign up", class: 'btn btn-primary'
-                = render "devise/shared/links"
       .already-account
         = render "devise/shared/links"
