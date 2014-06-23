@@ -1,0 +1,56 @@
+- provide :title, "#{resource.class.name} Sign Up"
+
+.container
+  .row.header
+    .col-md-12
+      %h3.logo
+        %a{href: root_path} Kodets
+      %h4
+        Create a new
+        = "#{resource.class.name}"
+  .row
+    .col-md-12
+      .wrapper.clearfix
+        .formy
+          .row
+            .col-md-12
+              - if resource.class.name == 'Organisation'
+                = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+                  = devise_error_messages!
+                  .form-group
+                    = f.label :name
+                    = f.email_field :name, autofocus: true, class: 'form-control'
+                  .form-group
+                    = f.label :email
+                    = f.email_field :email, class: 'form-control'
+                  .form-group
+                    = f.label :username
+                    = f.email_field :username, class: 'form-control'
+                  .form-group
+                    = f.label :password
+                    = f.password_field :password, autocomplete: 'off', class: 'form-control'
+                  .form-group
+                    = f.label :password_confirmation
+                    = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+                  .submit
+                    = f.submit "Sign up", class: 'btn btn-primary'
+              - else
+                = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+                  = devise_error_messages!
+                  .form-group
+                    = f.label :email
+                    %br/
+                    = f.email_field :email, autofocus: true, class: 'form-control'
+                  .form-group
+                    = f.label :password
+                    %br/
+                    = f.password_field :password, autocomplete: 'off', class: 'form-control'
+                  .form-group
+                    = f.label :password_confirmation
+                    %br/
+                    = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+                  .submit
+                    = f.submit "Sign up", class: 'btn btn-primary'
+                = render "devise/shared/links"
+      .already-account
+        = render "devise/shared/links"

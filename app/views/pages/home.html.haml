@@ -7,8 +7,9 @@
     %p.sub-text.animated.fadeInDown
       Get a unlimited acces to 100's of professionally built programming lessons, videos, quizzes and competitions.
     .cta.animated.fadeInDown
-      = link_to 'See the tour', '#', class: 'button-outline'
-      = link_to 'Sign up free', '#', class: 'button'
+      - unless organisation_signed_in?
+        = link_to 'See the tour', '#', class: 'button-outline'
+        = link_to 'Sign up free', new_organisation_registration_path, class: 'button'
     .img
 #features
   .container

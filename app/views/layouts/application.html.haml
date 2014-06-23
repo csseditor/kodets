@@ -7,5 +7,9 @@
     = csrf_meta_tags
   %body{class: "#{controller.controller_name} #{controller.action_name}"}
     = render 'layouts/header'
+    - flash.each do |key, value|
+      .container
+        %div{class: "alert alert-#{key}"}
+          = value
     = yield
     = render 'layouts/footer'

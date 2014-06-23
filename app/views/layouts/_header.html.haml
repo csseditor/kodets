@@ -8,6 +8,16 @@
       = link_to 'Kodets', root_path, class: 'navbar-brand'
     %nav.collapse.navbar-collapse.bs-navbar-collapse{role: "navigation"}
       %ul.nav.navbar-nav.navbar-right
-        %li= link_to 'Home', root_path
-        %li= link_to 'Pricing', pricing_path
-        %li= link_to 'Sign Up', '#'
+        - if organisation_signed_in?
+          - if user_signed_in?
+            %li= link_to 'Courses', '#'
+            %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+          - else
+            %li= link_to 'User Sign In', new_user_session_path
+            %li= link_to 'User Sign Up', new_user_registration_path
+            %li= link_to 'Sign Out', destroy_organisation_session_path, method: :delete
+        - else
+          %li= link_to 'Home', root_path
+          %li= link_to 'Pricing', pricing_path
+          %li= link_to 'Sign In', new_organisation_session_path
+          %li= link_to 'Sign Up', new_organisation_registration_path
