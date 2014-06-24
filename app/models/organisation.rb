@@ -1,6 +1,5 @@
 class Organisation < ActiveRecord::Base
-
-  before_save :create_ref
+  before_create :create_ref
 
   has_many :users
 
