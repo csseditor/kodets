@@ -6,10 +6,14 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body{class: "#{controller.controller_name} #{controller.action_name}"}
+    - if notice
+      .alert.alert-success.alert-dissmissable
+        %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} &times;
+        = notice
+    - if alert
+      .alert.alert-warning.alert-dissmissable
+        %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} &times;
+        = alert
     = render 'layouts/header'
-    - flash.each do |key, value|
-      .container
-        %div{class: "alert alert-#{key}"}
-          = value
     = yield
     = render 'layouts/footer'
