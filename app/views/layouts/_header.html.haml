@@ -11,7 +11,12 @@
         - if organisation_signed_in?
           - if user_signed_in?
             %li= link_to 'Courses', '#'
-            %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+            %li.dropdown
+              %a.dropdown-toggle{href: "#", "data-toggle" => "dropdown"}
+                #{current_user.first_name} #{current_user.last_name}
+                %b.caret
+              %ul.dropdown-menu
+                %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
           - else
             %li= link_to 'User Sign In', new_user_session_path
             %li= link_to 'User Sign Up', new_user_registration_path
