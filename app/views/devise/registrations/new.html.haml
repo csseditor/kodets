@@ -25,6 +25,9 @@
                     = f.label :username
                     = f.text_field :username, class: 'form-control'
                   .form-group
+                    = f.label :url, 'URL'
+                    = f.url_field :url, class: 'form-control'
+                  .form-group
                     = f.label :password
                     = f.password_field :password, autocomplete: 'off', class: 'form-control'
                   .form-group
@@ -35,17 +38,23 @@
               - else
                 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
                   = devise_error_messages!
+                  .form-group.col-sm-6
+                    = f.label :first_name
+                    = f.text_field :first_name, autofocus: true, class: 'form-control'
+                  .form-group.col-sm-6
+                    = f.label :last_name
+                    = f.text_field :last_name, class: 'form-control'
                   .form-group
                     = f.label :email
-                    %br/
-                    = f.email_field :email, autofocus: true, class: 'form-control'
+                    = f.email_field :email, class: 'form-control'
+                  .form-group
+                    = f.label :username
+                    = f.text_field :username, class: 'form-control'
                   .form-group
                     = f.label :password
-                    %br/
                     = f.password_field :password, autocomplete: 'off', class: 'form-control'
                   .form-group
                     = f.label :password_confirmation
-                    %br/
                     = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
                   .submit
                     = f.submit "Sign up", class: 'btn btn-primary'
