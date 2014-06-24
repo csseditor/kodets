@@ -1,41 +1,25 @@
 class ApplicationController < ActionController::Base
-  include CustomDeviseHelper
-  before_filter :user_parameters, if: :user_controller?
-  before_filter :organisation_parameters, if: :organisation_controller?
+  include ApplicationHelper
+
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
   protect_from_forgery with: :exception
 
   protected
 
-  def user_parameters
+  def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
-      u.permit(:first_name, :last_name, :email, :password, :organisation_id,
-               :password_confirmation, :username)
+      u.permit(:email, :first_name, :last_name, :organisation_id, :username,
+               :password, :password_confirmation)
     end
 
     devise_parameter_sanitizer.for(:sign_in) do |u|
-      u.permit(:email, :password, :remember_me)
+      u.permit(:email, :password, :organisation_ref, :remember_me)
     end
 
     devise_parameter_sanitizer.for(:account_update) do |u|
-      u.permit(:first_name, :last_name, :email, :password, :current_password,
-               :password_confirmation, :username, :bio)
-    end
-  end
-
-  def organisation_parameters
-    devise_parameter_sanitizer.for(:sign_up) do |u|
-      u.permit(:name, :username, :email, :password, :password_confirmation,
-               :url)
-    end
-
-    devise_parameter_sanitizer.for(:sign_in) do |u|
-      u.permit(:email, :password, :remember_me)
-    end
-
-    devise_parameter_sanitizer.for(:account_update) do |u|
-      u.permit(:name, :username, :email, :password, :password_confirmation,
-               :url)
+      u.permit(:email, :first_name, :last_name, :organisation_id, :username,
+               :password, :password_confirmation, :current_password)
     end
   end
 end

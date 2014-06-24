@@ -1,8 +1,12 @@
 class Organisation < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+
+  before_save :create_ref
 
   has_many :users
+
+  private
+
+  def create_ref
+    self.ref = 100_000 + id
+  end
 end
