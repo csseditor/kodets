@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get '/about',   to: 'pages#about',   as: :about
   get '/pricing', to: 'pages#pricing', as: :pricing
   get '/contact', to: 'pages#contact', as: :contact
+
+  get '/dashboard', to: 'pages#dashboard', as: :dashboard
 end
