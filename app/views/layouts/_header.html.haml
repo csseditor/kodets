@@ -9,7 +9,7 @@
     %nav.collapse.navbar-collapse.bs-navbar-collapse{role: "navigation"}
       %ul.nav.navbar-nav.navbar-right
         - if teacher_signed_in?
-          %li= link_to 'Dashboard', dashboard_path
+          %li= link_to 'Dashboard', teacher_dashboard_path
           %li.dropdown
             %a.dropdown-toggle{'href' => '#', 'data-toggle' => 'dropdown'}
               = current_teacher.email

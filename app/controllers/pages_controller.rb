@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_teacher!, only: :dashboard
+  before_action :authenticate_teacher!, only: :teacher_dashboard
   before_action :dashboard_redirect, only: :home
 
   def home
@@ -14,10 +14,12 @@ class PagesController < ApplicationController
   def contact
   end
 
-  def dashboard
+  def teacher_dashboard
   end
 
-  private def dashboard_redirect
-    redirect_to dashboard_path if teacher_signed_in?
+  private
+
+  def dashboard_redirect
+    redirect_to teacher_dashboard_path if teacher_signed_in?
   end
 end

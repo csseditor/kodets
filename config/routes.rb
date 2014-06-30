@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   get '/pricing', to: 'pages#pricing', as: :pricing
   get '/contact', to: 'pages#contact', as: :contact
 
-  get '/dashboard', to: 'pages#dashboard', as: :dashboard
+  get '/teacher-dashboard', to: 'pages#teacher_dashboard', as: :teacher_dashboard
 end
