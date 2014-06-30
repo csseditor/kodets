@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title= full_title(yield(:title)).html_safe
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body{class: "#{controller.controller_name} #{controller.action_name}"}
+    - if notice
+      .alert.alert-success.alert-dissmissable
+        %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} &times;
+        = notice
+    - if alert
+      .alert.alert-warning.alert-dissmissable
+        %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} &times;
+        = alert
+    = render 'layouts/header'
+    .container
+      .row
+        .col-md-12
+          .wrapper.clearfix
+            .formy
+              .row
+                .col-md-12
+                  = yield
+          .already-account
+    = render 'layouts/footer'
