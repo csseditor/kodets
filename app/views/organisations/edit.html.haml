@@ -1,0 +1,32 @@
+- provide :title, 'Edit Organisation'
+
+.container
+  .row.header
+    .col-md-12
+      %h4= yield :title
+  .row
+    .col-md-12
+      .wrapper.clearfix
+        .formy
+          .row
+            .col-md-12
+              = form_for @organisation do |f|
+                .form-group
+                  = f.label :name
+                  = f.text_field :name, autofocus: true, class: 'form-control'
+                .form-group
+                  = f.label :email
+                  = f.text_field :email, class: 'form-control'
+                .form-group
+                  = f.label :url
+                  = f.url_field :url, class: 'form-control'
+                .form-group
+                  = f.label :location
+                  = f.text_field :location, class: 'form-control'
+                .form-group
+                  = f.label :description
+                  = f.text_area :description, class: 'form-control', rows: '4'
+                .checkbox
+                  .submit
+                    = f.submit "Submit", class: "btn btn-primary"
+      .already-account

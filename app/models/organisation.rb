@@ -3,10 +3,14 @@ class Organisation < ActiveRecord::Base
 
   before_create :set_ref
 
-  validates :name, presence: true
-  validates :email, presence: true
+  validates :name,        presence: true, on: :update
+  validates :email,       presence: true
   validates :description, length: { maximum: 140 }
-  validates :url, allow_blank: true, format: URI::regexp(%w(http https))
+  validates :url,         allow_blank: true, format: URI::regexp(%w(http https))
+
+  def to_param
+    ref.to_s
+  end
 
   private
 

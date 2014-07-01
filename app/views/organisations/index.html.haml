@@ -1,0 +1,5 @@
+%h1 Organisations#index
+
+%ul
+  - @organisations.each do |org|
+    %li= link_to org.name, org
