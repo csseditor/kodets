@@ -16,6 +16,9 @@
         = alert
     = render 'layouts/header'
     .container
+      .row.header
+        .col-md-12
+          %h4= yield :title
       .row
         .col-md-12
           .wrapper.clearfix
