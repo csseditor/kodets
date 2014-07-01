@@ -8,9 +8,7 @@ class Teacher < ActiveRecord::Base
   private
 
   def create_organisation
-    @org = self.build_organisation(name: 'Test Name', email: self.email,
-                                   description: 'Test Description',
-                                   url: 'http://example.com')
+    @org = self.build_organisation(email: self.email)
     @org.save
   end
 end

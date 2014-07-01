@@ -4,6 +4,7 @@
   .row.header
     .col-md-12
       %h4= yield :title
+      %p Please fill out some details about your organisation
   .row
     .col-md-12
       .wrapper.clearfix
@@ -18,7 +19,7 @@
                   = f.label :email
                   = f.text_field :email, class: 'form-control'
                 .form-group
-                  = f.label :url
+                  = f.label :url, 'URL'
                   = f.url_field :url, class: 'form-control'
                 .form-group
                   = f.label :location
