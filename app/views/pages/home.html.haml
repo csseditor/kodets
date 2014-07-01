@@ -33,11 +33,15 @@
           Leaderboards, groups, sharing code and collaborative competitions are just some of these features.
       .col-md-6.image
         = image_tag 'feature2.png', class: 'img-responsive'
+    .divider
+    .row.feature
+      .col-md-6.info
+        %h4 1,000's of lessons instantly available
+        %p Kodets provides an easy to use, hassle free interface to allow you to easily and quickly set homework or classwork tasks.
+      .col-md-6.image
+        = image_tag 'feature1.png', class: 'img-responsive'
 #slider
   .container
-    .row.header
-      .col-md-12
-        %h3 Includes all pages that a complete theme should have
     .row
       .col-md-12.slide-wrapper
         .slideshow
@@ -70,22 +74,22 @@
           .author
             = image_tag 'testimonials/testimonial1.jpg', class: 'pic'
             .name John McClane
-            .company Microsoft
+            .company Horsforth School
       .col-sm-6
         .testimonial
           .quote
-            This thing is one of those tools that everybody should be using. I really like it and with this ease to use, you can kickstart your projects and apps and just focus on your business!
+            This thing is one of those tools that everybody should be using. I really like it and with this ease to use, you can kickstart your teachgin and apps and just focus on your students!
             .arrow-down
               .arrow
               .arrow-border
           .author
             = image_tag 'testimonials/testimonial2.jpg', class: 'pic'
             .name Karen Jones
-            .company Pixar Co.
+            .company Horsforth School
 #cta
   %p
     Start your free 14 day trial!
-  = link_to 'Sign up for free', '#'
+  = link_to 'Sign up for free', new_teacher_registration_path
 #clients
   .container
     .row
