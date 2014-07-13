@@ -1,5 +1,6 @@
 class Organisation < ActiveRecord::Base
   belongs_to :teacher
+  has_many   :students
 
   before_create :set_ref
 

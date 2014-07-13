@@ -8,6 +8,7 @@ class CreateOrganisations < ActiveRecord::Migration
       t.string :url
       t.string :location
       t.references :teacher, index: true
+      t.references :student, index: true
 
       t.timestamps
     end

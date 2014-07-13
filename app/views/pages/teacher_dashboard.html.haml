@@ -6,8 +6,9 @@
           %h1 #{current_teacher.organisation.name} Dashboard
     .row.stats
       .col-sm-4
-        %strong #{'3'}
-        students
+        - students = pluralise(current_teacher.organisation.students.count, 'student')
+        %strong= students.first
+        = students.last
       .col-sm-4
         %strong #{'3'}
         classes

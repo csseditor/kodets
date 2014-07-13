@@ -10,4 +10,13 @@ module ApplicationHelper
       redirect_to root_path
     end
   end
+
+  # Similar implementation to ActionView::Helpers::TextHelper#pluralize
+    # but returns Array of two values instead of one String
+  def pluralise(count, singular)
+    [
+      (count || 0),
+      (count == 1 || count =~ /^1(\.0+)?$/) ? singular : singular.pluralize
+    ]
+  end
 end
