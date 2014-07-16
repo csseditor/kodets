@@ -21,6 +21,11 @@
                   %i.fa.fa-cog
                   Account settings
               %li
+                = link_to edit_organisation_path(current_teacher.organisation.ref) do
+                  %i.fa.fa-cog
+                  Organisation settings
+              %hr
+              %li
                 = link_to destroy_teacher_session_path, method: :delete do
                   %i.fa.fa-sign-out
                   Sign out
