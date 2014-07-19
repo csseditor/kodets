@@ -1,5 +1,3 @@
-$VERBOSE = nil # Temporary fix/hack - see http://goo.gl/EU5qFl
-
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
