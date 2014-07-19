@@ -13,11 +13,12 @@ gem 'devise', '~> 3.2.4'
 
 gem 'jbuilder', '~> 2.0'
 
-group :development do
+group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'lograge'
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 gem 'sdoc', '~> 0.4.0', group: :doc
