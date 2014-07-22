@@ -7,7 +7,7 @@ class Organisation < ActiveRecord::Base
   validates :name,        presence: true, on: :update
   validates :email,       presence: true
   validates :description, length: { maximum: 140 }
-  validates :url,         allow_blank: true, format: URI::regexp(%w(http https))
+  validates :url,         allow_blank: true, format: URI.regexp
 
   def to_param
     ref.to_s
