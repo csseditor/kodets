@@ -25,6 +25,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'shoulda'
+  gem 'simplecov', require: false
 end
 
 gem 'sdoc', '~> 0.4', group: :doc
