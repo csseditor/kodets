@@ -11,7 +11,6 @@ class Teacher < ActiveRecord::Base
   private
 
   def create_organisation
-    @org = self.build_organisation(email: self.email)
-    @org.save
+    build_organisation(email: self.email).save
   end
 end
