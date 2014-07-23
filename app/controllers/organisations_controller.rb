@@ -34,6 +34,14 @@ class OrganisationsController < ApplicationController
 
   private
 
+  def authenticate_user_with_org!
+    org = Organisation.find_by(ref: params[:ref])
+    unless current_teacher && current_teacher.organisation == org
+      flash[:warning] = 'You do not have permission to access this page.'
+      redirect_to root_path
+    end
+  end
+
   def organisation_params
     params.require(:organisation).permit(:name, :email, :url, :location,
                                          :description)
