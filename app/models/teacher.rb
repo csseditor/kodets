@@ -5,6 +5,9 @@ class Teacher < ActiveRecord::Base
   has_one :organisation
   after_create :create_organisation
 
+  validates :username,  presence: true, on: :update
+  validates :email,     presence: true
+
   private
 
   def create_organisation
