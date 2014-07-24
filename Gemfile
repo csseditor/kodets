@@ -18,6 +18,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'lograge'
   gem 'pry-rails'
+  gem 'rubocop'
 end
 
 group :test do

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "===> Bundling..."
+bundle install --quiet
+
+echo "===> Running specs..."
+bin/rspec
+
+echo "===> Running specs..."
+bundle exec rubocop -R -f emacs
