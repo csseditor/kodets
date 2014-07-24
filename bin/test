@@ -2,11 +2,19 @@
 
 set -e
 
-echo "===> Bundling..."
-bin/bundle --quiet
+if [ "$1" == "bi" ]; then
+  echo "===> Bundling..."
+  bin/bundle --quiet
+else
+  echo "===> Skipping bundling..."
+fi
 
 echo "===> Running specs..."
 bin/rspec
 
-echo "===> Running specs..."
-bundle exec rubocop -R -f emacs
+if [ "$1" == "rc" ]; then
+  echo "===> Running Rubocop..."
+  bundle exec rubocop -R -f emacs
+else
+  echo "===> Skipping Rubocop..."
+fi
