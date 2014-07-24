@@ -9,10 +9,15 @@ else
   echo "===> Skipping bundling..."
 fi
 
-echo "===> Running specs..."
-bin/rspec
+if [ "$2" == "sc" ]; then
+  echo "===> Running specs (with SimpleCov)..."
+  SIMPLECOV=1 bin/rspec
+else
+  echo "===> Running specs..."
+  bin/rspec
+fi
 
-if [ "$1" == "rc" ]; then
+if [ "$3" == "rc" ]; then
   echo "===> Running Rubocop..."
   bundle exec rubocop -R -f emacs
 else
