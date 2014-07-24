@@ -3,7 +3,7 @@
 set -e
 
 echo "===> Bundling..."
-bundle install --quiet
+bin/bundle --quiet
 
 echo "===> Running specs..."
 bin/rspec
