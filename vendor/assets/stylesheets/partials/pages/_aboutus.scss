@@ -1,4 +1,4 @@
-#about-us {
+.pages.about {
 
   #slider {
     margin-top: 45px;
@@ -142,7 +142,7 @@
   }
 
   #cta {
-    margin-top: 100px;
+    margin: 100px 0;
 
     @media(max-width: 991px) {
       margin-top: 60px;

@@ -1,4 +1,43 @@
 - provide :title, 'About'
 
-%h1 Pages#about
-%p Find me in app/views/pages/about.html.erb
+#slider
+  .container
+    .row.header
+      .col-md-12
+        %h3 About Kodets
+        %p
+          Kodets is an online learning platform that teaches Computing from primary school up to A-Level.
+#info
+  .container
+    .row
+      .col-md-12
+        %h1 We care about our work
+    .row
+      .col-md-6
+        %p
+          Kodets was founded out of need. Others platforms such as Codecademy and Khan Academy simply did not have the flexibilty and autonomy needed to create a rich learning experience for those in primary and secondary school.
+        %p
+          Throughout the creation of Kodets, students taking Computing at GCSE and A-Level were consulted in the development of the platform to enure it can be enjoyed by everyone.
+      .col-md-6
+        %p
+          Lorem ipsum...
+    .row.stats
+      .col-sm-3
+        %strong 13
+        employees
+      .col-sm-3
+        %strong 10k
+        customers
+      .col-sm-3
+        %strong 9
+        template pages
+      .col-sm-3
+        %strong 13k
+        products sold
+#cta
+  .container
+    .row
+      .col-md-12
+        .wrapper.clearfix
+          %h4 Try a Kodets free trial and see how much your students can benefit.
+          %a.button.button-small{href: new_teacher_registration_path} Sign up free
