@@ -27,6 +27,7 @@ group :test do
   gem 'faker'
   gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false
+  gem 'capybara', '~> 2.4.1'
 end
 
 gem 'sdoc', group: :doc

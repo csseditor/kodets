@@ -19,11 +19,6 @@ RSpec.describe DashboardsController, type: :controller do
         expect(response).to have_http_status 200
       end
 
-      it 'has the correct title' do
-        get :index
-        expect(page).to have_selector 'title', text: 'Dashboard | Kodets'
-      end
-
       it 'renders the teacher_dashboard template' do
         get :index
         expect(response).to render_template :index
