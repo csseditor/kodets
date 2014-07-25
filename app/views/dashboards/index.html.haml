@@ -1,0 +1,6 @@
+- provide :title, 'Dashboard'
+
+- if teacher_signed_in?
+  = render 'dashboards/teacher_dashboard'
+- elsif student_signed_in?
+  = render 'dashboards/student_dashboard'

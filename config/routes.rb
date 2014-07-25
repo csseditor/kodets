@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboards/index'
+
   root to: 'pages#home'
 
   devise_for :teachers, controllers: { registrations: 'registrations' }
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
   get '/pricing', to: 'pages#pricing', as: :pricing
   get '/contact', to: 'pages#contact', as: :contact
 
-  get '/teacher-dashboard', to: 'pages#teacher_dashboard', as: :teacher_dashboard
+  get '/dashboard', to: 'dashboards#index', as: :dashboard
 
   get '/organisations/new',       to: 'organisations#new',     as: :new_organisation
   get '/organisations/:ref',      to: 'organisations#show',    as: :organisation

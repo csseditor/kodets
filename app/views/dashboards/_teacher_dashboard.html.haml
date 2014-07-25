@@ -1,0 +1,16 @@
+#info
+  .container
+    .row
+      .col-md-12
+        %h1 #{current_teacher.organisation.name} Dashboard
+    .row.stats
+      .col-sm-4
+        - students = pluralise(current_teacher.organisation.students.count, 'student')
+        %strong= students.first
+        = students.last
+      .col-sm-4
+        %strong #{'3'}
+        classes
+      .col-sm-4
+        %strong #{'3'}
+        homework overdue

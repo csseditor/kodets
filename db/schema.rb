@@ -24,13 +24,11 @@ ActiveRecord::Schema.define(version: 20140713104939) do
     t.string   "url"
     t.string   "location"
     t.integer  "teacher_id"
-    t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "organisations", ["ref"], name: "index_organisations_on_ref", unique: true, using: :btree
-  add_index "organisations", ["student_id"], name: "index_organisations_on_student_id", using: :btree
   add_index "organisations", ["teacher_id"], name: "index_organisations_on_teacher_id", using: :btree
 
   create_table "students", force: true do |t|
