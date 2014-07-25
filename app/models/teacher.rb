@@ -9,6 +9,7 @@ class Teacher < ActiveRecord::Base
   validates :email,      presence: true
   validates :first_name, presence: true, on: :create
   validates :last_name,  presence: true, on: :create
+  validates :title,      inclusion: { in: ['Mr.', 'Mrs.', 'Miss', 'Ms'] }
 
   def full_name
     if self.first_name && self.last_name
@@ -19,7 +20,7 @@ class Teacher < ActiveRecord::Base
   end
 
   def titlised_name
-    if self.title && self.last_name
+    if self.title != '' && self.last_name
       self.title.capitalize + ' ' + self.last_name.capitalize
     end
   end

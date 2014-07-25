@@ -18,4 +18,8 @@ module ApplicationHelper
       redirect_to root_url
     end
   end
+
+  def title_options
+    ['Mr.', 'Mrs.', 'Miss', 'Ms']
+  end
 end
