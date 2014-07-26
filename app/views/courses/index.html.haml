@@ -1,0 +1,6 @@
+- provide :title, 'All Courses'
+
+%h1 All Courses
+
+- @courses.each do |course|
+  = link_to course.name, course

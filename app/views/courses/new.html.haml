@@ -1,0 +1,17 @@
+- provide :title, 'New Course'
+
+.container
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title New Course
+    .panel-body
+      = form_for @course do |f|
+        = render 'shared/error_messages', object: f.object
+        .form-group
+          = f.label :name
+          = f.text_field :name, class: 'form-control', placeholder: 'Name'
+        .form-group
+          = f.label :description
+          = f.text_area :description, class: 'form-control', placeholder: 'Description', rows: 3
+        .form-group
+          = f.submit 'Create Course'

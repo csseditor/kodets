@@ -29,4 +29,11 @@ Rails.application.routes.draw do
   get '/students/:id',      to: 'students#show',        as: :student
   get '/students/:id/edit', to: 'students#edit',        as: :edit_student
   match '/students/:id',    to: 'students#destroy',     as: :destroy_student, via: :delete
+
+  # Courses
+  get '/courses',                 to: 'courses#index', as: :courses
+  get '/courses/new',             to: 'courses#new',   as: :new_course
+  get '/courses/:permalink',      to: 'courses#show',  as: :course
+  get '/courses/:permalink/edit', to: 'courses#edit',  as: :edit_course
+  match '/courses',               to: 'courses#create',                  via: :post
 end

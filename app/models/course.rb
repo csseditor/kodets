@@ -3,8 +3,8 @@ class Course < ActiveRecord::Base
 
   VALID_COLOUR_FORMAT = /#{1}[0-9]{6}/i
 
-  validates :name,            presence: true, lenght: { maximum: 140 }
-  validates :description,     presence: true, lenght: { maximum: 250 }
+  validates :name,            presence: true, length: { maximum: 140 }
+  validates :description,     presence: true, length: { maximum: 250 }
   validates :organisation_id, presence: true
   validates :colour,          presence: true, format: { with: VALID_COLOUR_FORMAT }
 
