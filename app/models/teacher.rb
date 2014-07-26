@@ -22,6 +22,8 @@ class Teacher < ActiveRecord::Base
   def titlised_name
     if self.title != '' && self.last_name
       self.title.capitalize + ' ' + self.last_name.capitalize
+    else
+      'Teacher'
     end
   end
 

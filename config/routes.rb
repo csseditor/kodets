@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  devise_for :teachers#, controllers: { registrations: 'registrations' }
+  devise_for :teachers, controllers: { registrations: 'registrations' }
   devise_for :students
 
   get '/about',   to: 'pages#about',   as: :about

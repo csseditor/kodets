@@ -21,6 +21,49 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def update
+    account_update_params = devise_parameter_sanitizer.sanitize(:account_update)
+
+    # required for settings form to submit when password is left blank
+    if account_update_params[:password].blank?
+      account_update_params.delete("password")
+      account_update_params.delete("password_confirmation")
+      account_update_params.delete("current_password")
+
+      #
+      # TODO: Needs to be dynamically selected between Teachers and Students
+      #
+      @user = Teacher.find(current_teacher.id)
+
+      if @user.update_attributes(account_update_params)
+        set_flash_message :notice, :updated
+        # Sign in the user bypassing validation in case their password changed
+        sign_in @user, bypass: true
+        redirect_to after_update_path_for(@user)
+      else
+        render :edit
+      end
+    else
+      self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
+      prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
+
+      resource_updated = update_resource(resource, account_update_params)
+      yield resource if block_given?
+      if resource_updated
+        if is_flashing_format?
+          flash_key = update_needs_confirmation?(resource, prev_unconfirmed_email) ?
+            :update_needs_confirmation : :updated
+          set_flash_message :notice, flash_key
+        end
+        sign_in resource_name, resource, bypass: true
+        respond_with resource, location: after_update_path_for(resource)
+      else
+        clean_up_passwords resource
+        respond_with resource
+      end
+    end
+  end
+
   private
 
   def after_sign_up_path_for(resource)

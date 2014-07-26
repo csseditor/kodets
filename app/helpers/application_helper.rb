@@ -20,6 +20,12 @@ module ApplicationHelper
   end
 
   def title_options
+    # The options for different titles users can have.
     ['Mr.', 'Mrs.', 'Miss', 'Ms']
+  end
+
+  def default_selected_title
+    # The option that is selected by default in the user update form.
+    resource.title || 'Please select a title...'
   end
 end
