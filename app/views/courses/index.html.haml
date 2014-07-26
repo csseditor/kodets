@@ -1,6 +1,10 @@
 - provide :title, 'All Courses'
 
-%h1 All Courses
+.container
+  .pull-right
+    = link_to 'New Course', new_course_path, class: 'btn btn-primary'
 
-- @courses.each do |course|
-  = link_to course.name, course
+  %h1 All Courses
+
+  - @courses.each do |course|
+    = link_to course.name, course

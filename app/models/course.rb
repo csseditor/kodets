@@ -1,7 +1,7 @@
 class Course < ActiveRecord::Base
   belongs_to :organisation
 
-  VALID_COLOUR_FORMAT = /#{1}[0-9]{6}/i
+  VALID_COLOUR_FORMAT = /\A#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})\z/
 
   validates :name,            presence: true, length: { maximum: 140 }
   validates :description,     presence: true, length: { maximum: 250 }

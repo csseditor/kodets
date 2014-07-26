@@ -9,5 +9,6 @@
  *= require vendor/icomoon
  *= require vendor/ionicons.min
  *= require vendor/isotope
+ *= require vendor/spectrum
  *= require theme.scss
 */

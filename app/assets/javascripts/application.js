@@ -6,5 +6,6 @@
 //= require vendor/jquery.isotope.min
 //= require vendor/jquery.validate.min
 //= require vendor/sketch.min
+//= require vendor/spectrum
 //= require theme
 //= require_tree .
