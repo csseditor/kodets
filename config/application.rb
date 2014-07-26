@@ -13,5 +13,6 @@ Bundler.require(*Rails.groups)
 module Kodets
   class Application < Rails::Application
     config.time_zone = 'Europe/London'
+    config.autoload_paths += ["#{config.root}/lib"]
   end
 end

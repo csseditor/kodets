@@ -12,9 +12,10 @@
         %h1 #{current_teacher.organisation.name} Dashboard
     .row.stats
       .col-sm-4
-        - students = pluralise(current_teacher.organisation.students.count, 'student')
-        %strong= students.first
-        = students.last
+        - users = pluralise(current_org.users.count, 'user')
+        = link_to students_path do
+          %strong= users.first
+          = users.last
       .col-sm-4
         %strong #{'3'}
         classes

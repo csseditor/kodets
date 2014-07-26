@@ -4,5 +4,17 @@ class Student < ActiveRecord::Base
 
   belongs_to :organisation
 
+  before_create :check_population
+
   validates :name,     presence: true, on: :update
+
+  private
+
+  def check_population
+    # change when max_users is added to Orgs
+    org = Organisation.find(self.organisation_id)
+    if org.users.count >= org.max_users
+      raise Exceptions::MaximumPopulationReached, 'You have surpassed your maximum amount of users.'
+    end
+  end
 end

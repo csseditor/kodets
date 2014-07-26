@@ -24,6 +24,24 @@
                 = link_to edit_organisation_path(current_teacher.organisation.ref) do
                   %i.fa.fa-cog
                   Organisation settings
+              - if current_org.users.count < current_org.max_users
+                %li
+                  = link_to import_students_view_path do
+                    %i.fa.fa-user
+                    Import Students
+              %hr
+              %li
+                = link_to destroy_teacher_session_path, method: :delete do
+                  %i.fa.fa-sign-out
+                  Sign out
+        - elsif student_signed_in?
+          %li= link_to 'Dashboard', dashboard_path
+          %li.dropdown
+            %a.dropdown-toggle{'href' => '#', 'data-toggle' => 'dropdown'}
+              %i.fa.fa-user
+              = current_student.name
+              %b.caret
+            %ul.dropdown-menu
               %hr
               %li
                 = link_to destroy_teacher_session_path, method: :delete do

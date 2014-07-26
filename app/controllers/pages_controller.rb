@@ -9,6 +9,6 @@ class PagesController < ApplicationController
   private
 
   def dashboard_redirect
-    redirect_to dashboard_path if teacher_signed_in?
+    redirect_to dashboard_path if teacher_signed_in? || student_signed_in?
   end
 end

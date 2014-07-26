@@ -33,7 +33,7 @@ module ApplicationHelper
     if current_teacher
       Organisation.find current_teacher.organisation_id
     elsif current_student
-      Organisation.find current_teacher.organisation_id
+      Organisation.find current_student.organisation_id
     else
       nil
     end

@@ -18,15 +18,18 @@ class StudentsController < ApplicationController
       header = spreadsheet.row 1
       (2..spreadsheet.last_row).each do |i|
         row = Hash[[header, spreadsheet.row(i)].transpose]
-        student = find_by_email(row["email"]) || new
-        student.attributes = row.to_hash
+        student = Student.find_by_email(row["email"]) || Student.new
+        student.attributes = row.to_hash.merge({ organisation_id: current_org.id })
         student.save!
       end
 
       flash[:success] = 'Students added to Organisation.'
       redirect_to import_students_view_path
-    rescue
-      flash[:warning] = 'There was an error parsing the data you gave in the file.'
+    rescue Exceptions::MaximumPopulationReached => e
+      flash[:warning] = e.message
+      redirect_to import_students_view_path
+    rescue => e
+      flash[:warning] = e.message
       redirect_to import_students_view_path
     end
   end

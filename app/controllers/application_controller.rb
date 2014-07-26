@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   include ApplicationHelper
+  include Exceptions
 
   protect_from_forgery with: :exception
 
