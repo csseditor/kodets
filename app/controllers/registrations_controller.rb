@@ -1,6 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def create
+    abc
     @org = Organisation.new(name: '', email: sign_up_params[:email])
     @org.save
 

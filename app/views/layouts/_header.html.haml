@@ -30,7 +30,7 @@
                   View all Students
               %li
                 = link_to import_students_view_path do
-                  %i.fa.fa-user
+                  %i.fa.fa-upload
                   Import Students
               %hr
               %li
@@ -53,5 +53,6 @@
         - else
           %li= link_to 'Home', root_path
           %li= link_to 'Pricing', pricing_path
-          %li= link_to 'Sign in', new_teacher_session_path
+          %li= link_to 'Teacher sign in', new_teacher_session_path
+          %li= link_to 'Student sign in', new_student_session_path
           %li= link_to 'Sign up', new_teacher_registration_path

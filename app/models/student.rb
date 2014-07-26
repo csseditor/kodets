@@ -1,6 +1,6 @@
 class Student < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
-         :rememberable, :trackable
+         :rememberable, :trackable, :validatable
 
   belongs_to :organisation
 
@@ -13,7 +13,7 @@ class Student < ActiveRecord::Base
   validates :email,    format: { with: VALID_EMAIL_REGEX },
                        uniqueness: { case_sensitive: false }
   validates :username, presence: true, length: { maximum: 50 },
-                       uniqueness: { case_sensitive: false },
+                       uniqueness: { case_sensitive: false, scope: :organisation },
                        format: { with: VALID_USERNAME_REGEXP }
   validates :password, presence: true
 
