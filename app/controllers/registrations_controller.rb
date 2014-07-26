@@ -1,8 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def create
-    abc
-    @org = Organisation.new(name: '', email: sign_up_params[:email])
+    @org = Organisation.new(name: '', email: sign_up_params[:email], max_users: 50)
     @org.save
 
     sign_up_params.merge({ organisation_id: @org.id })

@@ -5,7 +5,8 @@ FactoryGirl.define do
     description { Faker::Lorem.sentence }
     url { Faker::Internet.url }
     location { Faker::Address.city }
-    teacher { build(:teacher) }
+    max_users { 50 }
+    after(:create) { |org| org.teachers << build(:teacher, organisation: org) }
     after(:create) do |org|
       3.times { org.students << build(:student, organisation: org) }
     end

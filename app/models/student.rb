@@ -9,7 +9,7 @@ class Student < ActiveRecord::Base
   VALID_USERNAME_REGEXP = /\A^[-a-zA-Z0-9_]*$\z/i
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
-  validates :name,     length: { maximum: 100 }
+  validates :name,     presence: true, length: { maximum: 100 }
   validates :email,    format: { with: VALID_EMAIL_REGEX },
                        uniqueness: { case_sensitive: false }
   validates :username, presence: true, length: { maximum: 50 },

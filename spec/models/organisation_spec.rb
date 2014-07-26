@@ -1,14 +1,11 @@
 RSpec.describe Organisation, type: :model do
   let(:org) { create(:organisation) }
 
-  it { should belong_to(:teacher) }
-
+  it { should have_many(:teachers) }
   it { should have_many(:students) }
-
   it { should validate_presence_of(:name).on(:update) }
-
   it { should validate_presence_of(:email) }
-
+  it { should validate_presence_of(:max_users) }
   it { should ensure_length_of(:description).is_at_most(140) }
 
   it do

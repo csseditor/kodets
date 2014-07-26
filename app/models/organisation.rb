@@ -8,6 +8,7 @@ class Organisation < ActiveRecord::Base
   validates :email,       presence: true
   validates :description, length: { maximum: 140 }
   validates :url,         allow_blank: true, format: URI.regexp
+  validates :max_users,   presence: true
 
   def to_param
     ref.to_s

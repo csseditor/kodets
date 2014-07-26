@@ -7,5 +7,6 @@ FactoryGirl.define do
     title { 'Mr.' }
     password { Faker::Internet.password }
     password_confirmation { password }
+    organisation { create(:organisation) }
   end
 end

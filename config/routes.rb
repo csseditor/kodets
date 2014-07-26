@@ -20,9 +20,9 @@ Rails.application.routes.draw do
   match '/organisations/:ref',         to: 'organisations#update',                              via: :patch
 
   # Student Import
-  get '/students/import',   to: 'student_imports#new',    as: :new_student_import
-  match '/students/import',   to: 'student_imports#create', via: :post
-  get '/students/import',   to: 'student_imports#import', as: :student_imports
+  get '/students/import',   to: 'student_imports#new', as: :new_student_import
+  get '/students/import',   to: 'student_imports#new', as: :student_imports
+  match '/students/import', to: 'student_imports#create', via: :post
 
   # Students
   get '/students',          to: 'students#index',       as: :students
