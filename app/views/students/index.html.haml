@@ -1,0 +1,7 @@
+- provide :title, 'All Students'
+
+%ul
+  - @students.each do |student|
+    %li
+      = student.name + ":"
+      = student.email

@@ -10,6 +10,8 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'haml'
 gem 'devise'
+gem 'roo', '~> 1.13.2'
+gem 'spreadsheet', '~> 0.9.7'
 
 gem 'jbuilder'
 

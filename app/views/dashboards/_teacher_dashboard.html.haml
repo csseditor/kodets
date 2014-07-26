@@ -8,7 +8,7 @@
               %span{"aria-hidden" => "true"} &times;
               %span.sr-only Close
             You haven't added any users yet,
-            = link_to 'click here to add users.', add_users_to_org_path(current_org), class: 'alert-link'
+            = link_to 'click here to add users.', import_students_view_path, class: 'alert-link'
         %h1 #{current_teacher.organisation.name} Dashboard
     .row.stats
       .col-sm-4

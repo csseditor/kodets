@@ -32,10 +32,6 @@ class OrganisationsController < ApplicationController
   def destroy
   end
 
-  def add_users
-    @org = Organisation.find_by ref: params[:ref]
-  end
-
   private
 
   def authenticate_user_with_org!

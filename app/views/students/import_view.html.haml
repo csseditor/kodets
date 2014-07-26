@@ -1,0 +1,9 @@
+- provide :title, 'Import Users'
+
+%h1
+  Add Users to
+  = current_org.name
+
+= form_tag import_students_path, multipart: true do
+  = file_field_tag :file
+  = submit_tag 'Import'

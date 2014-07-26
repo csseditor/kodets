@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'dashboards/index'
 
   root to: 'pages#home'
 
@@ -16,8 +15,11 @@ Rails.application.routes.draw do
   get '/organisations/:ref',           to: 'organisations#show',      as: :organisation
   get '/organisations/:ref/edit',      to: 'organisations#edit',      as: :edit_organisation
   get '/organisations',                to: 'organisations#index',     as: :organisations
-  get '/organisations/:ref/add-users', to: 'organisations#add_users', as: :add_users_to_org
   match '/organisations',              to: 'organisations#create',    as: :create_organisation, via: 'post'
   match '/organisations/:ref',         to: 'organisations#destroy',   as: :delete_organisation, via: 'delete'
   match '/organisations/:ref',         to: 'organisations#update',                              via: 'patch'
+
+  get '/students/import',   to: 'students#import_view', as: :import_students_view
+  get '/students',          to: 'students#index',       as: :students
+  match '/students/import', to: 'students#import',      as: :import_students, via: :post
 end

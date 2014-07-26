@@ -133,6 +133,10 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    roo (1.13.2)
+      nokogiri
+      rubyzip
+      spreadsheet (> 0.6.4)
     rspec-core (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.2)
@@ -155,7 +159,9 @@ GEM
       powerpack (~> 0.0.6)
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.4)
+    ruby-ole (1.2.11.7)
     ruby-progressbar (1.5.1)
+    rubyzip (1.1.6)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -173,6 +179,8 @@ GEM
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
     slop (3.6.0)
+    spreadsheet (0.9.7)
+      ruby-ole (>= 1.0)
     spring (1.1.3)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -218,11 +226,13 @@ DEPENDENCIES
   pry-rails
   rails (= 4.1.1)
   rails_12factor
+  roo (~> 1.13.2)
   rspec-rails
   rubocop
   sass-rails
   sdoc
   shoulda-matchers
   simplecov
+  spreadsheet (~> 0.9.7)
   spring
   uglifier
