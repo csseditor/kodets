@@ -1,6 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def create
+    @org = Organisation.new(name: '', email: sign_up_params[:email])
+    @org.save
+
+    sign_up_params.merge({ organisation_id: @org.id })
     build_resource(sign_up_params)
 
     resource_saved = resource.save
@@ -16,6 +20,7 @@ class RegistrationsController < Devise::RegistrationsController
         respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
     else
+      @org.destroy
       clean_up_passwords resource
       respond_with resource
     end
@@ -67,6 +72,6 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def after_sign_up_path_for(resource)
-    edit_organisation_path resource.organisation
+    edit_organisation_path resource.organisation.ref
   end
 end

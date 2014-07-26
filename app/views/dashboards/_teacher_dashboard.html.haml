@@ -2,6 +2,13 @@
   .container
     .row
       .col-md-12
+        - if current_teacher.organisation.users.count == 1
+          .alert.alert-info.alert-dismissible{role: "alert"}
+            %button.close{type: "button", "data-dismiss" => "alert"}
+              %span{"aria-hidden" => "true"} &times;
+              %span.sr-only Close
+            You haven't added any users yet,
+            = link_to 'click here to add users.', add_users_to_org_path(current_org), class: 'alert-link'
         %h1 #{current_teacher.organisation.name} Dashboard
     .row.stats
       .col-sm-4

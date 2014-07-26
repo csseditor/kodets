@@ -2,14 +2,13 @@ class Teacher < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :organisation
-  after_create :create_organisation
+  belongs_to :organisation
 
   validates :username,   presence: true, on: :create
   validates :email,      presence: true
-  validates :first_name, presence: true, on: :create
-  validates :last_name,  presence: true, on: :create
-  validates :title,      inclusion: { in: ['Mr.', 'Mrs.', 'Miss', 'Ms'] }
+  validates :first_name, presence: true, on: :update
+  validates :last_name,  presence: true, on: :update
+  validates :title,      on: :update, inclusion: { in: ['Mr.', 'Mrs.', 'Miss', 'Ms'] }
 
   def full_name
     if self.first_name && self.last_name
@@ -25,11 +24,5 @@ class Teacher < ActiveRecord::Base
     else
       'Teacher'
     end
-  end
-
-  private
-
-  def create_organisation
-    build_organisation(email: email).save
   end
 end

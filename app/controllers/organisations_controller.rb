@@ -32,11 +32,15 @@ class OrganisationsController < ApplicationController
   def destroy
   end
 
+  def add_users
+    @org = Organisation.find_by ref: params[:ref]
+  end
+
   private
 
   def authenticate_user_with_org!
     org = Organisation.find_by(ref: params[:ref])
-    unless current_teacher && current_teacher.organisation.id == org.id
+    unless current_teacher && current_teacher.organisation_id == org.id
       flash[:warning] = 'You do not have permission to access this page.'
       redirect_to root_path
     end

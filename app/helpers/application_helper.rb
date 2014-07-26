@@ -28,4 +28,14 @@ module ApplicationHelper
     # The option that is selected by default in the user update form.
     resource.title || 'Please select a title...'
   end
+
+  def current_org
+    if current_teacher
+      Organisation.find current_teacher.organisation_id
+    elsif current_student
+      Organisation.find current_teacher.organisation_id
+    else
+      nil
+    end
+  end
 end

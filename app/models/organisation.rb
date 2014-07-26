@@ -1,6 +1,6 @@
 class Organisation < ActiveRecord::Base
-  belongs_to :teacher
-  has_many   :students
+  has_many :teachers
+  has_many :students
 
   before_create :set_ref
 
@@ -11,6 +11,11 @@ class Organisation < ActiveRecord::Base
 
   def to_param
     ref.to_s
+  end
+
+  def users
+    Teacher.where(organisation_id: self.id) +
+    Student.where(organisation_id: self.id)
   end
 
   private
