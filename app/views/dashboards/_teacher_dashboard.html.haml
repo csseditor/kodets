@@ -2,7 +2,7 @@
   .container
     .row
       .col-md-12
-        - if current_teacher.organisation.users.count == 1
+        - if current_org.students.count == 0
           .alert.alert-info.alert-dismissible{role: "alert"}
             %button.close{type: "button", "data-dismiss" => "alert"}
               %span{"aria-hidden" => "true"} &times;
