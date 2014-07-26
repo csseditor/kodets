@@ -1,9 +1,40 @@
 - provide :title, 'Import Users'
 
-%h1
-  Add Users to
-  = current_org.name
-
-= form_tag import_students_path, multipart: true do
-  = file_field_tag :file
-  = submit_tag 'Import'
+#slider
+  .container
+    .row.header
+      .col-md-12
+        %h3
+          Add Users to
+          = current_org.name
+        %p
+          You can quickly add multiple Students to this account by importing details from any of the following file types:
+        %ul
+          %li CSV
+          %li Excel File
+        %p
+          The file can contain the following columns (
+          %strong *
+          \= required):
+        %ul
+          %li
+            Username
+            %strong *
+          %li
+            Password
+            %strong *
+          %li Email
+          %li Name
+#info
+  .container
+    .row
+      .col-md-12
+        %h1
+    .row
+      .col-md-12
+        = form_tag import_students_path, multipart: true do
+          .form-group
+            = label_tag :file
+            = file_field_tag :file
+          .form-group
+            = submit_tag 'Import', class: 'btn btn-primary'

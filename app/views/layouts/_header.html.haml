@@ -24,11 +24,14 @@
                 = link_to edit_organisation_path(current_teacher.organisation.ref) do
                   %i.fa.fa-cog
                   Organisation settings
-              - if current_org.users.count < current_org.max_users
-                %li
-                  = link_to import_students_view_path do
-                    %i.fa.fa-user
-                    Import Students
+              %li
+                = link_to students_path do
+                  %i.fa.fa-user
+                  View all Students
+              %li
+                = link_to import_students_view_path do
+                  %i.fa.fa-user
+                  Import Students
               %hr
               %li
                 = link_to destroy_teacher_session_path, method: :delete do

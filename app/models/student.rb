@@ -6,7 +6,8 @@ class Student < ActiveRecord::Base
 
   before_create :check_population
 
-  validates :name,     presence: true, on: :update
+  validates :name, presence: true, on: :update
+  validates :password, presence: true
 
   private
 

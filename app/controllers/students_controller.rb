@@ -6,14 +6,16 @@ class StudentsController < ApplicationController
   end
 
   def index
-    @students = Student.all
+    @students = Student.all.where(organisation_id: current_org.id)
   end
 
   def import
     @student = Student.new
     #Student.import params[:file]
 
+
     begin
+      raise Exceptions::NoFileGiven, 'No file was provided' unless params[:file]
       spreadsheet = open_spreadsheet params[:file]
       header = spreadsheet.row 1
       (2..spreadsheet.last_row).each do |i|
@@ -26,6 +28,9 @@ class StudentsController < ApplicationController
       flash[:success] = 'Students added to Organisation.'
       redirect_to import_students_view_path
     rescue Exceptions::MaximumPopulationReached => e
+      flash[:warning] = e.message
+      redirect_to import_students_view_path
+    rescue Exceptions::NoFileGiven => e
       flash[:warning] = e.message
       redirect_to import_students_view_path
     rescue => e

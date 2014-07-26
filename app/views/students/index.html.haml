@@ -1,7 +1,15 @@
 - provide :title, 'All Students'
 
-%ul
-  - @students.each do |student|
-    %li
-      = student.name + ":"
-      = student.email
+#info
+  .row
+    .col-md-12
+      %table#students_index.display
+        %thead
+          %tr
+            %th 'Name'
+            %th 'Email'
+        %tbody
+        - @students.each do |student|
+          %tr
+            %td= student.name
+            %td= student.email
