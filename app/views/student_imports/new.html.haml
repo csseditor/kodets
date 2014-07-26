@@ -16,18 +16,17 @@
           \= required):
         %ul
           %li
-            Username
-            %strong *
+            %strong Username *
           %li
-            Password
-            %strong *
+            %strong Password *
           %li Email
           %li Name
     .row
       .col-md-12
-        = form_tag import_students_path, multipart: true do
+        = form_for @student_import, multipart: true do |f|
+          = render 'shared/error_messages', object: f.object
           .form-group
-            = label_tag :file
-            = file_field_tag :file
+            = f.label :file
+            = f.file_field :file
           .form-group
-            = submit_tag 'Import', class: 'btn btn-primary'
+            = f.submit 'Import', class: 'btn btn-primary'

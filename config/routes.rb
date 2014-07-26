@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root to: 'pages#home'
 
   devise_for :teachers, controllers: { registrations: 'registrations' }
@@ -20,11 +19,14 @@ Rails.application.routes.draw do
   match '/organisations/:ref',         to: 'organisations#destroy',   as: :delete_organisation, via: :delete
   match '/organisations/:ref',         to: 'organisations#update',                              via: :patch
 
+  # Student Import
+  get '/students/import',   to: 'student_imports#new',    as: :new_student_import
+  match '/students/import',   to: 'student_imports#create', via: :post
+  get '/students/import',   to: 'student_imports#import', as: :student_imports
+
   # Students
-  get '/students/import',   to: 'students#import_view', as: :import_students_view
   get '/students',          to: 'students#index',       as: :students
   get '/students/:id',      to: 'students#show',        as: :student
   get '/students/:id/edit', to: 'students#edit',        as: :edit_student
-  match '/students/import', to: 'students#import',      as: :import_students, via: :post
   match '/students/:id',    to: 'students#destroy',     as: :destroy_student, via: :delete
 end
