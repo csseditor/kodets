@@ -25,14 +25,4 @@ class StudentsController < ApplicationController
       redirect_to students_path
     end
   end
-
-  private
-
-
-  def teacher_user
-    unless current_teacher
-      flash[:notice] = 'You do not have the correct permissions to access this page.'
-      redirect_to root_path
-    end
-  end
 end

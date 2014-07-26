@@ -38,4 +38,11 @@ module ApplicationHelper
       nil
     end
   end
+
+  def teacher_user
+    unless current_teacher
+      flash[:warning] = 'You do not have the correct permissions to access this page.'
+      redirect_to root_path
+    end
+  end
 end
