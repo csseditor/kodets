@@ -8,7 +8,7 @@ class Teacher < ActiveRecord::Base
   validates :email,      presence: true
   validates :first_name, presence: true, on: :update
   validates :last_name,  presence: true, on: :update
-  validates :title,      inclusion: { in: ['Mr.', 'Mrs.', 'Miss', 'Ms', 'Dr.', 'Prof.'] }
+  validates :title,      presence: true, inclusion: { in: %w(Mr. Mrs. Miss Ms Dr. Prof.) }
 
   def full_name
     if self.first_name && self.last_name

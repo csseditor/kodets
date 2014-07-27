@@ -22,7 +22,10 @@
           %li
             %strong Password *
           %li Email
-        %p The columns can be in any order.
+        %p
+          The columns can be in any order. The first row
+          %string must
+          contain the names of the columns e.g. name,email,username,password
     .row
       .col-md-12
         = form_for @student_import, multipart: true do |f|

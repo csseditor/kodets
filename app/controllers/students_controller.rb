@@ -1,6 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :teacher_user, only: :edit
-  before_action :authenticate_teacher!, only: [:index, :show, :destroy]
+  before_action :teacher_user, only: [:index, :show, :destroy, :edit]
 
   def new
   end

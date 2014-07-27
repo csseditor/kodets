@@ -4,8 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
     @org = Organisation.new(name: '', email: sign_up_params[:email], max_users: 50)
     @org.save
 
-    sign_up_params.merge({ organisation_id: @org.id })
-    build_resource(sign_up_params)
+    build_resource(sign_up_params.merge({ organisation_id: @org.id }))
 
     resource_saved = resource.save
     yield resource if block_given?
@@ -72,6 +71,6 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def after_sign_up_path_for(resource)
-    edit_organisation_path resource.organisation.ref
+    edit_organisation_path resource.organisation
   end
 end

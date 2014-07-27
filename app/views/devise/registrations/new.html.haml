@@ -10,6 +10,10 @@
   .form-group
     = f.label :username
     = f.text_field :username, class: 'form-control'
+  - if resource.class.name == "Teacher"
+    .form-group
+      = f.label :title, 'Title'
+      = f.select :title, title_options, { include_blank: 'Please select a title...', selected: default_selected_title }, class: 'form-control'
   .form-group
     = f.label :password
     = f.password_field :password, autocomplete: "off", class: 'form-control'
