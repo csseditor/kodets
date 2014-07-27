@@ -21,7 +21,7 @@ module ApplicationHelper
 
   def title_options
     # The options for different titles users can have.
-    ['Mr.', 'Mrs.', 'Miss', 'Ms']
+    ['Mr.', 'Mrs.', 'Miss', 'Ms', 'Dr.', 'Prof.']
   end
 
   def default_selected_title
