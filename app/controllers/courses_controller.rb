@@ -23,7 +23,7 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @courses = Course.all.where(organisation_id: current_org.id)
+    @courses = current_org.courses
   end
 
   private
