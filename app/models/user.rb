@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
   belongs_to :organisation
 
+  validates :name,     presence: true
+  validates :username, presence: true
+
   def teacher?
     teacher
   end

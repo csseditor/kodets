@@ -1,0 +1,17 @@
+- provide :title, "Edit User #{@user.name}"
+
+.container
+  %h1 Edit #{@user.name}
+
+  = form_for @user do |f|
+    .form-group
+      = f.label :name
+      = f.text_field :name, autofocus: true
+    .form-group
+      = f.label :email
+      = f.email_field :email
+    .form-group
+      = f.label :username
+      = f.text_field :username
+    .form-group
+      = f.submit 'Submit'

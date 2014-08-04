@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   match '/organisations/:ref',         to: 'organisations#update',                              via: :patch
 
   # Users
-  get '/users', to: 'users#index', as: :users
+  get '/users',          to: 'users#index',   as: :users
+  get '/users/:id/edit', to: 'users#edit',    as: :edit_user
+  get '/users/:id',      to: 'users#show',    as: :user
+  get '/users/:id',      to: 'users#destroy', as: :delete_user, via: :delete
+  get '/users/:id',      to: 'users#update',                    via: :patch
 
   # Student Import
   get '/students/import',   to: 'student_imports#new', as: :new_student_import
