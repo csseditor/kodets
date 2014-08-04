@@ -2,9 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  devise_for :teachers, controllers: { registrations: 'registrations' }
-  devise_for :students
-
   get '/about',   to: 'pages#about',   as: :about
   get '/pricing', to: 'pages#pricing', as: :pricing
   get '/contact', to: 'pages#contact', as: :contact
@@ -24,12 +21,6 @@ Rails.application.routes.draw do
   get '/students/import',   to: 'student_imports#new', as: :new_student_import
   get '/students/import',   to: 'student_imports#new', as: :student_imports
   match '/students/import', to: 'student_imports#create', via: :post
-
-  # Students
-  get '/students',          to: 'students#index',       as: :students
-  get '/students/:id',      to: 'students#show',        as: :student
-  get '/students/:id/edit', to: 'students#edit',        as: :edit_student
-  match '/students/:id',    to: 'students#destroy',     as: :destroy_student, via: :delete
 
   # Courses
   get '/courses',                 to: 'courses#index', as: :courses

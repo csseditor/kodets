@@ -9,7 +9,7 @@
               %span.sr-only Close
             You haven't added any users yet,
             = link_to 'click here to add users.', new_student_import_path, class: 'alert-link'
-        %h1 #{current_teacher.organisation.name} Dashboard
+        %h1 #{current_user.organisation.name} Dashboard
     .row.stats
       .col-sm-4
         - users = pluralise(current_org.students.count, 'students')

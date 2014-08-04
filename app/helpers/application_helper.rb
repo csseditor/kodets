@@ -12,13 +12,6 @@ module ApplicationHelper
     ]
   end
 
-  def authenticate_user!
-    unless teacher_signed_in? || student_signed_in?
-      flash[:info] = 'You need to be signed in to do that.'
-      redirect_to root_url
-    end
-  end
-
   def title_options
     # The options for different titles users can have.
     %w(Mr. Mrs. Miss Ms Dr. Prof.)
@@ -30,17 +23,11 @@ module ApplicationHelper
   end
 
   def current_org
-    if current_teacher
-      Organisation.find current_teacher.organisation_id
-    elsif current_student
-      Organisation.find current_student.organisation_id
-    else
-      nil
-    end
+    current_user ? Organisation.find(current_user.organisation_id) : nil
   end
 
   def teacher_user
-    unless current_teacher
+    unless current_user.teacher?
       flash[:warning] = 'You do not have the correct permissions to access this page.'
       redirect_to root_path
     end
