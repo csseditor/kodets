@@ -8,34 +8,35 @@
       = link_to 'Kodets', root_path, class: 'navbar-brand'
     %nav.collapse.navbar-collapse.bs-navbar-collapse{role: "navigation"}
       %ul.nav.navbar-nav.navbar-right
-        - if teacher_signed_in?
+        - if user_signed_in?
           %li= link_to 'Courses', courses_path
           %li= link_to 'Dashboard', dashboard_path
           %li.dropdown
             %a.dropdown-toggle{'href' => '#', 'data-toggle' => 'dropdown'}
               %i.fa.fa-user
-              = current_teacher.titlised_name
+              = current_user.name
               %b.caret
             %ul.dropdown-menu
               %li
                 = link_to edit_teacher_registration_path do
                   %i.fa.fa-cog
                   User settings
-              %li
-                = link_to edit_organisation_path(current_teacher.organisation.ref) do
-                  %i.fa.fa-cog
-                  Organisation settings
-              %li
-                = link_to students_path do
-                  %i.fa.fa-user
-                  View all Students
-              %li
-                = link_to new_student_import_path do
-                  %i.fa.fa-upload
-                  Import Students
+              - if current_user.teacher?
+                %li
+                  = link_to edit_organisation_path(current_teacher.organisation.ref) do
+                    %i.fa.fa-cog
+                    Organisation settings
+                %li
+                  = link_to students_path do
+                    %i.fa.fa-user
+                    View all Students
+                %li
+                  = link_to new_student_import_path do
+                    %i.fa.fa-upload
+                    Import Students
               %hr
               %li
-                = link_to destroy_teacher_session_path, method: :delete do
+                = link_to destroy_user_session_path, method: :delete do
                   %i.fa.fa-sign-out
                   Sign out
         - elsif student_signed_in?
@@ -55,6 +56,5 @@
         - else
           %li= link_to 'Home', root_path
           %li= link_to 'Pricing', pricing_path
-          %li= link_to 'Teacher sign in', new_teacher_session_path
-          %li= link_to 'Student sign in', new_student_session_path
-          %li= link_to 'Sign up', new_teacher_registration_path
+          %li= link_to 'Sign in', new_user_session_path
+          %li= link_to 'Register', new_user_registration_path

@@ -38,12 +38,12 @@ class StudentImport
     header = spreadsheet.row 1
     (2..spreadsheet.last_row).map do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      student = Student.find_by_email(row["email"]) || Student.new
-      student.attributes = row.to_hash.merge({
+      user = User.find_by_email(row["email"]) || User.new
+      user.attributes = row.to_hash.merge({
         organisation_id: current_org.id,
         password_confirmation: row["password"]
       })
-      student
+      user
     end
   end
 
