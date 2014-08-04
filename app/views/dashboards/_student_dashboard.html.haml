@@ -7,12 +7,12 @@
           Dashboard
     .row.stats
       .col-sm-4
-        -# students = pluralise(current_org.students.count, 'student')
-        %strong=# students.first
-        =# students.last
+        - students = pluralise(current_org.users.count, 'user')
+        %strong= students.first
+        = students.last
       .col-sm-4
-        %strong #{'3'}
-        classes
+        %strong #{current_org.courses.count}
+        courses
       .col-sm-4
         %strong #{'3'}
         homework overdue

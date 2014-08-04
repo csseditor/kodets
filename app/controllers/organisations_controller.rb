@@ -1,5 +1,6 @@
 class OrganisationsController < ApplicationController
   before_action :authenticate_user_with_org!, only: [:edit, :update, :show, :destroy]
+  before_action :teacher_user, only: [:edit, :update, :destroy]
 
   def new
   end
