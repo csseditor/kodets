@@ -23,11 +23,11 @@
                   User settings
               - if current_user.teacher?
                 %li
-                  = link_to edit_organisation_path(current_teacher.organisation.ref) do
+                  = link_to edit_organisation_path(current_user.organisation.ref) do
                     %i.fa.fa-cog
                     Organisation settings
                 %li
-                  = link_to students_path do
+                  = link_to users_path do
                     %i.fa.fa-user
                     View all Students
                 %li

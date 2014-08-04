@@ -14,11 +14,6 @@ class Organisation < ActiveRecord::Base
     ref.to_s
   end
 
-  def users
-    Teacher.where(organisation_id: self.id) +
-    Student.where(organisation_id: self.id)
-  end
-
   private
 
   def set_ref

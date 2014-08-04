@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   match '/organisations/:ref',         to: 'organisations#destroy',   as: :delete_organisation, via: :delete
   match '/organisations/:ref',         to: 'organisations#update',                              via: :patch
 
+  # Users
+  get '/users', to: 'users#index', as: :users
+
   # Student Import
   get '/students/import',   to: 'student_imports#new', as: :new_student_import
   get '/students/import',   to: 'student_imports#new', as: :student_imports

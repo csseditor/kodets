@@ -2,7 +2,7 @@
   .container
     .row
       .col-md-12
-        - if current_org.students.count == 0
+        - if current_org.users.count == 0
           .alert.alert-info.alert-dismissible{role: "alert"}
             %button.close{type: "button", "data-dismiss" => "alert"}
               %span{"aria-hidden" => "true"} &times;
@@ -12,12 +12,12 @@
         %h1 #{current_org.name} Dashboard
     .row.stats
       .col-sm-4
-        - users = pluralise(current_org.students.count, 'students')
+        - users = pluralise(current_org.users.count, 'students')
         %strong= users.first
         = users.last
       .col-sm-4
-        %strong #{'3'}
-        classes
+        %strong #{current_org.courses.count}
+        courses
       .col-sm-4
         %strong #{'3'}
         homework overdue
