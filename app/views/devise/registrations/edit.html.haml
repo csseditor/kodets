@@ -11,14 +11,11 @@
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div Currently waiting confirmation for: #{resource.unconfirmed_email}
   .form-group
-    = f.label :title, 'Title'
-    = f.select :title, title_options, { include_blank: 'Please select a title...', selected: default_selected_title }, class: 'form-control'
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
   .form-group
-    = f.label :first_name, 'First Name'
-    = f.text_field :first_name, class: 'form-control'
-  .form-group
-    = f.label :last_name, 'Last Name'
-    = f.text_field :last_name, class: 'form-control'
+    = f.label :username
+    = f.text_field :username, class: 'form-control'
   .form-group
     = f.label :password
     %span.help-block Leave blank if you don't want to change it.

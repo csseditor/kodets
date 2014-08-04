@@ -1,8 +1,9 @@
 - provide :title, 'All Courses'
 
 .container
-  .pull-right
-    = link_to 'New Course', new_course_path, class: 'btn btn-primary'
+  - if current_user.teacher?
+    .pull-right
+      = link_to 'New Course', new_course_path, class: 'btn btn-primary'
 
   %h1 All Courses
 
