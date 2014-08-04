@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  before_action :teacher_user, only: [:edit, :update]
 
   def create
     @org = Organisation.new(name: '', email: sign_up_params[:email], max_users: 50)
@@ -23,6 +24,10 @@ class RegistrationsController < Devise::RegistrationsController
       clean_up_passwords resource
       respond_with resource
     end
+  end
+
+  def edit
+    render :edit
   end
 
   def update
