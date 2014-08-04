@@ -1,72 +1,76 @@
 - provide :title, 'Pricing'
-#pricing-table
+#third-option
   .container
     .row.header
       .col-md-12
         %h3 Free trial. No contract. Cancel when you want.
         %p All plans include a 7-day free trial
     .row.charts
-      .col-md-4
+      .col-md-12
         .chart.first
+          .plan-name Freelance
           .quantity
-            %span.pound £
+            %span.dollar £
             %span.price 100
             %span.period /year
-          .plan-name Small
           .specs
             .spec
               %span.variable 10
-              students
+              users
             .spec
               %span.variable Unlimited
               access to courses
             .spec
               %span.variable Virtual
               online terminal
-            .spec
-          %a.btn-signup.button-clear{href: new_teacher_registration_path}
+          %a.btn-signup.button-clear{href: "signup.html"}
             %span Start free trial
-      .col-md-4
         .chart.featured
-          .popular Most popular
+          .popular MOST POPULAR
+          .plan-name Profesional
           .quantity
-            %span.pound £
-            %span.price 300
+            %span.dollar £
+            %span.price 475
             %span.period /year
-          .plan-name Medium
           .specs
             .spec
               %span.variable 500
-              students
+              users
             .spec
               %span.variable Unlimited
               access to courses
             .spec
               %span.variable Virtual
               online terminal
-            .spec
-          %a.btn-signup.button-clear{href: new_teacher_registration_path}
+          %a.btn-signup.button-clear{href: "signup.html"}
             %span Start free trial
-      .col-md-4
         .chart.last
+          .plan-name Premium
           .quantity
-            %span.pound £
-            %span.price 475
+            %span.dollar £
+            %span.price 650
             %span.period /year
-          .plan-name Large
           .specs
             .spec
-              %span.variable Unlimited
-              students
+              %span.variable 1000
+              users
             .spec
               %span.variable Unlimited
               access to courses
             .spec
               %span.variable Virtual
               online terminal
-          %a.btn-signup.button-clear{href: new_teacher_registration_path}
+          %a.btn-signup.button-clear{href: "signup.html"}
             %span Start free trial
-#pricing-faq
+        .basic-plan
+          .quantity
+            %span.period Custom Quote
+          %p.description
+            Get in touch with us to get a custom quote.
+          %a.btn-signup.button-clear{href: "signup.html"}
+            %span Start free trial
+
+.faq
   .container
     .row.faq
       .col-md-12
