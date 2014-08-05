@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'tracks/new'
+
+  get 'tracks/edit'
+
+  get 'tracks/show'
+
+  get 'tracks/index'
+
   devise_for :users, controllers: { registrations: 'registrations' }
   root to: 'pages#home'
 
