@@ -1,3 +1,17 @@
 - provide :title, 'Edit Track'
 
-%h1 Tracks#edit
+.container
+  %h1 Edit #{@track.name}
+
+  = form_for @track do |f|
+    .form-group
+      = f.label :name, class: 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :name, class: 'form-control', placeholder: 'Name'
+    .form-group
+      = f.label :description, class: 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_area :description, rows: 3, class: 'form-control', placeholder: 'Description'
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        = f.submit 'Submit', class: 'btn btn-default'
