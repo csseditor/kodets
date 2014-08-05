@@ -41,8 +41,9 @@ Rails.application.routes.draw do
   resources :courses
 
   # Tracks
-  get '/courses/:id/tracks',     to: 'tracks#index', as: :tracks_path
+  get '/courses/:id/tracks',     to: 'tracks#index', as: :tracks
   get '/courses/:id/tracks/new', to: 'tracks#new',   as: :new_track
   get '/tracks/:id',             to: 'tracks#show',  as: :track
   get '/tracks/:id/edit',        to: 'tracks#edit',  as: :edit_track
+  match '/courses/:id/tracks',   to: 'tracks#create',                 via: :post
 end

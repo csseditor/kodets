@@ -7,7 +7,7 @@ class TracksController < ApplicationController
 
   def create
     @course = Course.find params[:id]
-    @track = @course.tracks.build(track_params)
+    @track = @course.tracks.build track_params
     if @track.save
       flash[:success] = 'Track saved'
       redirect_to track_path @track
@@ -28,7 +28,7 @@ class TracksController < ApplicationController
   end
 
   def index
-    @tracks = Track.all.where(organisation_id: current_org.id)
+    @tracks = Track.all.where organisation_id: current_org.id
   end
 
   def destroy
@@ -38,6 +38,6 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:course).permit(:name, :description, :order)
+    params.require(:track).permit(:name, :description, :order)
   end
 end

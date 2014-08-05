@@ -30,6 +30,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find params[:id]
+    @tracks = @course.tracks
   end
 
   def index
