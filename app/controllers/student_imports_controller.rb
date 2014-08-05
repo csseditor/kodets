@@ -20,7 +20,7 @@ class StudentImportsController < ApplicationController
     else
       if saved
         flash[:notice] = 'Students imported successfully!'
-        redirect_to students_path
+        redirect_to users_path
       else
         render :new
       end

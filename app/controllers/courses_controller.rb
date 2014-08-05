@@ -37,6 +37,13 @@ class CoursesController < ApplicationController
     @courses = current_org.courses
   end
 
+  def destroy
+    @course = Course.find params[:id]
+    @course.destroy
+    flash[:success] = 'Course deleted'
+    redirect_to courses_path
+  end
+
   private
 
   def course_params
