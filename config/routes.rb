@@ -38,9 +38,10 @@ Rails.application.routes.draw do
   match '/students/import', to: 'student_imports#create', via: :post
 
   # Courses
-  get '/courses',                 to: 'courses#index', as: :courses
-  get '/courses/new',             to: 'courses#new',   as: :new_course
-  get '/courses/:permalink',      to: 'courses#show',  as: :course
-  get '/courses/:permalink/edit', to: 'courses#edit',  as: :edit_course
-  match '/courses',               to: 'courses#create',                  via: :post
+  resources :courses
+  # get '/courses',                 to: 'courses#index', as: :courses
+  # get '/courses/new',             to: 'courses#new',   as: :new_course
+  # get '/courses/:permalink',      to: 'courses#show',  as: :course
+  # get '/courses/:permalink/edit', to: 'courses#edit',  as: :edit_course
+  # match '/courses',               to: 'courses#create',                  via: :post
 end

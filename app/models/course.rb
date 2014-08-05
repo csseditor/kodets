@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
   belongs_to :organisation
+  has_many :tracks
 
   VALID_COLOUR_FORMAT = /\A#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})\z/
 

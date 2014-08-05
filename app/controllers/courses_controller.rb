@@ -15,11 +15,21 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course = Course.find params[:permalink]
+    @course = Course.find params[:id]
+  end
+
+  def update
+    @course = Course.find params[:id]
+    if @course.update_attributes course_params
+      flash[:success] = 'Course updated'
+      redirect_to @course
+    else
+      render :edit
+    end
   end
 
   def show
-    @course = Course.find params[:permalink]
+    @course = Course.find params[:id]
   end
 
   def index
