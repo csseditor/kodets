@@ -39,9 +39,10 @@ Rails.application.routes.draw do
 
   # Courses
   resources :courses
-  # get '/courses',                 to: 'courses#index', as: :courses
-  # get '/courses/new',             to: 'courses#new',   as: :new_course
-  # get '/courses/:permalink',      to: 'courses#show',  as: :course
-  # get '/courses/:permalink/edit', to: 'courses#edit',  as: :edit_course
-  # match '/courses',               to: 'courses#create',                  via: :post
+
+  # Tracks
+  get '/courses/:id/tracks',     to: 'tracks#index', as: :tracks_path
+  get '/courses/:id/tracks/new', to: 'tracks#new',   as: :new_track
+  get '/tracks/:id',             to: 'tracks#show',  as: :track
+  get '/tracks/:id/edit',        to: 'tracks#edit',  as: :edit_track
 end
