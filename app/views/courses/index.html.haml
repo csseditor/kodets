@@ -7,5 +7,14 @@
 
   %h1 All Courses
 
-  - @courses.each do |course|
-    = link_to course.name, course
+  .row
+    - @courses.each do |course|
+      .col-md-4
+        .panel.panel-default
+          .panel-heading
+            = link_to course.name, course
+          .panel-body
+            = course.description
+          .panel-footer
+            .center
+              = link_to 'View Course', course
