@@ -1,0 +1,145 @@
+- provide :title, 'Features'
+
+#tabs
+  .container
+    .row.header
+      %h3 Formats to showcase features
+      %p Choose your favorite formats for your own sites
+    .row
+      .col-md-12.tabs-wrapper
+        %ul.nav.nav-tabs
+          %li.active
+            %a{"data-toggle" => "tab", :href => "#home"} Upstart your development
+          %li
+            %a{"data-toggle" => "tab", :href => "#profile"} Get ready in half the time
+          %li
+            %a{"data-toggle" => "tab", :href => "#messages"} Collaborate with everyone
+          %li
+            %a{"data-toggle" => "tab", :href => "#settings"} Get more done faster
+        .tab-content
+          #home.tab-pane.fade.in.active
+            .col-md-6.info
+              %h4 You don't need to have any advanced technical
+              %p
+                Whether you want to fill this paragraph with some text like I'm doing right now, this place is perfect to describe some features or anything you want - React has a complete solution for you.
+              %p
+                You have complete control over the look  feel of your website, we offer the best quality so you take your site up and running in no time.
+            .col-md-6.image
+              %img.img-responsive{:alt => "picture1", :src => "images/tabs/pic1.png"}/
+          #profile.tab-pane.fade
+            .col-md-6.image
+              %img.img-responsive{:alt => "picture2", :src => "images/portfolioitem1.png"}/
+            .col-md-6.info
+              %h4 You don't need to have any advanced technical
+              %p
+                Whether you want to fill this paragraph with some text like I'm doing right now, this place is perfect to describe some features or anything you want - React has a complete solution for you.
+          #messages.tab-pane.fade
+            .col-md-6.info
+              %h4 You don't need to have any advanced technical
+              %p
+                Whether you want to fill this paragraph with some text like I'm doing right now, this place is perfect to describe some features or anything you want - React has a complete solution for you.
+              %p
+                You have complete control over the look  feel of your website, we offer the best quality so you take your site up and running in no time.
+            .col-md-6.image
+              %img.img-responsive{:alt => "picture3", :src => "images/tabs/pic2.png", :style => "position: relative;top: 15px;"}/
+          #settings.tab-pane.fade
+            .col-md-6.image
+              %img.img-responsive{:alt => "picture4", :src => "images/tabs/pic1.png"}/
+            .col-md-6.info
+              %h4 You don't need to have any advanced technical
+              %p
+                Whether you want to fill this paragraph with some text like I'm doing right now, this place is perfect to describe some features or anything you want - React has a complete solution for you.
+#first-option
+  .container
+    .row.header
+      .col-md-12
+        %h2 Need an easy way to customize your site?
+        %p React is perfect for novice developers and experts alike.
+    .row.feature
+      .col-md-6.info
+        %h4 You don't need to have great technical experience to use your product.
+        %p
+          Whether you want to fill this paragraph with some text like I'm doing right now, this place is perfect to describe some features or anything you want - React has a complete solution for you.
+      .col-md-6.image
+        %img.img-responsive{:alt => "feature1", :src => "images/feature1.png"}/
+    .row.feature.backwards
+      .col-md-6.info
+        %h4 A fully featured well design template that works.
+        %p
+          You have complete control over the look  feel of your website, we offer the best quality so you take your site up and running in no time.
+      .col-md-6.image
+        %img.img-responsive{:alt => "feature2", :src => "images/feature2.png"}/
+    .row.feature.last
+      .col-md-6.info
+        %h4 You don't need to have great technical experience to use your product.
+        %p
+          Whether you want to fill this paragraph with some text like I'm doing right now, this place is perfect to describe some features or anything you want - React has a complete solution for you.
+      .col-md-6.image
+        %img.img-responsive{:alt => "feature3", :src => "images/feature3.png"}/
+#second-option
+  .container
+    .row
+      .col-md-4.feature
+        %img{:alt => "credit-card", :src => "images/circle-icons/one-color/creditcard.png"}/
+        %strong Act locally, work globally
+        %p You can work with international customers right out of the box while you can keep staying in your country.
+      .col-md-4.feature
+        %img{:alt => "dev", :src => "images/circle-icons/one-color/dev.png"}/
+        %strong Act globally, work as usual
+        %p With some customization you can make this product apply to your branding guidelines and amaze your customers at the same time.
+      .col-md-4.feature
+        %img{:alt => "globe", :src => "images/circle-icons/one-color/globe.png"}/
+        %strong Develop once, run everywhere
+        %p We don't impose any design restrictions, you are free to customize it as you see fit and it's easy to use.
+    .row
+      .col-md-4.feature
+        %img{:alt => "support", :src => "images/circle-icons/one-color/support.png"}/
+        %strong Act globally, work as usual
+        %p
+          We're always happy to offer support if you happen to have any doubts about anything, if you need
+          some new stuff contact us.
+      .col-md-4.feature
+        %img{:alt => "mail", :src => "images/circle-icons/one-color/mail.png"}/
+        %strong Develop once, run everywhere
+        %p We'll be adding some new stuff to make it even more awesome, if you have any idea please let us know.
+      .col-md-4.feature
+        %img{:alt => "locked", :src => "images/circle-icons/one-color/locked.png"}/
+        %strong Act locally, work globally
+        %p This thing will work on any device, it has a very easy to understand documentation and is made with SASS.
+#slider
+  .container
+    .row.header
+      %h3 Includes all pages that a complete theme should have
+    .row
+      .col-md-12.slide-wrapper
+        .slideshow
+          .btn-nav.prev
+          .btn-nav.next
+          .slide.active
+            %img{:alt => "slide", :src => "images/slider/slide3.png"}/
+          .slide
+            %img{:alt => "slide", :src => "images/slider/slide4.png"}/
+          .slide
+            %img{:alt => "slide", :src => "images/slider/slide1.png"}/
+          .slide
+            %img{:alt => "slide", :src => "images/slider/slide5.png"}/
+          .slide
+            %img{:alt => "slide", :src => "images/slider/slide2.png"}/
+#showcase
+  .container
+    .row.header
+      %h3 Showcasing some blog posts
+    .row
+      .col-md-12.pics
+        %a.pic{:href => "blogpost.html"}
+          %img{:alt => "blog1", :src => "images/blog1.png"}/
+          .bg
+            %p How to survive in the big city
+        %a.pic{:href => "blogpost.html"}
+          %img{:alt => "blog2", :src => "images/blog2.png"}/
+          .bg
+            %p How to develop scalable Rails apps
+        %a.pic{:href => "blogpost.html"}
+          %img{:alt => "blog3", :src => "images/blog3.png"}/
+          .bg
+            %p Enjoy your life at the beach

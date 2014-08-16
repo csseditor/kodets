@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   def pricing; end
   def about; end
   def contact; end
+  def features; end
 
   private
 

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/about',   to: 'pages#about',   as: :about
   get '/pricing', to: 'pages#pricing', as: :pricing
   get '/contact', to: 'pages#contact', as: :contact
+  get '/features', to: 'pages#features', as: :features
 
   get '/dashboard', to: 'dashboards#index', as: :dashboard
 

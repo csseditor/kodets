@@ -1,6 +1,6 @@
 module PagesHelper
   def header_class
-    if controller.controller_name == 'pages' && controller.action_name == 'home'
+    if on_page 'pages', 'home'
       'navbar navbar-inverse hero'
     else
       'navbar navbar-inverse normal'
