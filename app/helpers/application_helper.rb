@@ -13,16 +13,6 @@ module ApplicationHelper
     ]
   end
 
-  # The options for different titles teachers can have.
-  def title_options
-    %w(Mr. Mrs. Miss Ms Dr. Prof.)
-  end
-
-  # The option that is selected by default in the user update form
-  def default_selected_title
-    resource.title || 'Please select a title...'
-  end
-
   # Assign current_org to the organisation that current_user belongs to
   def current_org
     current_user ? Organisation.find(current_user.organisation_id) : nil
