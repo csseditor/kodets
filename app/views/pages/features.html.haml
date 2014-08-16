@@ -3,21 +3,17 @@
 #tabs
   .container
     .row.header
-      %h3 Formats to showcase features
+      %h3 Kodets
       %p Choose your favorite formats for your own sites
     .row
       .col-md-12.tabs-wrapper
         %ul.nav.nav-tabs
-          %li.active
-            %a{"data-toggle" => "tab", :href => "#home"} Upstart your development
-          %li
-            %a{"data-toggle" => "tab", :href => "#profile"} Get ready in half the time
-          %li
-            %a{"data-toggle" => "tab", :href => "#messages"} Collaborate with everyone
-          %li
-            %a{"data-toggle" => "tab", :href => "#settings"} Get more done faster
+          %li.active= link_to 'Collaborative learning', '#tab_1', "data-toggle" => 'tab'
+          %li= link_to 'You have full control', '#tab_2', "data-toggle" => 'tab'
+          %li= link_to 'Share lessons between schools', '#tab_3', "data-toggle" => 'tab'
+          %li= link_to 'Get more done, faster', '#tab_4', "data-toggle" => 'tab'
         .tab-content
-          #home.tab-pane.fade.in.active
+          #tab_1.tab-pane.fade.in.active
             .col-md-6.info
               %h4 You don't need to have any advanced technical
               %p
@@ -26,14 +22,14 @@
                 You have complete control over the look  feel of your website, we offer the best quality so you take your site up and running in no time.
             .col-md-6.image
               %img.img-responsive{:alt => "picture1", :src => "images/tabs/pic1.png"}/
-          #profile.tab-pane.fade
+          #tab_2.tab-pane.fade
             .col-md-6.image
               %img.img-responsive{:alt => "picture2", :src => "images/portfolioitem1.png"}/
             .col-md-6.info
               %h4 You don't need to have any advanced technical
               %p
                 Whether you want to fill this paragraph with some text like I'm doing right now, this place is perfect to describe some features or anything you want - React has a complete solution for you.
-          #messages.tab-pane.fade
+          #tab_3.tab-pane.fade
             .col-md-6.info
               %h4 You don't need to have any advanced technical
               %p
@@ -42,7 +38,7 @@
                 You have complete control over the look  feel of your website, we offer the best quality so you take your site up and running in no time.
             .col-md-6.image
               %img.img-responsive{:alt => "picture3", :src => "images/tabs/pic2.png", :style => "position: relative;top: 15px;"}/
-          #settings.tab-pane.fade
+          #tab_4.tab-pane.fade
             .col-md-6.image
               %img.img-responsive{:alt => "picture4", :src => "images/tabs/pic1.png"}/
             .col-md-6.info

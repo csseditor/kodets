@@ -2,21 +2,29 @@
   .container
     .row
       .col-sm-3.copyright
-        React LLC 2014
+        Kodets
+        = Time.now.strftime('%Y')
+        &copy;
       .col-sm-6.menu
         %ul
-          %li.active
-            %a{:href => "features.html"} Features
+          - if on_page('pages', 'features')
+            %li.active= link_to 'Features', features_path
+          - else
+            %li= link_to 'Features', features_path
+          - if on_page('pages', 'pricing')
+            %li.active= link_to 'Pricing', pricing_path
+          - else
+            %li= link_to 'Pricing', pricing_path
+          - if on_page('courses', 'index')
+            %li.active= link_to 'Courses', courses_path
+          - else
+            %li= link_to 'Courses', courses_path
           %li
-            %a{:href => "services.html"} Services
+            %a{:href => "#"} Support
           %li
-            %a{:href => "pricing.html"} Pricing
-          %li
-            %a{:href => "support.html"} Support
-          %li
-            %a{:href => "blog.html"} Blog
+            %a{:href => "#"} Blog
       .col-sm-3.social
-        %a{:href => "#"}
-          %img{:alt => "twitter", :src => "images/social/social-tw.png"}/
-        %a{:href => "#"}
-          %img{:alt => "dribbble", :src => "images/social/social-dbl.png"}/
+        = link_to 'http://twitter.com/kodets' do
+          = image_tag 'social/social-tw.png', alt: 'twitter'
+        = link_to '#' do
+          = image_tag 'social/social-dbl.png', alt: 'dribbble'
