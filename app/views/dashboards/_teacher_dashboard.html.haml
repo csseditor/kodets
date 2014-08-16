@@ -13,8 +13,9 @@
     .row.stats
       .col-sm-4
         - users = pluralise(current_org.users.count, 'students')
-        %strong= users.first
-        = users.last
+        = link_to users_path do
+          %strong= users.first
+          = users.last
       .col-sm-4
         %strong #{current_org.courses.count}
         courses
