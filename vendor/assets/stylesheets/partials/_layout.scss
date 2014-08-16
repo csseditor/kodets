@@ -67,6 +67,9 @@ a, button {
               color: #fff;
             }
           }
+          > a.button {
+            top: 0;
+          }
 
           &.open {
             ul.dropdown-menu {
