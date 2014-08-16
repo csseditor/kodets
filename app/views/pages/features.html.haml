@@ -21,10 +21,12 @@
               %p
                 You have complete control over the look  feel of your website, we offer the best quality so you take your site up and running in no time.
             .col-md-6.image
-              %img.img-responsive{:alt => "picture1", :src => "images/tabs/pic1.png"}/
+              %img.img-responsive
+                = image_tag 'tabs/pic1.png', alt: 'picture1'
           #tab_2.tab-pane.fade
             .col-md-6.image
-              %img.img-responsive{:alt => "picture2", :src => "images/portfolioitem1.png"}/
+              %img.img-responsive
+                = image_tag 'portfolioitem1.png', alt: 'picture2'
             .col-md-6.info
               %h4 You don't need to have any advanced technical
               %p
@@ -37,10 +39,12 @@
               %p
                 You have complete control over the look  feel of your website, we offer the best quality so you take your site up and running in no time.
             .col-md-6.image
-              %img.img-responsive{:alt => "picture3", :src => "images/tabs/pic2.png", :style => "position: relative;top: 15px;"}/
+              %img.img-responsive
+                = image_tag 'tabs/pic2.png', alt: 'picture3', style: 'position: relative;top: 15px;'
           #tab_4.tab-pane.fade
             .col-md-6.image
-              %img.img-responsive{:alt => "picture4", :src => "images/tabs/pic1.png"}/
+              %img.img-responsive
+                = image_tag 'tabs/pic1.png', alt: 'picture4'
             .col-md-6.info
               %h4 You don't need to have any advanced technical
               %p
@@ -57,49 +61,50 @@
         %p
           Whether you want to fill this paragraph with some text like I'm doing right now, this place is perfect to describe some features or anything you want - React has a complete solution for you.
       .col-md-6.image
-        %img.img-responsive{:alt => "feature1", :src => "images/feature1.png"}/
+        %img.img-responsive
+          = image_tag 'feature1.png', alt: 'feature1'
     .row.feature.backwards
       .col-md-6.info
         %h4 A fully featured well design template that works.
         %p
           You have complete control over the look  feel of your website, we offer the best quality so you take your site up and running in no time.
       .col-md-6.image
-        %img.img-responsive{:alt => "feature2", :src => "images/feature2.png"}/
+        %img.img-responsive
+          = image_tag 'feature2.png', alt: 'feature2'
     .row.feature.last
       .col-md-6.info
         %h4 You don't need to have great technical experience to use your product.
         %p
           Whether you want to fill this paragraph with some text like I'm doing right now, this place is perfect to describe some features or anything you want - React has a complete solution for you.
       .col-md-6.image
-        %img.img-responsive{:alt => "feature3", :src => "images/feature3.png"}/
+        %img.img-responsive
+          = image_tag 'feature3.png', alt: 'feature3'
 #second-option
   .container
     .row
       .col-md-4.feature
-        %img{:alt => "credit-card", :src => "images/circle-icons/one-color/creditcard.png"}/
+        = image_tag 'circle-icons/one-color/creditcard.png', alt: 'creditcard'
         %strong Act locally, work globally
         %p You can work with international customers right out of the box while you can keep staying in your country.
       .col-md-4.feature
-        %img{:alt => "dev", :src => "images/circle-icons/one-color/dev.png"}/
+        = image_tag 'circle-icons/one-color/dev.png', alt: 'dev'
         %strong Act globally, work as usual
         %p With some customization you can make this product apply to your branding guidelines and amaze your customers at the same time.
       .col-md-4.feature
-        %img{:alt => "globe", :src => "images/circle-icons/one-color/globe.png"}/
+        = image_tag 'circle-icons/one-color/globe.png', alt: 'globe'
         %strong Develop once, run everywhere
         %p We don't impose any design restrictions, you are free to customize it as you see fit and it's easy to use.
     .row
       .col-md-4.feature
-        %img{:alt => "support", :src => "images/circle-icons/one-color/support.png"}/
+        = image_tag 'circle-icons/one-color/support.png', alt: 'support'
         %strong Act globally, work as usual
-        %p
-          We're always happy to offer support if you happen to have any doubts about anything, if you need
-          some new stuff contact us.
+        %p We're always happy to offer support if you happen to have any doubts about anything, if you need some new stuff contact us.
       .col-md-4.feature
-        %img{:alt => "mail", :src => "images/circle-icons/one-color/mail.png"}/
+        = image_tag 'circle-icons/one-color/mail.png', alt: 'mail'
         %strong Develop once, run everywhere
         %p We'll be adding some new stuff to make it even more awesome, if you have any idea please let us know.
       .col-md-4.feature
-        %img{:alt => "locked", :src => "images/circle-icons/one-color/locked.png"}/
+        = image_tag 'circle-icons/one-color/locked.png', alt: 'locked'
         %strong Act locally, work globally
         %p This thing will work on any device, it has a very easy to understand documentation and is made with SASS.
 #slider
@@ -112,30 +117,16 @@
           .btn-nav.prev
           .btn-nav.next
           .slide.active
-            %img{:alt => "slide", :src => "images/slider/slide3.png"}/
+            = image_tag 'slider/slide3.png', alt: 'slide'
           .slide
-            %img{:alt => "slide", :src => "images/slider/slide4.png"}/
+            = image_tag 'slider/slide4.png', alt: 'slide'
           .slide
-            %img{:alt => "slide", :src => "images/slider/slide1.png"}/
+            = image_tag 'slider/slide1.png', alt: 'slide'
           .slide
-            %img{:alt => "slide", :src => "images/slider/slide5.png"}/
+            = image_tag 'slider/slide5.png', alt: 'slide'
           .slide
-            %img{:alt => "slide", :src => "images/slider/slide2.png"}/
+            = image_tag 'slider/slide2.png', alt: 'slide'
 #showcase
   .container
     .row.header
       %h3 Showcasing some blog posts
-    .row
-      .col-md-12.pics
-        %a.pic{:href => "blogpost.html"}
-          %img{:alt => "blog1", :src => "images/blog1.png"}/
-          .bg
-            %p How to survive in the big city
-        %a.pic{:href => "blogpost.html"}
-          %img{:alt => "blog2", :src => "images/blog2.png"}/
-          .bg
-            %p How to develop scalable Rails apps
-        %a.pic{:href => "blogpost.html"}
-          %img{:alt => "blog3", :src => "images/blog3.png"}/
-          .bg
-            %p Enjoy your life at the beach
