@@ -37,6 +37,7 @@ class CodeLessonsController < ApplicationController
 
   def show
     @code_lesson = CodeLesson.find params[:id]
+    @language = Language.find @code_lesson.language_id
   end
 
   def destroy
