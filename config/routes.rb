@@ -1,21 +1,10 @@
 Rails.application.routes.draw do
-  get 'code_lessons/new'
-
-  get 'code_lessons/show'
-
-  get 'code_lessons/edit'
-
-  get 'tracks/new'
-
-  get 'tracks/edit'
-
-  get 'tracks/show'
-
-  get 'tracks/index'
 
   devise_for :users, controllers: { registrations: 'registrations' }
+
   root to: 'pages#home'
 
+  # Static Pages
   get '/about',   to: 'pages#about',   as: :about
   get '/pricing', to: 'pages#pricing', as: :pricing
   get '/contact', to: 'pages#contact', as: :contact
@@ -55,7 +44,11 @@ Rails.application.routes.draw do
   match '/courses/:id/tracks',   to: 'tracks#create',                 via: :post
 
   # Code Lessons
-  get '/tracks/:id/code_lessons/new', to: 'code_lessons#new',  as: :new_code_lesson
-  get '/code_lessons/:id',            to: 'code_lesson#show',  as: :code_lesson
-  get '/code_lessons/:id/edit',       to: 'code_lessons#edit', as: :edit_code_lesson
+  get '/tracks/:id/code-lessons/new', to: 'code_lessons#new',     as: :new_code_lesson
+  get '/tracks/:id/code-lessons',     to: 'code_lessons#index',   as: :code_lessons
+  get '/code-lessons/:id',            to: 'code_lesson#show',     as: :code_lesson
+  get '/code-lessons/:id/edit',       to: 'code_lessons#edit',    as: :edit_code_lesson
+  match '/code-lessons/:id',          to: 'code_lessons#destroy', as: :delete_code_lesson, via: :delete
+  match '/code-lessons/:id',          to: 'code_lessons#update',                           via: :patch
+  match '/tracks/:id/code-lessons',   to: 'code_lessons#create',                           via: :post
 end

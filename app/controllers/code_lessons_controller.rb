@@ -28,6 +28,11 @@ class CodeLessonsController < ApplicationController
     end
   end
 
+  def index
+    @track = Track.find params[:id]
+    redirect_to track_path @track
+  end
+
   def show
     @code_lesson = CodeLesson.find params[:id]
   end
