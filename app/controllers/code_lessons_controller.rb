@@ -1,4 +1,5 @@
 class CodeLessonsController < ApplicationController
+  before_action :authenticate_user!
 
   layout 'code_lesson', only: :show
 
@@ -37,6 +38,7 @@ class CodeLessonsController < ApplicationController
 
   def show
     @code_lesson = CodeLesson.find params[:id]
+    @track = @code_lesson.track
     @language = Language.find @code_lesson.language_id
   end
 

@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
+  before_action :authenticate_user!
   before_action :teacher_user, only: [:new, :create, :edit, :update, :destroy]
+
   def new
     @course = Course.new
   end
