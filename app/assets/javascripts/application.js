@@ -7,5 +7,6 @@
 //= require vendor/jquery.validate.min
 //= require vendor/sketch.min
 //= require vendor/spectrum
+//= require ace/ace
 //= require theme
 //= require_tree .
