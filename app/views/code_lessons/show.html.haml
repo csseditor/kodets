@@ -1,5 +1,18 @@
 - provide :title, @code_lesson.name
 
 #editor
+#code_lesson_sidebar
+  .container
+    %h1= @code_lesson.name
+    %p= @code_lesson.lesson_content
+
+  .container
+    %h1 Instructions
+    %p= @code_lesson.instructions
+
+  - if @code_lesson.hints.present?
+    .container
+      %h1 Hints
+      %p= @code_lesson.hints
 
 = render 'code_lessons/ace_javascript'
