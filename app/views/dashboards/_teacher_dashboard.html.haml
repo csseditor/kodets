@@ -2,12 +2,12 @@
   .container
     .row
       .col-md-12
-        - if current_org.users.count == 0
+        - if current_org.users.count < 20
           .alert.alert-info.alert-dismissible{role: "alert"}
             %button.close{type: "button", "data-dismiss" => "alert"}
               %span{"aria-hidden" => "true"} &times;
               %span.sr-only Close
-            You haven't added any users yet,
+            You don't seem to have many users,
             = link_to 'click here to add users.', new_student_import_path, class: 'alert-link'
         %h1 #{current_org.name} Dashboard
     .row.stats
