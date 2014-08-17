@@ -1,0 +1,10 @@
+%ol.breadcrumb
+  - if on_page 'courses', 'index'
+    %li.active Courses
+  - elsif on_page 'courses', 'show'
+    %li= link_to 'Courses', courses_path
+    %li.active= @course.name
+  - elsif on_page 'tracks', 'show'
+    %li= link_to 'Courses', courses_path
+    %li= link_to @track.course.name, course_path(@track.course)
+    %li.active= @track.name

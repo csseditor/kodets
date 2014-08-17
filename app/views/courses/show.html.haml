@@ -1,6 +1,8 @@
 - provide :title, @course.name
 
 .container
+  = render 'shared/breadcrumbs'
+
   - if current_user.teacher?
     .pull-right
       = link_to 'New Track', new_track_path, class: 'btn btn-default'
