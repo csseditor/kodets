@@ -4,7 +4,7 @@
 
 $header-height: 70px;
 $sidebar-width: 300px;
-$console-height: 150px;
+$console-height: 40%;
 
 #editor {
   position:fixed;
@@ -27,6 +27,19 @@ $console-height: 150px;
   .container {
     margin: 10px;
   }
+}
+
+iframe#html_view {
+  height: 100%;
+  width: 100%;
+}
+
+div#html_container {
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:$sidebar-width;
+  height: $console-height;
 }
 
 #default-code-editor {

@@ -15,3 +15,16 @@ $(function () {
   };
   startPrompt();
 });
+
+$("#disable_date").click(function() {
+  if (!this.checked) {
+    $("#code_lesson_date_due").val("");
+  }
+  $("#code_lesson_date_due").attr("disabled", !this.checked);
+});
+
+// CodeLesson#edit Tabs
+$('#myTab a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})

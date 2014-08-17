@@ -15,7 +15,6 @@
       },
       readOnly: true
     });
-    var setFontScript = "<style>body{font-family:Helvetica, Arial, sans-serif;}</style>";
   </script>
 <% elsif on_page 'code_lessons', 'edit' %>
   <script>
@@ -49,5 +48,39 @@
     editor2.getSession().on('change', function(){
       textarea2.val(editor2.getValue());
     });
+  </script>
+<% end %>
+
+<% if @language.ace_slug == "html" %>
+  <script>
+  var typingTimer;
+  var doneTypingInterval = 5000; // Time in ms after user stops typing waited
+                                 // until contents of editor are put into iframe.
+  var myiframe = $('#html_view'),
+      setFontScript = "<style>body{font-family:Helvetica, Arial, sans-serif;}</style>";
+
+  myiframe.attr("src", "data:text/html;charset=utf-8," + setFontScript + escape(editor.getValue()));
+
+  function addContentsToIframe() {
+    myiframe.attr("src", "data:text/html;charset=utf-8," + setFontScript + escape(editor.getValue()));
+  }
+
+  editor.getSession().on('change', function(e) {
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(addContentsToIframe(), doneTypingInterval);
+  });
+
+  </script>
+<% elsif @language.ace_slug == "markdown" %>
+  <script>
+  var myiframe = $('#html_view'),
+      startingContent = marked(editor.getValue()),
+      setFontScript = "<style>body{font-family:Helvetica, Arial, sans-serif;}</style>";
+      myiframe.attr("src", "data:text/html;charset=utf-8," + setFontScript + startingContent);
+
+  editor.getSession().on('change', function(e) {
+    var newContent = marked(editor.getValue());
+    myiframe.attr("src", "data:text/html;charset=utf-8," + setFontScript + newContent);
+  });
   </script>
 <% end %>

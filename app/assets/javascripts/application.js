@@ -9,5 +9,6 @@
 //= require vendor/spectrum
 //= require ace/ace
 //= require jqconsole/jqconsole
+//= require marked/marked
 //= require theme
 //= require_tree .

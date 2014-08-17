@@ -2,21 +2,26 @@
 
 #editor= @code_lesson.starting_code
 
-#console
+- if @language.ace_slug == 'html' || @language.ace_slug == 'markdown'
+  #html_container
+    %iframe#html_view
+      %p The iframe was unable to load.
+- else
+  #console
 
 #code_lesson_sidebar
   .container
     %h1= @code_lesson.name
-    %p= @code_lesson.lesson_content
+    %p= @cl_lesson_content
 
   .container
     %h1 Instructions
-    %p= @code_lesson.instructions
+    %p= @cl_instructions
 
   - if @code_lesson.hints.present?
     .container
       %h1 Hints
-      %p= @code_lesson.hints
+      %p= @cl_hints
 
   - if current_user.teacher?
     .container

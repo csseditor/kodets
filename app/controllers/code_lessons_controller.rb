@@ -43,6 +43,8 @@ class CodeLessonsController < ApplicationController
     @track = @code_lesson.track
     @language = Language.find @code_lesson.language_id
     @creator = User.find @code_lesson.user_id
+
+    code_lesson_info_with_markdown
   end
 
   def destroy
@@ -65,5 +67,15 @@ class CodeLessonsController < ApplicationController
                                         :hints, :order, :user_id,
                                         :organisation_id, :date_due,
                                         :correctness_test)
+  end
+
+  def code_lesson_info_with_markdown
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+                                       autolink: true,
+                                       space_after_headers: true)
+
+    @cl_lesson_content = markdown.render(@code_lesson.lesson_content).html_safe
+    @cl_instructions = markdown.render(@code_lesson.instructions).html_safe
+    @cl_hints = markdown.render(@code_lesson.hints).html_safe
   end
 end
