@@ -25,6 +25,7 @@ class TracksController < ApplicationController
 
   def show
     @track = Track.find params[:id]
+    @code_lesson = CodeLesson.new
   end
 
   def index

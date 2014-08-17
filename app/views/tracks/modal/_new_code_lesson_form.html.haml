@@ -1,0 +1,18 @@
+.modal-body
+  = form_for @code_lesson, url: create_code_lesson_path, class: 'form-horizontal' do |f|
+    = render 'shared/error_messages', object: f.object
+    .form-group.modal-form-group
+      = f.label :name
+      %span.required
+        %em (required)
+      = f.text_field :name, autofocus: true, placeholder: "Name", class: "form-control"
+    .form-group.modal-form-group
+      = f.label :language_id
+      %span.required
+        %em (required)
+      =# f.collection_select :language_id, Language.all.order('name ASC'), :id, :name, { prompt: true }, { class: 'form-control' }
+    = f.hidden_field :user_id, value: current_user.id
+    =# f.hidden_field :order, value: find_order
+    = f.hidden_field :organisation_id, value: current_org.id
+    .form-group.modal-form-group.modal-submit
+      = f.submit "Submit", class: "btn btn-primary"

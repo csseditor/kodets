@@ -8,4 +8,8 @@ class Track < ActiveRecord::Base
   def to_param
     [id, name.parameterize].join('-')
   end
+
+  def items
+    CodeLesson.where track_id: self.id
+  end
 end

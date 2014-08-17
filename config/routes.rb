@@ -50,5 +50,5 @@ Rails.application.routes.draw do
   get '/code-lessons/:id/edit',       to: 'code_lessons#edit',    as: :edit_code_lesson
   match '/code-lessons/:id',          to: 'code_lessons#destroy', as: :delete_code_lesson, via: :delete
   match '/code-lessons/:id',          to: 'code_lessons#update',                           via: :patch
-  match '/tracks/:id/code-lessons',   to: 'code_lessons#create',                           via: :post
+  match '/tracks/:id/code-lessons',   to: 'code_lessons#create',  as: :create_code_lesson, via: :post
 end
