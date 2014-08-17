@@ -7,26 +7,14 @@
         &copy;
       .col-sm-6.menu
         %ul
-          - if on_page('courses', 'index')
-            %li.active= link_to 'Courses', courses_path
-          - else
-            %li= link_to 'Courses', courses_path
+          = footer_link 'Courses', courses_path, 'courses', 'index'
           - if current_user.teacher?
-            - if on_page('pages', 'features')
-              %li.active= link_to 'Features', features_path
-            - else
-              %li= link_to 'Features', features_path
-            - if on_page('pages', 'pricing')
-              %li.active= link_to 'Pricing', pricing_path
-            - else
-              %li= link_to 'Pricing', pricing_path
-            %li= link_to 'Support', '#'
-            %li= link_to 'Blog', '#'
+            = footer_link 'Features', features_path, 'pages', 'features'
+            = footer_link 'Pricing', pricing_path, 'pages', 'pricing'
+            = footer_link 'Support', '#', 'pages', 'support'
+            = footer_link 'Blog', '#', 'blog', 'index'
           - else
-            - if on_page('users', 'show')
-              %li.active= link_to 'My Profile', user_path(current_user)
-            - else
-              %li= link_to 'My Profile', user_path(current_user)
+            = footer_link 'My Account', user_path(current_user), 'users', 'show'
       - if current_user.teacher?
         .col-sm-3.social
           = link_to 'http://twitter.com/kodets' do

@@ -45,4 +45,13 @@ module ApplicationHelper
     controller.controller_name == given_controller_name &&
     controller.action_name == given_action_name
   end
+
+  # Renders a link in the footer and highlights if it is on that page
+  def footer_link(link_text, link, given_controller_name, given_action_name)
+    if on_page(given_controller_name, given_action_name)
+      "<li class='active'><a href='#{link}'>#{link_text}</a></li>".html_safe
+    else
+      "<li><a href='#{link}'>#{link_text}</a></li>".html_safe
+    end
+  end
 end
