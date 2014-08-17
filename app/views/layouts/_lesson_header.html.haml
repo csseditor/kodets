@@ -1,0 +1,57 @@
+%header{class: header_class, role: "banner"}
+  .navbar-header
+    %button.navbar-toggle{"data-target" => ".bs-navbar-collapse", "data-toggle" => "collapse", type: "button"}
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to 'Kodets', root_path, class: 'navbar-brand'
+  %nav.collapse.navbar-collapse.bs-navbar-collapse{role: "navigation"}
+    %ul.nav.navbar-nav.navbar-right
+      - if user_signed_in?
+        %li= link_to 'Courses', courses_path
+        %li= link_to 'Dashboard', dashboard_path
+        - if current_user.teacher?
+          %li.dropdown
+            %a.dropdown-toggle{'href' => '#', 'data-toggle' => 'dropdown'}
+              %i.fa.fa-user
+              = current_user.name
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                = link_to edit_user_registration_path do
+                  %i.fa.fa-cog
+                  Account settings
+              %li
+                = link_to edit_organisation_path(current_user.organisation.ref) do
+                  %i.fa.fa-cog
+                  Organisation settings
+              %li
+                = link_to users_path do
+                  %i.fa.fa-user
+                  View all Students
+              %li
+                = link_to new_student_import_path do
+                  %i.fa.fa-upload
+                  Import Students
+              %hr
+              %li
+                = link_to destroy_user_session_path, method: :delete do
+                  %i.fa.fa-sign-out
+                  Sign out
+        - else
+          %li.dropdown
+            %a.dropdown-toggle{'href' => '#', 'data-toggle' => 'dropdown'}
+              %i.fa.fa-user
+              = current_user.name
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                = link_to destroy_user_session_path, method: :delete do
+                  %i.fa.fa-cog
+                  Sign out
+      - else
+        %li= link_to 'Home', root_path
+        %li= link_to 'Pricing', pricing_path
+        %li= link_to 'Features', features_path
+        %li= link_to 'Register', new_user_registration_path
+        %li= link_to 'Sign in', new_user_session_path, class: 'button'
