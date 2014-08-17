@@ -32,4 +32,7 @@
           = image_tag 'social/social-tw.png'
     .row.credits
       .col-md-12
-        Copyright © 2014. Kodets
+        Copyright &copy;
+        = succeed ',' do
+          = Time.now.year
+        Kodets.

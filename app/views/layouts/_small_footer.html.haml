@@ -2,9 +2,10 @@
   .container
     .row
       .col-sm-3.copyright
-        Kodets
-        = Time.now.year
-        &copy;
+        Copyright &copy;
+        = succeed ',' do
+          = Time.now.year
+        Kodets.
       .col-sm-6.menu
         %ul
           = footer_link 'Courses', courses_path, 'courses', 'index'
