@@ -1,5 +1,7 @@
 class CodeLessonsController < ApplicationController
 
+  layout 'code_lesson', only: :show
+
   def new
     @code_lesson = CodeLesson.new
   end
