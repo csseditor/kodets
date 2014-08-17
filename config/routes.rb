@@ -53,4 +53,9 @@ Rails.application.routes.draw do
   get '/tracks/:id',             to: 'tracks#show',  as: :track
   get '/tracks/:id/edit',        to: 'tracks#edit',  as: :edit_track
   match '/courses/:id/tracks',   to: 'tracks#create',                 via: :post
+
+  # Code Lessons
+  get '/tracks/:id/code_lessons/new', to: 'code_lessons#new',  as: :new_code_lesson
+  get '/code_lessons/:id',            to: 'code_lesson#show',  as: :code_lesson
+  get '/code_lessons/:id/edit',       to: 'code_lessons#edit', as: :edit_code_lesson
 end

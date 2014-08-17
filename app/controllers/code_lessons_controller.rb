@@ -43,4 +43,14 @@ class CodeLessonsController < ApplicationController
       redirect_to track_path @track
     end
   end
+
+  private
+
+  def code_lesson_params
+    params.require(:code_lesson).permit(:name, :language_id, :lesson_content,
+                                        :starting_code, :instructions,
+                                        :hints, :order, :user_id,
+                                        :organisation_id, :date_due,
+                                        :correctness_test)
+  end
 end
