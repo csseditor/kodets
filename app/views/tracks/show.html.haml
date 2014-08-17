@@ -6,7 +6,7 @@
       = link_to 'Edit Track', edit_track_path(@track), class: 'btn btn-primary'
 
       .btn-group
-        %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+        %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
           New Lesson
           %span.caret
         %ul.dropdown-menu{:role => "menu"}
@@ -20,10 +20,4 @@
   - @track.items.each do |item|
     = link_to item.name, item
 
-#new_code_lesson_modal.modal.fade{:role => "dialog"}
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-        %h4.modal-title New Code Lesson
-      = render 'tracks/modal/new_code_lesson_form'
+= render 'tracks/modal/new_code_lesson_modal'

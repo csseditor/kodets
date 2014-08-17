@@ -1,0 +1,7 @@
+#new_code_lesson_modal.modal.fade{:role => "dialog"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title New Code Lesson
+      = render 'tracks/modal/new_code_lesson_form'
