@@ -29,6 +29,16 @@ $console-height: 150px;
   }
 }
 
+#default-code-editor {
+  height:500px;
+  margin-bottom:10px;
+}
+
+#correctness-test-editor {
+  height:500px;
+  margin-bottom:10px;
+}
+
 #console {
   position: fixed;
   bottom: 0;

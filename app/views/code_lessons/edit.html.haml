@@ -1,1 +1,92 @@
-%h1 CodeLessons#edit
+.container
+  %h1= @code_lesson.name
+
+  .col-lg-8
+    %ul.nav.nav-tabs
+      %li.active= link_to 'Starting Code', '#starting_code', 'data-toggle' => 'tab'
+      %li= link_to 'Correctness Test', '#correctness_test', 'data-toggle' => 'tab'
+
+  = form_for @code_lesson do |f|
+    .tab-content
+      #starting_code.tab-pane.active
+        .col-lg-8
+          .form-group.edit-cl-editor-form-group
+            = f.label :starting_code, 'Default Code'
+            = f.text_area :starting_code, class: 'form-control', style: 'display:none;'
+            #default-code-editor.form-control
+      #correctness_test.tab-pane
+        .col-lg-8
+          .form-group.edit-cl-editor-form-group
+            = f.label :correctness_test, 'Correctness Test'
+            = f.text_area :correctness_test, class: 'form-control', style: 'display:none;'
+            #correctness-test-editor.form-control
+            %p
+              The
+              %code code
+              variable contains the code the user submitted, to check if it contains code use the following syntax:
+              %pre code.include?('console.log')
+            %p
+              The
+              %code result
+              variable contains the code the user submitted, to check if it contains code use the following syntax:
+              %pre result.include?('Hello, World')
+            %p
+              The correctnes tests are written in Ruby, so the following would be acceptable to do a non-case-sensitive check:
+              %pre result.downcase.include?('hello, world')
+    .col-lg-4
+      = render 'shared/error_messages', object: f.object
+
+      .form-group
+        = f.label :name
+        %span.required
+          %em (required)
+        = f.text_field :name, autofocus: true, placeholder: "Name", class: "form-control"
+
+      .form-group
+        = f.label :language_id, 'Language'
+        %span.required
+          %em (required)
+        = f.collection_select :language_id, Language.all, :id, :name, { prompt: true }, { class: "form-control" }
+
+      .form-group
+        - if @code_lesson.date_due.present?
+          %input#disable_date{checked: 'checked', type: 'checkbox'}
+          %label{for: 'disable_date'} Is this due for a certain date?
+          = f.label :date_due, 'Date Due'
+          = f.date_field :date_due, placeholder: "Date Due", class: "form-control"
+        - else
+          %input#disable_date{type: 'checkbox'}
+          %label{for: 'disable_date'} Is this due for a certain date?
+          = f.label :date_due, 'Date Due'
+          = f.date_field :date_due, placeholder: 'Date Due', class: 'form-control', disabled: 'disabled'
+
+      .form-group
+        .alert.alert-info
+          %p
+            Lesson Content, Instructions and Hints are all written in
+            %strong Markdown
+            = link_to 'Learn how to use it', '#', 'data-toggle' => 'modal', 'data-target' => '#learnMarkdown'
+
+      .form-group
+        = f.label :lesson_content, 'Lesson Content'
+        %span.required
+          %em (required)
+        = f.text_area :lesson_content, placeholder: "Lesson Content", rows: 6, class: "form-control"
+
+      .form-group
+        = f.label :instructions
+        %span.required
+          %em (required)
+        = f.text_area :instructions, placeholder: "Instructions", rows: 6, class: "form-control"
+
+      .form-group
+        = f.label :hints
+        = f.text_area :hints, placeholder: "Hints", rows: 6, class: "form-control"
+
+      = f.hidden_field :user_id, value: current_user.id
+
+      .form-group.pull-right
+        = link_to "Back to Lesson", code_lesson_path(@code_lesson), class: "btn btn-default"
+        = f.submit "Submit", class: "btn btn-primary"
+
+= render 'code_lessons/ace_javascript'

@@ -1,18 +1,53 @@
-<script>
-  var editor = ace.edit("editor");
-  editor.setTheme("ace/theme/monokai");
-  editor.getSession().setMode("ace/mode/<%= escape_javascript(@language.ace_slug) %>");
-  document.getElementById('editor').style.fontSize='14px';
-  editor.getSession().setTabSize(2);
-  editor.getSession().setUseWrapMode(true);
-  editor.getSession().setWrapLimitRange();
-  editor.commands.addCommand({
-    name: 'Save Code',
-    bindKey: { win: 'Ctrl-Enter',  mac: 'Command-Enter' },
-    exec: function(editor) {
-      // submit code
-    },
-    readOnly: true
-  });
-  var setFontScript = "<style>body{font-family:Helvetica, Arial, sans-serif;}</style>";
-</script>
+<% if on_page 'code_lessons', 'show' %>
+  <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/<%= escape_javascript(@language.ace_slug) %>");
+    document.getElementById('editor').style.fontSize='14px';
+    editor.getSession().setTabSize(2);
+    editor.getSession().setUseWrapMode(true);
+    editor.getSession().setWrapLimitRange();
+    editor.commands.addCommand({
+      name: 'Save Code',
+      bindKey: { win: 'Ctrl-Enter',  mac: 'Command-Enter' },
+      exec: function(editor) {
+        // submit code
+      },
+      readOnly: true
+    });
+    var setFontScript = "<style>body{font-family:Helvetica, Arial, sans-serif;}</style>";
+  </script>
+<% elsif on_page 'code_lessons', 'edit' %>
+  <script>
+    var editor1ID = "default-code-editor",
+        editor2ID = "correctness-test-editor";
+
+    var editor1 = ace.edit(editor1ID);
+    editor1.setTheme("ace/theme/monokai");
+    editor1.getSession().setMode("ace/mode/<%= escape_javascript(@language.ace_slug) %>");
+    document.getElementById(editor1ID).style.fontSize='14px';
+    editor1.getSession().setTabSize(2);
+    editor1.getSession().setUseWrapMode(true);
+    editor1.getSession().setWrapLimitRange();
+
+    var editor2 = ace.edit(editor2ID);
+    editor2.setTheme("ace/theme/monokai");
+    editor2.getSession().setMode("ace/mode/<%= escape_javascript(@language.ace_slug) %>");
+    document.getElementById(editor2ID).style.fontSize='14px';
+    editor2.getSession().setTabSize(2);
+    editor2.getSession().setUseWrapMode(true);
+    editor2.getSession().setWrapLimitRange();
+
+    var textarea = $('#code_lesson_starting_code').hide();
+    editor1.getSession().setValue(textarea.val());
+    editor1.getSession().on('change', function(){
+      textarea.val(editor1.getValue());
+    });
+
+    var textarea2 = $('#code_lesson_correctness_test').hide();
+    editor2.getSession().setValue(textarea2.val());
+    editor2.getSession().on('change', function(){
+      textarea2.val(editor2.getValue());
+    });
+  </script>
+<% end %>

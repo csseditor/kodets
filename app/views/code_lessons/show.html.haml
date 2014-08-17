@@ -1,6 +1,6 @@
 - provide :title, @code_lesson.name
 
-#editor= @code_lesson.starting_code if @code_lesson.starting_code
+#editor= @code_lesson.starting_code
 
 #console
 
@@ -17,5 +17,10 @@
     .container
       %h1 Hints
       %p= @code_lesson.hints
+
+  - if current_user.teacher?
+    .container
+      = link_to 'Edit Lesson', edit_code_lesson_path(@code_lesson), class: 'btn btn-primary'
+      = link_to 'See who completed', '#', class: 'btn btn-primary'
 
 = render 'code_lessons/ace_javascript'

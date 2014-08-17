@@ -20,6 +20,7 @@ class CodeLessonsController < ApplicationController
 
   def edit
     @code_lesson = CodeLesson.find params[:id]
+    @language = Language.find @code_lesson.language_id
   end
 
   def update
