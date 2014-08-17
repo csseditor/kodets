@@ -1,6 +1,9 @@
 - provide :title, @code_lesson.name
 
-#editor
+#editor= @code_lesson.starting_code if @code_lesson.starting_code
+
+#console
+
 #code_lesson_sidebar
   .container
     %h1= @code_lesson.name

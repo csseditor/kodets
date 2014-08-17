@@ -8,5 +8,6 @@
 //= require vendor/sketch.min
 //= require vendor/spectrum
 //= require ace/ace
+//= require jqconsole/jqconsole
 //= require theme
 //= require_tree .
