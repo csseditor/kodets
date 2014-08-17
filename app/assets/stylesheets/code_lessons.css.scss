@@ -39,11 +39,13 @@ $console-height: 150px;
 }
 
 .jqconsole {
-    padding: 10px;
+  padding: 10px;
+  background-color: #000;
 }
 /* The cursor. */
 .jqconsole-cursor {
-    background-color: gray;
+  background-color: gray;
+  margin-bottom: 10px;
 }
 /* The cursor color when the console looses focus. */
 .jqconsole-blurred .jqconsole-cursor {
@@ -51,7 +53,7 @@ $console-height: 150px;
 }
 /* The current prompt text color */
 .jqconsole-prompt {
-    color: #0d0;
+  color: #0d0;
 }
 /* The command history */
 .jqconsole-old-prompt {

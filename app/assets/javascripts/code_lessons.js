@@ -5,6 +5,11 @@ $(function () {
     jqconsole.Prompt(true, function (input) {
       // Output input with the class jqconsole-output.
       jqconsole.Write(input + '\n', 'jqconsole-output');
+
+      $(".jqconsole").animate({
+        scrollTop: $(".jqconsole").height()
+      }, 1000);
+
       startPrompt();
     });
   };
