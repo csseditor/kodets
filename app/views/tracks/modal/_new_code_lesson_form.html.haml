@@ -10,7 +10,7 @@
       = f.label :language_id
       %span.required
         %em (required)
-      =# f.collection_select :language_id, Language.all.order('name ASC'), :id, :name, { prompt: true }, { class: 'form-control' }
+      = f.collection_select :language_id, Language.all.order('name ASC'), :id, :name, { prompt: true }, { class: 'form-control' }
     = f.hidden_field :user_id, value: current_user.id
     =# f.hidden_field :order, value: find_order
     = f.hidden_field :organisation_id, value: current_org.id

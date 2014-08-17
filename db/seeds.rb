@@ -6,7 +6,7 @@ def create_languages
               ["Ruby", "ruby", "ruby"]]
 
   languages.each do |language|
-    Language.create(name: language[0], ace_slug: language[1], evalso_slug: language[2])
+    Language.create(name: language[0], ace_slug: language[1], code_eval_slug: language[2])
   end
 end
 
