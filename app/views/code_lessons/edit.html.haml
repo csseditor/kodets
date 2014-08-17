@@ -64,8 +64,8 @@
         .alert.alert-info
           %p
             Lesson Content, Instructions and Hints are all written in
-            %strong Markdown
-            = link_to 'Learn how to use it', '#', 'data-toggle' => 'modal', 'data-target' => '#learnMarkdown'
+            %strong Markdown.
+            = link_to 'Learn how to use it.', '#', 'data-toggle' => 'modal', 'data-target' => '#learn_markdown'
 
       .form-group
         = f.label :lesson_content, 'Lesson Content'
@@ -90,3 +90,4 @@
         = f.submit "Submit", class: "btn btn-primary"
 
 = render 'code_lessons/ace_javascript'
+= render 'code_lessons/markdown_modal'

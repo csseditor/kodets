@@ -39,6 +39,12 @@ $console-height: 150px;
   margin-bottom:10px;
 }
 
+#learn_markdown .catagory {margin:45px 0; padding-bottom:1420px;}
+#learn_markdown .catagory:first-child {margin-top:0;}
+#learn_markdown hr {margin:20px 0;}
+#learn_markdown h5.title {text-decoration:underline;}
+
+/* jQConsole */
 #console {
   position: fixed;
   bottom: 0;
