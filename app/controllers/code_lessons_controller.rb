@@ -20,6 +20,7 @@ class CodeLessonsController < ApplicationController
 
   def edit
     @code_lesson = CodeLesson.find params[:id]
+    @track = @code_lesson.track
     @language = Language.find @code_lesson.language_id
   end
 
@@ -41,6 +42,7 @@ class CodeLessonsController < ApplicationController
     @code_lesson = CodeLesson.find params[:id]
     @track = @code_lesson.track
     @language = Language.find @code_lesson.language_id
+    @creator = User.find @code_lesson.user_id
   end
 
   def destroy
