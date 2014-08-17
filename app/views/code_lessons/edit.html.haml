@@ -54,6 +54,8 @@
         - if @code_lesson.date_due.present?
           %input#disable_date{checked: 'checked', type: 'checkbox'}
           %label{for: 'disable_date'} Is this due for a certain date?
+          %br/
+          %br/
           = f.label :date_due, 'Date Due'
           = f.date_field :date_due, placeholder: "Date Due", class: "form-control"
         - else

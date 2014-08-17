@@ -27,4 +27,5 @@
           .pull-right
             = link_to 'Edit', edit_code_lesson_path(item)
 
-= render 'tracks/modal/new_code_lesson_modal'
+- if current_user.teacher?
+  = render 'tracks/modal/new_code_lesson_modal'
