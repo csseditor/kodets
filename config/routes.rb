@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'code_lessons/new'
+
+  get 'code_lessons/show'
+
+  get 'code_lessons/edit'
+
   get 'tracks/new'
 
   get 'tracks/edit'
