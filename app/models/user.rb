@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
 
   belongs_to :organisation
 
-  validates :name,     presence: true
   validates :username, presence: true, uniqueness: { case_sensitive: false,
                                                      scope: :organisation,
                                                      message: 'must be unique' }
