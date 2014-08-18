@@ -12,3 +12,4 @@
 //= require marked/marked
 //= require theme
 //= require_tree .
+//= stub jqconsole
