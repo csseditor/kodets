@@ -1,12 +1,19 @@
-- if false # change to if lesson is completedlist-group-item-success
-  %li.list-group-item.list-group-item-success
-    = link_to item.name, item
-    - if current_user.teacher?
-      .pull-right
-        = link_to 'Edit', edit_code_lesson_path(item)
-- else
+- if item.visible?
+  - if false # change to if lesson is completed
+    %li.list-group-item.list-group-item-success
+      = link_to item.name, item
+      - if current_user.teacher?
+        .pull-right
+          = link_to 'Edit', edit_code_lesson_path(item)
+  - else
+    %li.list-group-item
+      = link_to item.name, item
+      - if current_user.teacher?
+        .pull-right
+          = link_to 'Edit', edit_code_lesson_path(item)
+- elsif !item.visible? && current_user.teacher?
   %li.list-group-item
     = link_to item.name, item
-    - if current_user.teacher?
-      .pull-right
-        = link_to 'Edit', edit_code_lesson_path(item)
+    .pull-right
+      %span.text-danger This item is not visible to students
+      = link_to 'Edit', edit_code_lesson_path(item)

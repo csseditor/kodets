@@ -3,4 +3,7 @@
 .container
   %h1
     = @user.name
-    %small= @user.username
+    %small
+      = @user.username
+      - if @user.teacher?
+        %span.label.label-info TEACHER
