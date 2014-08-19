@@ -28,6 +28,31 @@ def create_students
               organisation_id: Organisation.first.id)
 end
 
+def create_teacher
+  User.create(name: 'Teacher 1',
+              email: 'teacher@horsforthschool.org',
+              username: 'teacher@horsforthschool.org',
+              password: 'password',
+              password_confirmation: 'password',
+              organisation_id: Organisation.first.id,
+              teacher: true)
+end
+
+def create_course
+  Course.create(name: 'Ruby Test Course', 
+                description: 'Ruby is a scripting language',
+                organisation_id: Organisation.first.id)
+end
+
+def create_track
+  Track.create(name: 'Ruby Test Track',
+               description: 'Introduction to Ruby',
+               course_id: Course.first.id)
+end
+
 create_languages
 create_organisation
 create_students
+create_teacher
+create_course
+create_track
