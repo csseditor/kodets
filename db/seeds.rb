@@ -5,9 +5,29 @@ def create_languages
               ["Python 2", "python", "python2"], ["Python 3", "python", "python3"],
               ["Ruby", "ruby", "ruby"]]
 
-  languages.each do |language|
-    Language.create(name: language[0], ace_slug: language[1], code_eval_slug: language[2])
+  unless Language.all.count == languages.length
+    languages.each do |language|
+      Language.create name: language[0], ace_slug: language[1], code_eval_slug: language[2]
+    end
   end
 end
 
+def create_organisation
+  Organisation.create(name: 'Horsforth School',
+                      email: 'teacher@horsforthscool.org',
+                      max_users: 50,
+                      url: 'http://horsforthschool.org')
+end
+
+def create_students
+  User.create(name: 'Student 1',
+              email: 'greentp02@horsforthschool.org',
+              username: 'greentp02@horsforthschool.org',
+              password: 'password',
+              password_confirmation: 'password',
+              organisation_id: Organisation.first.id)
+end
+
 create_languages
+create_organisation
+create_students
