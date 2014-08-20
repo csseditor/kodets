@@ -1,9 +1,15 @@
 <% if on_page 'code_lessons', 'show' %>
   <script>
-    var editor = ace.edit("editor");
+    <% if @language.ace_slug == 'html' || @language.ace_slug == 'markdown' %>
+      var editor_id = 'html_editor';
+    <% else %>
+      var editor_id = 'editor';
+    <% end %>
+    
+    var editor = ace.edit(editor_id);
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/<%= escape_javascript(@language.ace_slug) %>");
-    document.getElementById('editor').style.fontSize='14px';
+    document.getElementById(editor_id).style.fontSize='14px';
     editor.getSession().setTabSize(2);
     editor.getSession().setUseWrapMode(true);
     editor.getSession().setWrapLimitRange();
@@ -51,7 +57,7 @@
   </script>
 <% end %>
 
-<% if @language.ace_slug == "html" %>
+<% if @language.ace_slug == 'html' %>
   <script>
   var typingTimer;
   var doneTypingInterval = 5000; // Time in ms after user stops typing waited
@@ -71,7 +77,7 @@
   });
 
   </script>
-<% elsif @language.ace_slug == "markdown" %>
+<% elsif @language.ace_slug == 'markdown' %>
   <script>
   var myiframe = $('#html_view'),
       startingContent = marked(editor.getValue()),

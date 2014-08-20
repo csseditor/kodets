@@ -1,12 +1,12 @@
 - provide :title, @code_lesson.name
 
-#editor= @code_lesson.starting_code
-
 - if @language.ace_slug == 'html' || @language.ace_slug == 'markdown'
+  #html_editor= @code_lesson.starting_code
   #html_container
     %iframe#html_view
       %p The iframe was unable to load.
 - else
+  #editor= @code_lesson.starting_code
   #console
 
 #code_lesson_sidebar

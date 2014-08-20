@@ -1,11 +1,18 @@
-// Place all the styles related to the CodeLessons controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 $header-height: 70px;
 $sidebar-width: 300px;
-$console-height: 40%;
+$console-height: 300px;
+$html-console-height: 40%;
 
+/* Editors for HTML/Markdown lessons */
+#html_editor {
+  position:fixed;
+  top: $header-height;
+  right: $sidebar-width;
+  bottom: $html-console-height;
+  left: 0;
+}
+
+/* Editor for any other lesson language other than HTML/Markdown */
 #editor {
   position:fixed;
   top: $header-height;
@@ -38,8 +45,8 @@ div#html_container {
   position:fixed;
   bottom:0;
   left:0;
-  right:$sidebar-width;
-  height: $console-height;
+  right: $sidebar-width;
+  height: $html-console-height;
 }
 
 #default-code-editor {
@@ -57,7 +64,11 @@ div#html_container {
 #learn_markdown hr {margin:20px 0;}
 #learn_markdown h5.title {text-decoration:underline;}
 
-/* jQConsole */
+/**
+ *
+ * jQConsole
+ *
+ */
 #console {
   position: fixed;
   bottom: 0;
