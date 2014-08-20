@@ -11,8 +11,9 @@
         %strong= students.first
         = students.last
       .col-sm-4
-        %strong #{current_org.courses.count}
-        courses
+        - courses = pluralise(current_org.courses.count, 'course')
+        %strong= courses.first
+        = courses.last
       .col-sm-4
         %strong #{'3'}
         homework overdue
