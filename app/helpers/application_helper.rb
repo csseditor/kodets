@@ -54,4 +54,22 @@ module ApplicationHelper
       "<li><a href='#{link}'>#{link_text}</a></li>".html_safe
     end
   end
+
+  # Returns path for different lesson types
+  def path_for_lesson(item)
+    case item.class.name
+    when 'CodeLesson'
+      code_lesson_path(item)
+    when 'VideoLesson'
+      video_lesson_path(item)
+    when 'Quiz'
+      first_question_quiz_path(item)
+    when 'TextLesson'
+        text_lesson_path(item)
+    when 'Competition'
+      competition_path(item)
+    else
+      '#'
+    end
+  end
 end

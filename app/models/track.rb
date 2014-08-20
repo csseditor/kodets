@@ -10,6 +10,7 @@ class Track < ActiveRecord::Base
   end
 
   def items
-    CodeLesson.where track_id: self.id
+    CodeLesson.where(track_id: self.id) +
+    []
   end
 end
