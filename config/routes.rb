@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   get '/tracks/:id',             to: 'tracks#show',  as: :track
   get '/tracks/:id/edit',        to: 'tracks#edit',  as: :edit_track
   match '/courses/:id/tracks',   to: 'tracks#create',                 via: :post
+  match '/update-lesson-order',  to: 'tracks#update_lesson_order', as: :update_lesson_order, via: :post
 
   # Code Lessons
   get '/tracks/:id/code-lessons/new', to: 'code_lessons#new',     as: :new_code_lesson
