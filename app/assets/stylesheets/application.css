@@ -12,3 +12,13 @@
  *= require vendor/spectrum
  *= require theme.scss
 */
+
+/* Styles */
+.bold {
+  font-weight:bold;
+}
+
+/* Colors */
+.gray {
+  color: #aaaaaa;
+}
