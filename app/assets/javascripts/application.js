@@ -14,3 +14,4 @@
 //= require theme
 //= require_tree .
 //= stub jqconsole
+//= stub jquery_sortable
