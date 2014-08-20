@@ -23,7 +23,7 @@
           %span.glyphicon.glyphicon-align-justify
           icon to rearrage the order of lessons in the track.
 
-        %ul#edit-track-sortable
+        %ul#edit-track-sortable.hard-top-10
           - @track.items.sort_by! { |i| i.order }.each do |item|
             %li.list-group-item.edit-track-sortable-item{"id" => "#{item.class.name.parameterize}-#{item.id}", "data-id" => "#{item.class.name}-#{item.id}"}
 

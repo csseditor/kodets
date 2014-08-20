@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.sortable
 //= require bootstrap/bootstrap.min
 //= require vendor/imagesloaded
 //= require vendor/jquery.flexslider.min

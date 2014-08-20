@@ -2,10 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#new_code_lesson_modal {
-  margin-top: 150px;
-}
+#new_code_lesson_modal {margin-top: 150px;}
 
-#edit-track-sortable {
-  margin-top: 10px;
-}
+.edit-track-move-icon:hover {cursor:pointer;}

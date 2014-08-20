@@ -13,6 +13,7 @@ gem 'devise'
 gem 'roo', '~> 1.13.2'
 gem 'spreadsheet', '~> 0.9.7'
 gem 'redcarpet', '~> 3.1.0'
+gem 'jquery-ui-rails', '~> 4.2.0'
 
 gem 'jbuilder'
 
