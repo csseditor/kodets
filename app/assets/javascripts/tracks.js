@@ -1,3 +1,5 @@
 $(document).on("ready page:change", function() {
-    $('#visible-tooltip').tooltip();
+    $('.visible-tooltip').each(function(index) {
+      $('.visible-tooltip-' + index).tooltip();
+    })
 });

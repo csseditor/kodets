@@ -1,14 +1,14 @@
 $header-height: 70px;
 $sidebar-width: 300px;
 $console-height: 300px;
-$html-console-height: 40%;
+$html-iframe-height: 40%;
 
-/* Editors for HTML/Markdown lessons */
+/* Editor for HTML/Markdown lessons */
 #html_editor {
   position:fixed;
   top: $header-height;
   right: $sidebar-width;
-  bottom: $html-console-height;
+  bottom: $html-iframe-height;
   left: 0;
 }
 
@@ -46,7 +46,7 @@ div#html_container {
   bottom:0;
   left:0;
   right: $sidebar-width;
-  height: $html-console-height;
+  height: $html-iframe-height;
 }
 
 #default-code-editor {
@@ -113,4 +113,3 @@ div#html_container {
 .jqconsole-output {
     color: white;
 }
-

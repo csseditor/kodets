@@ -19,9 +19,9 @@
   %h1= @track.name
 
 
-  %ul.list-group
-    - @track.items.each do |item|
-      = render 'tracks/track_item', item: item
+  %ul.list-group.track-show-items
+    - @track.items.each_with_index do |item, index|
+      = render 'tracks/track_item', item: item, index: index
 
 - if current_user.teacher?
   = render 'tracks/modal/new_code_lesson_modal'
