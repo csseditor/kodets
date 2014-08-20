@@ -72,4 +72,23 @@ module ApplicationHelper
       '#'
     end
   end
+
+  # Used to update the order of lessons in a track, finds item based on id and
+  # class name.
+  def find_lesson_from_param(id, item_type)
+    case item_type
+    when 'CodeLesson'
+      CodeLesson.find(id) || nil
+    when 'VideoLesson'
+      VideoLesson.find(id) || nil
+    when 'Quiz'
+      Quiz.find(id) || nil
+    when 'TextLesson'
+      TextLesson.find(id) || nil
+    when 'Competition'
+      Competition.find(id) || nil
+    else
+      nil
+    end
+  end
 end
