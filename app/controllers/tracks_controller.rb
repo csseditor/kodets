@@ -37,6 +37,10 @@ class TracksController < ApplicationController
     @track = Track.find params[:id]
   end
 
+  def edit_order
+    @track = Track.find params[:id]
+  end
+
   def update_lesson_order
     @track = Track.find params[:track][:track_id]
     params[:track][:items].each do |i|
@@ -46,7 +50,8 @@ class TracksController < ApplicationController
       item.save
     end
 
-    render json: '{}'
+    flash[:success] = 'Order changed'
+    redirect_to track_path @track
   end
 
   private

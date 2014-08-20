@@ -37,10 +37,11 @@ Rails.application.routes.draw do
   resources :courses
 
   # Tracks
-  get '/courses/:id/tracks',     to: 'tracks#index', as: :tracks
-  get '/courses/:id/tracks/new', to: 'tracks#new',   as: :new_track
-  get '/tracks/:id',             to: 'tracks#show',  as: :track
-  get '/tracks/:id/edit',        to: 'tracks#edit',  as: :edit_track
+  get '/courses/:id/tracks',     to: 'tracks#index',       as: :tracks
+  get '/courses/:id/tracks/new', to: 'tracks#new',         as: :new_track
+  get '/tracks/:id',             to: 'tracks#show',        as: :track
+  get '/tracks/:id/edit',        to: 'tracks#edit',        as: :edit_track
+  get '/tracks/:id/edit-order',  to: 'tracks#edit_order',  as: :edit_track_order
   match '/courses/:id/tracks',   to: 'tracks#create',                 via: :post
   match '/update-lesson-order',  to: 'tracks#update_lesson_order', as: :update_lesson_order, via: :post
 

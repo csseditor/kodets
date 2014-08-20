@@ -1,0 +1,35 @@
+- provide :title, 'Edit Order'
+
+.container
+  .row
+    .col-md-8
+      .alert.alert-info.alert-dismissable
+        %button.close{"type" => "button", "data-dismiss" => "alert", "aria-hidden" => "true"} &times;
+        Click and drag the
+        %span.glyphicon.glyphicon-align-justify
+        icon to rearrage the order of lessons in the track.
+
+      %ul#edit-track-sortable.hard-top-10
+        - @track.items.sort_by! { |i| i.order }.each do |item|
+          %li.list-group-item.edit-track-sortable-item{"id" => "#{item.class.name.parameterize}-#{item.id}", "data-id" => "#{item.class.name}-#{item.id}"}
+
+            - # path_for_lesson found in ApplicationHelper
+            = link_to item.name, path_for_lesson(item)
+            %span.label.label-primary.track-item-label= item.class.name
+            %span.glyphicon.glyphicon-align-justify.pull-right.edit-track-move-icon
+
+      - # Whenever the items are re-ordered some JS adds their new values to this form
+      = form_for @track, url: update_lesson_order_path, method: :post, html: { class: 'update-lesson-order-form' } do |f|
+        = f.hidden_field :track_id, value: @track.id
+        - @track.items.each_with_index do |fitem, n|
+          %input{"type" => "hidden", "name" => "track[items][#{n}][id]", "id" => "id-#{fitem.class.name}-#{fitem.id}", "value" => fitem.id}
+          %input{"type" => "hidden", "name" => "track[items][#{n}][type]", "id" => "type-#{fitem.class.name}-#{fitem.id}", "value" => fitem.class.name}
+          %input{"type" => "hidden", "name" => "track[items][#{n}][order]", "id" => "order-#{fitem.class.name}-#{fitem.id}"}
+        .pull-right
+          = link_to 'Back to Track', track_path(@track), class: "btn btn-default"
+          = f.submit 'Submit', class: 'btn btn-primary'
+
+      .update-order-form-status
+
+- # Require sortable files after page load otherwise it doesn't work
+= javascript_include_tag 'jquery_sortable'

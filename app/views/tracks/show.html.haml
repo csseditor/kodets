@@ -5,6 +5,7 @@
 
   - if current_user.teacher?
     .pull-right
+      = link_to 'Edit Order of Lessons', edit_track_order_path, class: 'btn btn-primary'
       = link_to 'Edit Track', edit_track_path(@track), class: 'btn btn-primary'
 
       .btn-group
