@@ -10,11 +10,12 @@
         icon to rearrage the order of lessons in the track.
 
       %ul#edit-track-sortable.hard-top-10
-        - @track.items.sort_by! { |i| i.order }.each do |item|
+        - @items.each do |item|
           %li.list-group-item.edit-track-sortable-item{"id" => "#{item.class.name.parameterize}-#{item.id}", "data-id" => "#{item.class.name}-#{item.id}"}
 
             - # path_for_lesson found in ApplicationHelper
             = link_to item.name, path_for_lesson(item)
+            = item.order
             %span.label.label-primary.track-item-label= item.class.name
             %span.glyphicon.glyphicon-align-justify.pull-right.edit-track-move-icon
 

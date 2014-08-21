@@ -39,6 +39,7 @@ class TracksController < ApplicationController
 
   def edit_order
     @track = Track.find params[:id]
+    @items = @track.items.sort_by! { |item| item.order }
   end
 
   def update_lesson_order
