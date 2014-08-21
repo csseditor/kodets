@@ -13,13 +13,11 @@
       #starting_code.tab-pane.active
         .col-lg-8
           .form-group.edit-cl-editor-form-group
-            = f.label :starting_code, 'Default Code'
             = f.text_area :starting_code, class: 'form-control', style: 'display:none;'
             #default-code-editor.form-control
       #correctness_test.tab-pane
         .col-lg-8
           .form-group.edit-cl-editor-form-group
-            = f.label :correctness_test, 'Correctness Test'
             = f.text_area :correctness_test, class: 'form-control', style: 'display:none;'
             #correctness-test-editor.form-control
             %p
