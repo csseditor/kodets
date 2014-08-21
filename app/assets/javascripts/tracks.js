@@ -1,5 +1,5 @@
 $(document).on("ready page:change", function() {
-  $('.visible-tooltip').each(function(index) {
+  $('ul.track-show-items li').each(function(index) {
     $('.visible-tooltip-' + index).tooltip();
   })
 });
