@@ -1,21 +1,23 @@
 - if item.visible?
-  - if false # change to if lesson is completed
-    %li.list-group-item.list-group-item-success
-      = link_to item.name, item
-      - if current_user.teacher?
-        .pull-right
-          = link_to 'Edit', edit_code_lesson_path(item)
-  - else
-    %li.list-group-item
-      = link_to item.name, item
-      - if current_user.teacher?
-        .pull-right
-          = link_to 'Edit', edit_code_lesson_path(item)
+  %li.list-group-item
+    = link_to item, class: 'black-icon' do
+      %span.octicon.octicon-terminal
+      = item.name
+    - if current_user.teacher?
+      .pull-right
+        = link_to edit_code_lesson_path(item), class: 'black-icon' do
+          %span.octicon.octicon-pencil
+          Edit
+
 - elsif !item.visible? && current_user.teacher?
   %li.list-group-item
-    = link_to item.name, item
+    = link_to item, class: 'black-icon' do
+      %span.octicon.octicon-terminal
+      = item.name
     %span.text-danger{"class" => "visible-tooltip visible-tooltip-#{index}", "data-toggle" => "tooltip", "data-placement" => "top", "title" => "You need to add #{required_empty_fields(item)}."}
       %span.octicon.octicon-alert
       This item is not visible to students
     .pull-right
-      = link_to 'Edit', edit_code_lesson_path(item)
+      = link_to edit_code_lesson_path(item), class: 'black-icon' do
+        %span.octicon.octicon-pencil
+        Edit

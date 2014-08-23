@@ -9,6 +9,6 @@ module CodeLessonsHelper
       missing.push(field.humanize) if code_lesson.read_attribute(field) == "" || code_lesson.read_attribute(field) == nil
     end
 
-    missing.to_sentence if missing.any?
+    missing.any? ? missing.to_sentence : 'nothing'
   end
 end
