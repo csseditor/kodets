@@ -9,8 +9,9 @@
     %li= link_to @track.course.name, course_path(@track.course)
     %li.active
       = @track.name
-  - elsif on_page 'code_lessons', 'edit'
+  - elsif on_page('code_lessons', 'edit') || on_page('code_lessons', 'update')
     %li= link_to 'Courses', courses_path
     %li= link_to @track.course.name, course_path(@track.course)
     %li= link_to @track.name, track_path(@track)
-    %li.active= @code_lesson.name
+    %li= link_to @code_lesson.name, @code_lesson
+    %li.active Edit

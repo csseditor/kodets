@@ -5,7 +5,7 @@
     <% else %>
       var editor_id = 'editor';
     <% end %>
-    
+
     var editor = ace.edit(editor_id);
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/<%= escape_javascript(@language.ace_slug) %>");
@@ -22,7 +22,7 @@
       readOnly: true
     });
   </script>
-<% elsif on_page 'code_lessons', 'edit' %>
+<% elsif on_page('code_lessons', 'edit') || on_page('code_lessons', 'update') %>
   <script>
     var editor1ID = "default-code-editor",
         editor2ID = "correctness-test-editor";
