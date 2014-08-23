@@ -1,0 +1,9 @@
+<% if @language.ace_slug == 'html' || @language.ace_slug == 'markdown' %>
+  <div id="html_editor"><%= @code_lesson.starting_code %></div>
+  <div id="html_container">
+    <iframe id="html_view">The iframe was unable to load.</iframe>
+  </div>
+<% else %>
+  <div id="editor"><%= @code_lesson.starting_code %></div>
+  <div id="console"></div>
+<% end %>

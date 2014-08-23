@@ -2,6 +2,7 @@ $header-height: 70px;
 $sidebar-width: 300px;
 $console-height: 30%;
 $html-iframe-height: 40%;
+$submit-container-height: 70px;
 
 /* Editor for HTML/Markdown lessons */
 #html_editor {
@@ -24,7 +25,7 @@ $html-iframe-height: 40%;
 #code_lesson_sidebar {
   position: fixed;
   right: 0;
-  bottom: 0;
+  bottom: $submit-container-height;
   top: $header-height;
   width: $sidebar-width;
   background: #f2f2f2;
@@ -34,6 +35,16 @@ $html-iframe-height: 40%;
   .container {
     margin: 10px;
   }
+}
+
+#code_lesson_submit_container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: $sidebar-width;
+  height: $submit-container-height;
+  border-top: 1px solid #ababab;
+  background: #f2f2f2;
 }
 
 iframe#html_view {

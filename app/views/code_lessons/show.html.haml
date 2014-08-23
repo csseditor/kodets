@@ -1,13 +1,6 @@
 - provide :title, @code_lesson.name
 
-- if @language.ace_slug == 'html' || @language.ace_slug == 'markdown'
-  #html_editor= @code_lesson.starting_code
-  #html_container
-    %iframe#html_view
-      %p The iframe was unable to load.
-- else
-  #editor= @code_lesson.starting_code
-  #console
+= render 'code_lessons/ace_editor'
 
 #code_lesson_sidebar
   - unless @code_lesson.visible?
@@ -39,5 +32,10 @@
     .container
       Made by:
       = link_to @creator.name, @creator
+#code_lesson_submit_container
+  .center
+    - if @language.ace_slug == 'javascript'
+      = link_to '#', class: 'btn btn-primary', id: 'javascript-run-code' do
+        Run Code
 
 = render 'code_lessons/ace_javascript'
