@@ -10,7 +10,9 @@ class Track < ActiveRecord::Base
   end
 
   def items
-    CodeLesson.where(track_id: self.id) +
-    []
+    items = CodeLesson.where(track_id: self.id) +
+      []
+
+    items.sort_by! { |item| item.order }
   end
 end
