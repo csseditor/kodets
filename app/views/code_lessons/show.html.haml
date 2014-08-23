@@ -10,6 +10,10 @@
   #console
 
 #code_lesson_sidebar
+  - unless @code_lesson.visible?
+    .container.hidden-lesson-container
+      %span.mega-octicon.octicon-lock.hidden-icon
+      %span.label.label-hidden Hidden Lesson
   .container
     %h1= @code_lesson.name
     %p= @cl_lesson_content
@@ -26,7 +30,11 @@
   - if current_user.teacher?
     .container
       = link_to 'Edit Lesson', edit_code_lesson_path(@code_lesson), class: 'btn btn-primary'
-      = link_to 'See who completed', '#', class: 'btn btn-primary'
+      %br/
+      %br/
+      = link_to '#', class: 'btn btn-primary' do
+        %span.octicon.octicon-organization
+        See who completed
 
     .container
       Made by:

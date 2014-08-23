@@ -8,8 +8,14 @@
   %nav.collapse.navbar-collapse.bs-navbar-collapse{role: "navigation"}
     %ul.nav.navbar-nav.navbar-right
       %li= link_to "Back to Track: #{@track.name}", track_path(@track)
-      %li= link_to 'Courses', courses_path
-      %li= link_to 'Dashboard', dashboard_path
+      %li
+        = link_to courses_path do
+          %span.octicon.octicon-mortar-board
+          Courses
+      %li
+        = link_to dashboard_path do
+          %span.octicon.octicon-home
+          Dashboard
       - if current_user.teacher?
         %li.dropdown
           %a.dropdown-toggle{'href' => '#', 'data-toggle' => 'dropdown'}
@@ -31,7 +37,7 @@
                 View all Students
             %li
               = link_to new_student_import_path do
-                %i.fa.fa-upload
+                %span.octicon.octicon-cloud-upload
                 Import Students
             %hr
             %li
