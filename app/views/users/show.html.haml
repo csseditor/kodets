@@ -1,9 +1,15 @@
 - provide :title, @user.name
 
 .container
-  %h1
-    = @user.name
-    %small
-      = @user.username
-      - if @user.teacher?
-        %span.label.label-info TEACHER
+  .row
+    .col-md-4
+      %h1
+        = @user.name
+        - if @user.teacher?
+          %small
+            %span.label.label-info TEACHER
+      %span.username= @user.username
+      %hr
+      .email
+        %span.octicon.octicon-mention
+        = @user.email
