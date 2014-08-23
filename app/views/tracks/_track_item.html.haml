@@ -14,7 +14,7 @@
 - elsif !item.visible? && current_user.teacher?
   %li.list-group-item
     = link_to item.name, item
-    %span.text-danger{"class" => "visible-tooltip visible-tooltip-#{index}", "data-toggle" => "tooltip", "data-placement" => "top", "title" => "You need to add more details before students can see it."}
+    %span.text-danger{"class" => "visible-tooltip visible-tooltip-#{index}", "data-toggle" => "tooltip", "data-placement" => "top", "title" => "You need to add #{required_empty_fields(item)}."}
       %span.octicon.octicon-alert
       This item is not visible to students
     .pull-right
