@@ -11,4 +11,5 @@
  *= require vendor/isotope
  *= require vendor/spectrum
  *= require theme.scss
+ *= require octicons
 */
