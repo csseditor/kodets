@@ -14,8 +14,10 @@
   .row
     - @tracks.each do |track|
       .col-md-12
-        .panel.panel-default
+        .panel.panel-default.track-panel
           .panel-body
+            .pull-right
+              = link_to 'Show', track, class: 'btn btn-primary'
             %h1.bold= link_to track.name, track
             %p.gray= track.description
           .panel-footer

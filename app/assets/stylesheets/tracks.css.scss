@@ -5,3 +5,18 @@
 #new_code_lesson_modal {margin-top: 150px;}
 
 .edit-track-move-icon:hover {cursor:pointer;}
+
+.track-panel {
+
+  .panel-body {
+    h1 {
+      margin-top:0;
+    }
+  }
+
+  .panel-footer {
+    .progress {
+      margin: 15px;
+    }
+  }
+}
