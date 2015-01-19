@@ -1,3 +1,4 @@
 $(document).ready(function () {
-  $('#students_index').DataTable();
+  if ($('#students_index').length > 0)
+    $('#students_index').DataTable();
 });

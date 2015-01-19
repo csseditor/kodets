@@ -39,7 +39,7 @@ def create_teacher
 end
 
 def create_course
-  Course.create(name: 'Ruby Test Course', 
+  Course.create(name: 'Ruby Test Course',
                 description: 'Ruby is a scripting language',
                 organisation_id: Organisation.first.id)
 end

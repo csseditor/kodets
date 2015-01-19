@@ -39,10 +39,7 @@ class RegistrationsController < Devise::RegistrationsController
       account_update_params.delete("password_confirmation")
       account_update_params.delete("current_password")
 
-      #
-      # TODO: Needs to be dynamically selected between Teachers and Students
-      #
-      @user = Teacher.find(current_teacher.id)
+      @user = User.find current_user.id
 
       if @user.update_attributes(account_update_params)
         set_flash_message :notice, :updated

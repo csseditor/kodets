@@ -12,12 +12,12 @@
     %p= @cl_lesson_content
 
   .container
-    %h1 Instructions
+    %h3 Instructions
     %p= @cl_instructions
 
   - if @code_lesson.hints.present?
     .container
-      %h1 Hints
+      %h3 Hints
       %p= @cl_hints
 
   - if current_user.teacher?
@@ -37,5 +37,9 @@
     - if @language.ace_slug == 'javascript'
       = link_to '#', class: 'btn btn-primary', id: 'javascript-run-code' do
         Run Code
+    - else
+      = link_to '#', class: 'btn btn-primary btn-lg run-code-button', id: 'main-run-code' do
+        Run Code
+        %i.fa.fa-play-circle
 
 = render 'code_lessons/ace_javascript'

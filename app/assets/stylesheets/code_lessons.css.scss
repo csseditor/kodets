@@ -33,7 +33,7 @@ $submit-container-height: 70px;
   overflow-x: hidden;
 
   .container {
-    margin: 10px;
+    width: 90%;
   }
 }
 
@@ -45,6 +45,14 @@ $submit-container-height: 70px;
   height: $submit-container-height;
   border-top: 1px solid #ababab;
   background: #f2f2f2;
+
+  .run-code-button {
+    margin-top: 10px;
+
+    i {
+      margin-left: 10px;
+    }
+  }
 }
 
 iframe#html_view {

@@ -3,18 +3,22 @@
   %head
     %title= full_title yield(:title)
     = stylesheet_link_tag    'application', media: 'all'
-    %link{href: "http://getbootstrap.com/dist/css/bootstrap.min.css", rel: "stylesheet"}
+    %link{href: "//getbootstrap.com/dist/css/bootstrap.min.css", rel: "stylesheet"}
     %link{href: "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", rel: "stylesheet"}
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body{class: "#{controller.controller_name} #{controller.action_name}"}
     - if notice
-      .alert.alert-success.alert-dissmissable
-        %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} &times;
+      %div{class: "alert alert-notice alert-dissmissable alert-no-margin", role: 'alert'}
+        %button.close{'data-dismiss' => 'alert', type: 'button'}
+          %span{'aria-hidden' => 'true'} &times;
+          %span.sr-only Close
         = notice
     - if alert
-      .alert.alert-warning.alert-dissmissable
-        %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', type: 'button'} &times;
+      %div{class: "alert alert-alert alert-dissmissable alert-no-margin", role: 'alert'}
+        %button.close{'data-dismiss' => 'alert', type: 'button'}
+          %span{'aria-hidden' => 'true'} &times;
+          %span.sr-only Close
         = alert
     = render 'layouts/header'
     .container
@@ -28,6 +32,7 @@
               .row
                 .col-md-12
                   = yield
-          .already-account
-            = render "devise/shared/links"
+          - unless on_page 'organisations', 'edit'
+            .already-account
+              = render "devise/shared/links"
     = render_footer
