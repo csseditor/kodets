@@ -25,13 +25,14 @@ Rails.application.routes.draw do
   get '/users',          to: 'users#index',   as: :users
   get '/users/:id/edit', to: 'users#edit',    as: :edit_user
   get '/users/:id',      to: 'users#show',    as: :user
-  get '/users/:id',      to: 'users#destroy', as: :delete_user, via: :delete
-  get '/users/:id',      to: 'users#update',                    via: :patch
+  match '/users/:id',    to: 'users#destroy', as: :delete_user, via: :delete
+  match '/users/:id',    to: 'users#update',                    via: :patch
 
   # Student Import
-  get '/students/import',   to: 'student_imports#new', as: :new_student_import
-  get '/students/import',   to: 'student_imports#new', as: :student_imports
-  match '/students/import', to: 'student_imports#create', via: :post
+  get '/students/add',      to: 'student_imports#new', as: :add_students
+  get '/students/add',      to: 'student_imports#new', as: :student_imports
+  get '/students/add',      to: 'student_imports#new', as: :new_student_import
+  match '/students/add',    to: 'student_imports#create', via: :post
 
   # Courses
   resources :courses

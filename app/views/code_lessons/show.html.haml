@@ -6,7 +6,9 @@
   - unless @code_lesson.visible?
     .container.hidden-lesson-container
       %span.mega-octicon.octicon-lock.hidden-icon
-      %span.label.label-hidden Hidden Lesson
+
+      %span.label.label-hidden{"class" => "visible-tooltip", "data-toggle" => "tooltip", "data-placement" => "right", "title" => "You need to add #{required_empty_fields(@code_lesson)} to make this lesson visible."}
+        Hidden Lesson
   .container
     %h1= @code_lesson.name
     %p= @cl_lesson_content
@@ -22,16 +24,14 @@
 
   - if current_user.teacher?
     .container
+      Lesson Created by:
+      = link_to @creator.name, @creator
+    .container
       = link_to 'Edit Lesson', edit_code_lesson_path(@code_lesson), class: 'btn btn-primary'
-      %br/
-      %br/
       = link_to code_lesson_stats_path(@code_lesson), class: 'btn btn-primary' do
         %span.octicon.octicon-organization
         Show Lessons Statistics
 
-    .container
-      Lesson Created by:
-      = link_to @creator.name, @creator
 #code_lesson_submit_container
   .center
     - if @language.ace_slug == 'javascript'
@@ -41,5 +41,3 @@
       = link_to '#', class: 'btn btn-primary btn-lg run-code-button', id: 'main-run-code' do
         Run Code
         %i.fa.fa-play-circle
-
-= render 'code_lessons/ace_javascript'

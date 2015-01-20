@@ -13,14 +13,6 @@
     editor.getSession().setTabSize(2);
     editor.getSession().setUseWrapMode(true);
     editor.getSession().setWrapLimitRange();
-    editor.commands.addCommand({
-      name: 'Save Code',
-      bindKey: { win: 'Ctrl-Enter',  mac: 'Command-Enter' },
-      exec: function(editor) {
-        // submit code
-      },
-      readOnly: true
-    });
   </script>
 <% elsif on_page('code_lessons', 'edit') || on_page('code_lessons', 'update') %>
   <script>

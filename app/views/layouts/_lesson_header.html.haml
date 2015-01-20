@@ -6,8 +6,9 @@
       %span.icon-bar
     = link_to 'Kodets', root_path, class: 'navbar-brand'
   %nav.collapse.navbar-collapse.bs-navbar-collapse{role: "navigation"}
-    %ul.nav.navbar-nav.navbar-right
+    %ul.nav.navbar-nav.navbar-left
       %li= link_to "Back to Track: #{@track.name}", track_path(@track)
+    %ul.nav.navbar-nav.navbar-right
       %li
         = link_to courses_path do
           %span.octicon.octicon-mortar-board

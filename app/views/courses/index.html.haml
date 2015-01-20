@@ -14,6 +14,12 @@
       .col-md-4
         .panel.panel-default
           .panel-heading
+            - if current_user.teacher?
+              .pull-right
+                = link_to edit_course_path(course) do
+                  %span.edit-course{"data-toggle" => "tooltip", "data-placement" => "top", "title" => "Edit Course"}
+                    %i.fa.fa-pencil
+
             = link_to course.name, course
           .panel-body
             = course.description

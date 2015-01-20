@@ -2,21 +2,20 @@
 <html>
   <head>
     <title><%= full_title yield(:title) %></title>
+    <link href="//getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
     <% unless @language.ace_slug == 'html' || @language.ace_slug == 'markdown' %>
       <%= javascript_include_tag 'jqconsole' %>
     <% end %>
     <%= csrf_meta_tags %>
-    <%= javascript_include_tag "ace/ace", "ace/theme-monokai", "ace/mode-#{@language.ace_slug}" %>
-
-    <link href="//getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="//cdn.datatables.net/1.10.1/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
-    <script src="//cdn.datatables.net/1.10.1/js/jquery.dataTables.js" charset="utf8"></script>
   </head>
   <body class="<%= controller.controller_name %> <%= controller.action_name %>">
     <%= render 'layouts/lesson_header' %>
     <%= yield %>
+    <%= javascript_include_tag 'application', "ace/theme-monokai", "ace/mode-#{@language.ace_slug}" %>
+    <%= render 'code_lessons/ace_javascript' %>
   </body>
 </html>

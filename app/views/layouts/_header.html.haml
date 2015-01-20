@@ -35,11 +35,11 @@
                 %li
                   = link_to users_path do
                     %i.fa.fa-user.fa-fw
-                    View all Students
+                    View All Students
                 %li
-                  = link_to new_student_import_path do
+                  = link_to add_students_path do
                     %span.octicon.octicon-cloud-upload.fa-fw
-                    Import Students
+                    Add More Students
                 %hr
                 %li
                   = link_to destroy_user_session_path, method: :delete do

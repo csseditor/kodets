@@ -1,9 +1,10 @@
 .panel.panel-default
   .panel-heading
-    %h3.panel-title New Course
+    %h3.panel-title Course
   .panel-body
     = form_for @course do |f|
       = render 'shared/error_messages', object: f.object
+
       .form-group
         = f.label :name
         = f.text_field :name, class: 'form-control', placeholder: 'Name'
