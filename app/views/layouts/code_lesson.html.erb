@@ -10,7 +10,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="<%= controller.controller_name %> <%= controller.action_name %>">
-    <%= render 'layouts/lesson_header' %>
+    <%= render 'layouts/header', in_lesson: true %>
     <%= yield %>
     <%= javascript_include_tag 'application', 'ace/theme-monokai', "ace/mode-#{@language.ace_slug}" %>
     <%= javascript_include_tag 'code_lessons/code_lesson' %>
