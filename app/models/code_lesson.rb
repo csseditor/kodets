@@ -1,5 +1,6 @@
 class CodeLesson < ActiveRecord::Base
   belongs_to :track
+  belongs_to :language
 
   after_validation :make_visible
 

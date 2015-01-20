@@ -66,6 +66,16 @@ class CodeLessonsController < ApplicationController
     @track = @code_lesson.track
   end
 
+  # The function that code is posted to, to be evaluated
+  def evaluate
+    @cl = CodeLesson.find(params[:lesson_id])
+
+    @sandie = Sandie.new(language: Language.find(@cl.language_id).code_eval_slug)
+    @code = @sandie.evaluate(code: params[:user_code])
+
+    render json: @code.merge({ pass: "true\n" }).to_json.inspect
+  end
+
   private
 
   def code_lesson_params

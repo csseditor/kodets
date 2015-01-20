@@ -13,6 +13,10 @@
     editor.getSession().setTabSize(2);
     editor.getSession().setUseWrapMode(true);
     editor.getSession().setWrapLimitRange();
+
+    editor.getSession().on('change', function() {
+      $('#user-code').val(editor.getValue());
+    });
   </script>
 <% elsif on_page('code_lessons', 'edit') || on_page('code_lessons', 'update') %>
   <script>

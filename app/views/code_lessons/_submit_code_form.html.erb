@@ -1,0 +1,19 @@
+<% if @code_lesson.language.ace_slug == 'javascript' %>
+  <%= link_to '#', class: 'btn btn-success btn-lg run-code-button', id: 'javascript-run-code-buttom' do %>
+    Run Code
+    <i class="fa fa-play-circle"></i>
+  <% end %>
+<% else %>
+  <%= link_to '#', class: 'btn btn-success btn-lg run-code-button', id: 'default-run-code-buttom', data: {
+          submit_url: new_submission_path,
+          lesson_id: @code_lesson.id,
+          user_id: current_user.id,
+          item_type: @code_lesson.class.name,
+          track_id: @code_lesson.track.id,
+          organisation_id: current_org.id } do %>
+    Run Code
+    <i class="fa fa-play-circle"></i>
+  <% end %>
+
+  <input type="hidden" value="" id="user-code">
+<% end %>

@@ -34,10 +34,4 @@
 
 #code_lesson_submit_container
   .center
-    - if @language.ace_slug == 'javascript'
-      = link_to '#', class: 'btn btn-primary', id: 'javascript-run-code' do
-        Run Code
-    - else
-      = link_to '#', class: 'btn btn-primary btn-lg run-code-button', id: 'main-run-code' do
-        Run Code
-        %i.fa.fa-play-circle
+    = render 'code_lessons/submit_code_form'

@@ -15,6 +15,7 @@ gem 'spreadsheet', '~> 0.9.7'
 gem 'redcarpet', '~> 3.1.0'
 gem 'jquery-ui-rails', '~> 4.2.0'
 gem 'octicons-rails'
+gem 'sandie', '~> 0.1.1'
 
 gem 'jbuilder'
 
