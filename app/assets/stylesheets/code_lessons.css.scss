@@ -156,3 +156,23 @@ div#html_container {
 .hidden-lesson-container {
   margin-bottom: 0;
 }
+
+#success_bar {
+  position: fixed;
+  left: 0;
+  bottom: $console-height;
+  right: $sidebar-width;
+  height: 50px;
+  background: #223741;
+
+  .next-lesson-button {
+    margin-top: 7px;
+    margin-right: 17px;
+  }
+
+  .success-text {
+    color: white;
+    margin-top: 14px;
+    margin-left: 15px;
+  }
+}

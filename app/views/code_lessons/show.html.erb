@@ -1,5 +1,7 @@
 <% provide :title, @code_lesson.name %>
+
 <%= render 'code_lessons/ace_editor' %>
+
 <div id="code_lesson_sidebar">
   <% unless @code_lesson.visible? %>
     <div class="container hidden-lesson-container">

@@ -43,6 +43,7 @@ $('#default-run-code-buttom').on('click', function() {
 
       if (result.pass == "true\n" && result.stderr == "") {
         jqconsole.Write("Well done, you passed the lessson!\n", 'jqconsole-success');
+        $('#success_bar').slideDown(500);
       } else {
         jqconsole.Write("Oops, thats not correct.\n", 'jqconsole-error');
       }
