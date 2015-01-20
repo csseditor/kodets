@@ -30,8 +30,6 @@ $('#default-run-code-buttom').on('click', function() {
     url: $that.attr('data-submit-url'),
     data: ajax_data
   }).done(function(data) {
-    // When AJAX is a success
-
     var result = JSON.parse(data);
 
     if ($('#console').length > 0) {

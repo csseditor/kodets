@@ -28,6 +28,7 @@ class CodeLessonsController < ApplicationController
     @code_lesson = CodeLesson.find params[:id]
     @track = @code_lesson.track
     @language = Language.find @code_lesson.language_id
+
     if @code_lesson.update_attributes code_lesson_params
       redirect_to code_lesson_path @code_lesson
     else

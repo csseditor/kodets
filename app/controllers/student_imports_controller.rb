@@ -33,11 +33,17 @@ class StudentImportsController < ApplicationController
   def create_student
     @user = User.new user_params
 
-    if @user.save
-      flash[:success] = 'User created!'
-      redirect_to users_path
+    if @user.organisation.users.count == @user.organisation.max_users
+      flash[:warning] = 'You have reached your maximum user limit'
+      redirect_to student_imports_path
     else
-      render :new
+
+      if @user.save
+        flash[:success] = 'User created!'
+        redirect_to users_path
+      else
+        render :new
+      end
     end
   end
 
