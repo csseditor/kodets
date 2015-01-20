@@ -2,6 +2,12 @@
 
 #slider
   .container
+    .row
+      .header.center
+        .alert.alert-success{role: "alert"}
+          Reamaining Student Spaces:
+          %span.alert-link
+            = current_org.max_users - current_org.users.count
     .row.header
       .col-md-6
         %h3 Import Students from file

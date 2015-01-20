@@ -124,6 +124,7 @@ class CodeLessonsController < ApplicationController
   end
 
   def evaluate_code_against_tests(user_code, result, tests)
+    tests = tests == "" ? true : tests
     {
       pass: Sandie.new(language: 'ruby').evaluate(
         code: <<-EVAL
