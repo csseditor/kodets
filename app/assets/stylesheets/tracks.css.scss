@@ -30,10 +30,23 @@
 
 .track-show-items {
 
-  .code-lesson-options {
+  .list-group-item {
 
-    a {
-      margin: 0 5px;
+    .code-lesson-options {
+
+      a {
+        margin: 0 5px;
+      }
+    }
+
+    &.has-completed {
+      background: #3ac162;
+      color: #fff;
+
+      a {
+        color: #fff;
+        font-weight: bold;
+      }
     }
   }
 }

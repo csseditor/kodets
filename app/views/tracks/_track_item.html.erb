@@ -1,0 +1,31 @@
+<% if current_user.has_completed?(item) %>
+<li class="list-group-item has-completed">
+<% else %>
+<li class="list-group-item">
+<% end %>
+  <%= link_to item, class: 'black-icon' do %>
+    <span class="octicon octicon-terminal"></span>
+    <%= item.name %>
+  <% end %>
+  <% if current_user.has_completed?(item) %>
+    <span class="glyphicon glyphicon-ok"></span>
+  <% end %>
+  <% if !item.visible? && current_user.teacher? %>
+    <span class="visible-tooltip visible-tooltip-<%= index %> text-danger" data-placement="top" data-toggle="tooltip" title="You need to add <%= required_empty_fields(item) %>.">
+      <span class="octicon octicon-alert"></span>
+      This item is not visible to students
+    </span>
+  <% end %>
+  <% if current_user.teacher? %>
+    <div class="pull-right code-lesson-options">
+      <%= link_to edit_code_lesson_path(item), class: 'black-icon' do %>
+        <span class="octicon octicon-pencil"></span>
+        Edit
+      <% end %>
+      <%= link_to code_lesson_stats_path(item), class: 'black-icon' do %>
+        <span class="octicon octicon-file-text"></span>
+        Show Stats
+      <% end %>
+    </div>
+  <% end %>
+</li>

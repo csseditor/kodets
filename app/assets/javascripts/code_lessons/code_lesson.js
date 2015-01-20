@@ -18,7 +18,7 @@ $('#default-run-code-buttom').on('click', function() {
   var ajax_data = {
     user_id: $that.attr('data-user-id'),
     lesson_id: $that.attr('data-lesson-id'),
-    item_type: $that.attr('data-item-type'),
+    lesson_type: $that.attr('data-item-type'),
     track_id: $that.attr('data-track-id'),
     organisation_id: $that.attr('data-organisation-id'),
     user_code: editor.getValue()

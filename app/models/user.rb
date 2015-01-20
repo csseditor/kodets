@@ -15,4 +15,10 @@ class User < ActiveRecord::Base
   def teacher?
     teacher
   end
+
+  def has_completed?(lesson)
+    @progress = Progress.where(lesson_id: lesson.id,
+                               lesson_type: lesson.class.name,
+                               user_id: id).present?
+  end
 end

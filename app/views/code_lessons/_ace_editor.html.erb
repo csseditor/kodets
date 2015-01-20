@@ -4,7 +4,11 @@
     <iframe id="html_view">The iframe was unable to load.</iframe>
   </div>
 <% else %>
-  <div id="editor"><%= @code_lesson.starting_code %></div>
+  <% if current_user.has_completed?(@code_lesson) %>
+    <div id="editor"><%= @progress.first.content %></div>
+  <% else %>
+    <div id="editor"><%= @code_lesson.starting_code %></div>
+  <% end %>
   <div id="success_bar" style="display:none;">
     <div class="pull-right">
       <%= link_to_next_lesson @code_lesson %>

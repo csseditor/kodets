@@ -46,6 +46,9 @@ class CodeLessonsController < ApplicationController
     @track = @code_lesson.track
     @language = Language.find @code_lesson.language_id
     @creator = User.find @code_lesson.user_id
+    @progress = Progress.where(lesson_id: @code_lesson.id,
+                               lesson_type: 'CodeLesson',
+                               user_id: current_user.id)
 
     code_lesson_info_with_markdown
   end
@@ -53,6 +56,7 @@ class CodeLessonsController < ApplicationController
   def destroy
     @code_lesson = CodeLesson.find params[:id]
     @track = @code_lesson.track
+
     if @code_lesson.destroy
       flash[:success] = 'Code Lesson deleted'
       redirect_to track_path @track
@@ -80,9 +84,12 @@ class CodeLessonsController < ApplicationController
                                         @code['stdout'],
                                         @cl.correctness_test)
 
-    # make_progress(params[:user_id], params[:organisation_id],
-    #               params[:lesson_id], params[:item_type], params[:track_id],
-    #               params[:user_code], params[:user_code])
+    result = @code['stderr'] == '' && @test['pass'] == "true\n"
+
+    # Save the code the user has submitted to database
+    make_progress(params[:user_id], params[:organisation_id],
+                  params[:lesson_id], params[:lesson_type], params[:user_code],
+                  result)
 
     # Returns the result of the evaluation and the result of the correctness tests.
     render json: @code.merge(@test).to_json.inspect
@@ -96,10 +103,9 @@ class CodeLessonsController < ApplicationController
 
   def code_lesson_params
     params.require(:code_lesson).permit(:name, :language_id, :lesson_content,
-                                        :starting_code, :instructions,
-                                        :hints, :order, :user_id,
-                                        :organisation_id, :date_due,
-                                        :correctness_test)
+                                        :starting_code, :instructions, :hints,
+                                        :order, :user_id, :organisation_id,
+                                        :date_due, :correctness_test)
   end
 
   def code_lesson_info_with_markdown
@@ -114,14 +120,18 @@ class CodeLessonsController < ApplicationController
     @cl_hints = markdown.render(@code_lesson.hints).html_safe
   end
 
-  def make_progress(user_id, org_id, item_id, item_type, track_id, user_code)
-    # @progress = Progress.where(user_id: user_id,
-    #                            item_id: item_id,
-    #                            item_type: item_type,
-    #                            track_id: track_id,
-    #                            organisation_id: org_id).first_or_create
-    # @progress.update_attributes(content: user_code,
-    #                             attempts: @progress.attempts + 1)
+  def make_progress(user_id, org_id, lesson_id, lesson_type, user_code, result)
+    @progress = Progress.where(user_id: user_id,
+                               lesson_id: lesson_id,
+                               lesson_type: lesson_type,
+                               organisation_id: org_id).first_or_create
+    if @progress.has_passed
+      @progress.update_attributes(content: user_code)
+    else
+      @progress.update_attributes(content: user_code,
+                                  number_of_attempts: @progress.number_of_attempts + 1,
+                                  has_passed: result)
+    end
   end
 
   def evaluate_code_against_tests(user_code, result, tests)

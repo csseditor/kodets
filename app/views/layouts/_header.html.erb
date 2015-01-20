@@ -15,6 +15,11 @@
       end
     %></div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <% if on_page 'code_lessons', 'show' %>
+        <ul class="nav navbar-nav navbar-left">
+          <li><%= link_to "Back to Track: #{@track.name}", track_path(@track) %></li>
+        </ul>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li>
