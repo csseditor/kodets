@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_action :teacher_user, only: [:edit, :update]
+  before_action :authenticate_teacher!, only: [:edit, :update]
 
   def create
     redirect_to root_path

@@ -1,4 +1,4 @@
-var jqconsole = $('#console').jqconsole('', '$ ');
+var jqconsole = $('#console').jqconsole('', '');
 
 var startPrompt = function () {
   jqconsole.Prompt(true, function (input) {

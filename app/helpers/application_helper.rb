@@ -18,14 +18,6 @@ module ApplicationHelper
     current_user ? Organisation.find(current_user.organisation_id) : nil
   end
 
-  # Redirect home unless current_user is a teacher
-  def teacher_user
-    unless current_user.teacher?
-      flash[:warning] = 'You do not have the correct permissions to access this page.'
-      redirect_to root_path
-    end
-  end
-
   # Renders long or short footer
   def render_footer
     if large_footer?

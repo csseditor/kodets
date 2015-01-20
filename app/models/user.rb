@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: { case_sensitive: false,
                                                      scope: :organisation,
                                                      message: 'must be unique' }
+  validates :organisation_id, presence: true
 
   def teacher?
     teacher

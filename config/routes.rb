@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   get '/students/add',      to: 'student_imports#new', as: :new_student_import
   match '/students/add',    to: 'student_imports#create', via: :post
 
+  match '/students/create', to: 'student_imports#create_student', as: :create_individual_student, via: :post
+
   # Courses
   resources :courses
 

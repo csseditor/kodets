@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :teacher_user, only: [:index, :destroy, :edit]
+  before_action :authenticate_teacher!, only: [:index, :destroy, :edit]
 
   def edit
     @user = User.find params[:id]

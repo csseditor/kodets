@@ -28,4 +28,11 @@ class ApplicationController < ActionController::Base
     controller_name == 'organisations' &&
     action_name == 'edit'
   end
+
+  def authenticate_teacher!
+    unless current_user.teacher?
+      redirect_to root_path
+      flash[:warning] = 'You do not have correct permissions to visit that page.'
+    end
+  end
 end

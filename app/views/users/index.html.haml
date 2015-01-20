@@ -1,6 +1,9 @@
 - provide :title, 'All Users'
 
 .container
+  .pull-right
+    = link_to 'Add More Students', add_students_path, class: 'btn btn-primary'
+
   %table.table.table-striped.table-hover#users-table
     %thead
       %tr
