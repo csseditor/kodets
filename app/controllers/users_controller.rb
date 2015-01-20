@@ -18,6 +18,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
+
+    unless current_org == @user.organisation
+      redirect_to root_path
+      flash[:warning] = 'You cannot access this user.'
+    end
   end
 
   def index

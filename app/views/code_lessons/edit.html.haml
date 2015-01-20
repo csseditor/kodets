@@ -19,7 +19,6 @@
         .col-lg-8
           .form-group.edit-cl-editor-form-group
             = f.text_area :correctness_test, class: 'form-control', style: 'display:none;'
-            #correctness-test-editor.form-control
             %p
               The
               %code code
@@ -33,6 +32,7 @@
             %p
               The correctnes tests are written in Ruby, so the following would be acceptable to do a non-case-sensitive check:
               %pre result.downcase.include?('hello, world')
+            #correctness-test-editor.form-control
     .col-lg-4
       = render 'shared/error_messages', object: f.object
 

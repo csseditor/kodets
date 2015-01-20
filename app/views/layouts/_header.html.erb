@@ -7,13 +7,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
-      <% if user_signed_in? %>
-        <%= link_to "Kodets - #{current_org.name} Area", root_path, class: 'navbar-brand' %>
-      <% else %>
-        <%= link_to "Kodets", root_path, class: 'navbar-brand' %>
-      <% end %>
-    </div>
+      </button><%=
+      if user_signed_in?
+        link_to "Kodets - #{current_org.name} Area", root_path, class: 'navbar-brand'
+      else
+        link_to "Kodets", root_path, class: 'navbar-brand'
+      end
+    %></div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>

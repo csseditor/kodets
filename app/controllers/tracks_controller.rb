@@ -45,8 +45,8 @@ class TracksController < ApplicationController
   def update_lesson_order
     @track = Track.find params[:track][:track_id]
     params[:track][:items].each do |i|
-      # find_lesson_from_param found in ApplicationHelper
-      item = find_lesson_from_param(i[1][:id], i[1][:type])
+      # find_lesson_from_class_id found in ApplicationHelper
+      item = find_lesson_from_class_id(i[1][:id], i[1][:type])
       item.update_attributes(order: i[1][:order])
       item.save
     end

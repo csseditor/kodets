@@ -70,10 +70,25 @@ class CodeLessonsController < ApplicationController
   def evaluate
     @cl = CodeLesson.find(params[:lesson_id])
 
+    # Runs user code
     @sandie = Sandie.new(language: Language.find(@cl.language_id).code_eval_slug)
     @code = @sandie.evaluate(code: params[:user_code])
 
-    render json: @code.merge({ pass: "true\n" }).to_json.inspect
+    # Evaluates user code against corectness tests
+    @test = evaluate_code_against_tests(params[:user_code],
+                                        @code['stdout'],
+                                        @cl.correctness_test)
+
+    # make_progress(params[:user_id], params[:organisation_id],
+    #               params[:lesson_id], params[:item_type], params[:track_id],
+    #               params[:user_code], params[:user_code])
+
+    # Returns the result of the evaluation and the result of the correctness tests.
+    render json: @code.merge(@test).to_json.inspect
+  end
+
+  def save_progress
+
   end
 
   private
@@ -89,10 +104,34 @@ class CodeLessonsController < ApplicationController
   def code_lesson_info_with_markdown
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
                                        autolink: true,
-                                       space_after_headers: true)
+                                       space_after_headers: true,
+                                       fenced_code_blocks: true,
+                                       prettify: true)
 
     @cl_lesson_content = markdown.render(@code_lesson.lesson_content).html_safe
     @cl_instructions = markdown.render(@code_lesson.instructions).html_safe
     @cl_hints = markdown.render(@code_lesson.hints).html_safe
+  end
+
+  def make_progress(user_id, org_id, item_id, item_type, track_id, user_code)
+    # @progress = Progress.where(user_id: user_id,
+    #                            item_id: item_id,
+    #                            item_type: item_type,
+    #                            track_id: track_id,
+    #                            organisation_id: org_id).first_or_create
+    # @progress.update_attributes(content: user_code,
+    #                             attempts: @progress.attempts + 1)
+  end
+
+  def evaluate_code_against_tests(user_code, result, tests)
+    {
+      pass: Sandie.new(language: 'ruby').evaluate(
+        code: <<-EVAL
+          code = %Q{#{user_code.to_s}}
+          result = %Q{#{result.to_s}}
+          puts #{tests}
+        EVAL
+      )['stdout']
+    }
   end
 end

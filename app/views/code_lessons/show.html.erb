@@ -1,0 +1,55 @@
+<% provide :title, @code_lesson.name %>
+<%= render 'code_lessons/ace_editor' %>
+<div id="code_lesson_sidebar">
+  <% unless @code_lesson.visible? %>
+    <div class="container hidden-lesson-container">
+      <span class="mega-octicon octicon-lock hidden-icon"></span>
+      <span class="visible-tooltip label label-hidden" data-placement="right" data-toggle="tooltip" title="You need to add <%= required_empty_fields(@code_lesson) %> to make this lesson visible.">
+        Hidden Lesson
+      </span>
+    </div>
+  <% end %>
+  <div class="container">
+    <h1>
+      <%= @code_lesson.name %>
+    </h1>
+    <p>
+<% # These must be written like this and in ERB to remove formatting errors %>
+<%= @cl_lesson_content %>
+    </p>
+  </div>
+  <div class="container">
+    <h3>Instructions</h3>
+    <p>
+<% # These must be written like this and in ERB to remove formatting errors %>
+<%= @cl_instructions %>
+    </p>
+  </div>
+  <% if @code_lesson.hints.present? %>
+    <div class="container">
+      <h3>Hints</h3>
+      <p>
+<% # These must be written like this and in ERB to remove formatting errors %>
+<%= @cl_hints %>
+      </p>
+    </div>
+  <% end %>
+  <% if current_user.teacher? %>
+    <div class="container">
+      Lesson Created by:
+      <%= link_to @creator.name, @creator %>
+    </div>
+    <div class="container">
+      <%= link_to 'Edit Lesson', edit_code_lesson_path(@code_lesson), class: 'btn btn-primary' %>
+      <%= link_to code_lesson_stats_path(@code_lesson), class: 'btn btn-primary' do %>
+        <span class="octicon octicon-organization"></span>
+        Show Lessons Statistics
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div id="code_lesson_submit_container">
+  <div class="center">
+    <%= render 'code_lessons/submit_code_form' %>
+  </div>
+</div>
