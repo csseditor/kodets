@@ -25,12 +25,12 @@
       = link_to 'Edit Lesson', edit_code_lesson_path(@code_lesson), class: 'btn btn-primary'
       %br/
       %br/
-      = link_to '#', class: 'btn btn-primary' do
+      = link_to code_lesson_stats_path(@code_lesson), class: 'btn btn-primary' do
         %span.octicon.octicon-organization
-        See who completed
+        Show Lessons Statistics
 
     .container
-      Made by:
+      Lesson Created by:
       = link_to @creator.name, @creator
 #code_lesson_submit_container
   .center

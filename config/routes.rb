@@ -48,8 +48,9 @@ Rails.application.routes.draw do
   # Code Lessons
   get '/tracks/:id/code-lessons/new', to: 'code_lessons#new',     as: :new_code_lesson
   get '/tracks/:id/code-lessons',     to: 'code_lessons#index',   as: :code_lessons
-  get '/code-lessons/:id',            to: 'code_lessons#show',     as: :code_lesson
+  get '/code-lessons/:id',            to: 'code_lessons#show',    as: :code_lesson
   get '/code-lessons/:id/edit',       to: 'code_lessons#edit',    as: :edit_code_lesson
+  get '/code-lessons/:id/stats',      to: 'code_lessons#stats',   as: :code_lesson_stats
   match '/code-lessons/:id',          to: 'code_lessons#destroy', as: :delete_code_lesson, via: :delete
   match '/code-lessons/:id',          to: 'code_lessons#update',                           via: :patch
   match '/tracks/:id/code-lessons',   to: 'code_lessons#create',  as: :create_code_lesson, via: :post

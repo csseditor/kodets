@@ -18,8 +18,9 @@
           = users.last
       .col-sm-4
         - courses = pluralise(current_org.courses.count, 'course')
-        %strong= courses.first
-        = courses.last
+        = link_to courses_path do
+          %strong= courses.first
+          = courses.last
       .col-sm-4
         %strong #{'3'}
         homework overdue

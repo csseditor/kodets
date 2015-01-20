@@ -4,10 +4,13 @@
       %span.octicon.octicon-terminal
       = item.name
     - if current_user.teacher?
-      .pull-right
+      .pull-right.code-lesson-options
         = link_to edit_code_lesson_path(item), class: 'black-icon' do
           %span.octicon.octicon-pencil
           Edit
+        = link_to code_lesson_stats_path(item), class: 'black-icon' do
+          %span.octicon.octicon-file-text
+          Show Stats
 
 - elsif !item.visible? && current_user.teacher?
   %li.list-group-item
@@ -17,7 +20,10 @@
     %span.text-danger{"class" => "visible-tooltip visible-tooltip-#{index}", "data-toggle" => "tooltip", "data-placement" => "top", "title" => "You need to add #{required_empty_fields(item)}."}
       %span.octicon.octicon-alert
       This item is not visible to students
-    .pull-right
+    .pull-right.code-lesson-options
       = link_to edit_code_lesson_path(item), class: 'black-icon' do
         %span.octicon.octicon-pencil
         Edit
+      = link_to code_lesson_stats_path(item), class: 'black-icon' do
+        %span.octicon.octicon-file-text
+        Show Stats

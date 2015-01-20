@@ -25,7 +25,6 @@
 
   %h1= @track.name
 
-
   %ul.list-group.track-show-items
     - @track.items.each_with_index do |item, index|
       = render 'tracks/track_item', item: item, index: index

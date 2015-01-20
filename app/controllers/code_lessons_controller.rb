@@ -61,6 +61,11 @@ class CodeLessonsController < ApplicationController
     end
   end
 
+  def stats
+    @code_lesson = CodeLesson.find params[:id]
+    @track = @code_lesson.track
+  end
+
   private
 
   def code_lesson_params

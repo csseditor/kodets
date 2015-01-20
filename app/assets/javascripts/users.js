@@ -1,3 +1,4 @@
 $(document).ready(function() {
-  $('#users-table').DataTable();
+  if($('#users-table').length > 0)
+    $('#users-table').DataTable();
 });
