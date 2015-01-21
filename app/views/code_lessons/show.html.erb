@@ -14,8 +14,8 @@
   <div class="container">
     <% if params[:defaultcode] == 'true' %>
       <%= link_to 'Reset to Your Saved Code', request.path, class: 'btn btn-primary' %>
-    <% else %>
-      <%= link_to 'Reset to Default Code', "#{request.original_url}?defaultcode=true", class: 'btn btn-primary' %>
+    <% elsif @progress.count > 0 %>
+      <%= link_to 'Reset to Default Lesson Code', "#{request.original_url}?defaultcode=true", class: 'btn btn-primary' %>
     <% end %>
     <h1>
       <%= @code_lesson.name %>
