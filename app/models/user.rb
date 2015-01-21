@@ -23,4 +23,18 @@ class User < ActiveRecord::Base
                                user_id: id)
     @progress.present? && @progress.first.has_passed
   end
+
+  def progress_in_track(track)
+    items = track.items
+
+    completed_items = []
+    if items.count == 0
+      0
+    else
+      items.each do |item|
+        completed_items.push(item) if self.has_completed?(item)
+      end
+      (completed_items.count.round(1) / items.count.round(2) * 100).round(0)
+    end
+  end
 end

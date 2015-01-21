@@ -13,6 +13,7 @@
 
   .row
     - @tracks.each do |track|
+      - progress = current_user.progress_in_track(track)
       .col-md-12
         .panel.panel-default.track-panel
           .panel-body
@@ -22,5 +23,6 @@
             %p.gray= track.description
           .panel-footer
             .progress
-              %div{"class" => "progress-bar progress-bar-success", "role" => "progressbar", "aria-valuenow" => "45", "aria-valuemin" => "0", "aria-valuemax" => "100", "style" => "width: 45%"}
-                %span.sr-only 45% Complete
+              %div{"class" => "progress-bar progress-bar-success", "role" => "progressbar", "aria-valuenow" => progress, "aria-valuemin" => "0", "aria-valuemax" => "100", "style" => "width: #{progress}%"}
+                = succeed "% Complete" do
+                  = progress
