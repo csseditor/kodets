@@ -129,6 +129,11 @@ class CodeLessonsController < ApplicationController
                                organisation_id: org_id).first_or_create
     if @progress.has_passed
       @progress.update_attributes(content: user_code)
+    elsif result
+      @progress.update_attributes(content: user_code,
+                                  number_of_attempts: @progress.number_of_attempts + 1,
+                                  has_passed: result,
+                                  time_completed: Time.now)
     else
       @progress.update_attributes(content: user_code,
                                   number_of_attempts: @progress.number_of_attempts + 1,

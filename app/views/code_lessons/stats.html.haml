@@ -18,4 +18,10 @@
         %tr
           %td= progress.user.name
           %td= progress.number_of_attempts
-          %td TBC
+          %td
+            = progress.time_completed.strftime("%a %b #{progress.time_completed.day.ordinalize}, %Y - %H:%M")
+            &mdash;
+            %strong
+              = surround "(", ")" do
+                = time_ago_in_words progress.time_completed
+                ago
