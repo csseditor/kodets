@@ -1,4 +1,4 @@
-- provide :title, 'Stats'
+- provide :title, "#{@code_lesson.name} - Statistics"
 
 .container
   = render 'shared/breadcrumbs'
@@ -10,13 +10,13 @@
   %table.table
     %thead
       %tr
-        %th Name
+        %th User
         %th Attempts to Complete
         %th Time of Completion
     %tbody
       - @progresses.each do |progress|
         %tr
-          %td= progress.user.name
+          %td= link_to "#{progress.user.name} (#{progress.user.username})", user_path(progress.user)
           %td= progress.number_of_attempts
           %td
             = progress.time_completed.strftime("%a %b #{progress.time_completed.day.ordinalize}, %Y - %H:%M")
