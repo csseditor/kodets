@@ -1,6 +1,45 @@
 .users.show {
-  .username {
-    color: #ababab;
-    font-size: 24px;
+
+  .user-info {
+    overflow-x: hide;
+
+    .user-profile-picture {
+      width: 100%;
+    }
+
+    .username {
+      color: #ababab;
+      font-size: 20px;
+    }
+
+    .user-details {
+      list-style: none;
+      margin-left: -20px;
+
+      li {
+        margin-bottom: 10px;
+
+        span {
+          color: #949494;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  .user-feed {
+
+    ul#completed-lessons {
+
+      li {
+        background: #3ac162;
+        color: #eee;
+
+        a {
+          color: #fff;
+          font-weight: bold;
+        }
+      }
+    }
   }
 }

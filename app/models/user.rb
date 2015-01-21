@@ -37,4 +37,8 @@ class User < ActiveRecord::Base
       (completed_items.count.round(1) / items.count.round(2) * 100).round(0)
     end
   end
+
+  def feed
+    Progress.where(user_id: id)
+  end
 end

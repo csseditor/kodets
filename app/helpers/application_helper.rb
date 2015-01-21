@@ -65,6 +65,25 @@ module ApplicationHelper
     end
   end
 
+  # Links to next lesson in path, or back to track
+  def link_to_next_lesson(item, options = {})
+    track = item.track
+    track_items = track.items.sort_by! { |i| i.order }
+    next_item = track_items.find { |i| i.order > item.order && i.visible? } if track_items
+
+    if next_item
+      link_text = options[:link_text] || 'Next Lesson'
+
+      link_to link_text, path_for_lesson(item),
+                         class: "btn btn-success next-lesson-button #{options[:class]}",
+                         id: options[:id]
+    else
+      link_to 'Back to Track', track_path(track),
+                               class: "btn btn-primary next-lesson-button #{options[:class]}",
+                               id: options[:id]
+    end
+  end
+
   # Used to update the order of lessons in a track, finds item based on id and
   # class name.
   def find_lesson_from_class_id(id, item_type)

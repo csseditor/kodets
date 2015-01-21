@@ -2,7 +2,8 @@
 
 .container
   .row
-    .col-md-4
+    .col-md-4.user-info
+      = gravatar_for @user, size: 400, class: 'user-profile-picture'
       %h1
         = @user.name
         - if @user.teacher?
@@ -10,6 +11,27 @@
             %span.label.label-info TEACHER
       %span.username= @user.username
       %hr
-      .email
-        %span.octicon.octicon-mention
-        = @user.email
+      %ul.user-details
+        %li.email
+          %span.octicon.octicon-mention
+          = @user.email
+        %li.join-date
+          %span.octicon.octicon-calendar
+          Joined on
+          = @user.created_at.strftime("%b #{@user.created_at.day.ordinalize}, %Y")
+
+    .col-md-8.user-feed
+      %h1 #{@user.name}'s Feed
+
+      %ul.list-group#completed-lessons
+        - @user.feed.each do |feed_item|
+          %li.list-group-item
+            = link_to path_for_lesson(feed_item.lesson) do
+              = feed_item.lesson.track.name
+              &mdash;
+              = feed_item.lesson.name
+            .pull-right
+              Completed
+              = time_ago_in_words feed_item.time_completed
+              ago
+              %span.glyphicon.glyphicon-ok
