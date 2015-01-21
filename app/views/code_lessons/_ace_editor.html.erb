@@ -4,7 +4,7 @@
     <iframe id="html_view">The iframe was unable to load.</iframe>
   </div>
 <% else %>
-  <% if current_user.has_completed?(@code_lesson) %>
+  <% if @progress.length > 0 %>
     <div id="editor"><%= @progress.first.content %></div>
   <% else %>
     <div id="editor"><%= @code_lesson.starting_code %></div>
