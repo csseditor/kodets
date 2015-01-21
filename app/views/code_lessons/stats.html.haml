@@ -6,3 +6,16 @@
   %h1
     = @code_lesson.name
     %small Statistics
+
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Attempts to Complete
+        %th Time of Completion
+    %tbody
+      - @progresses.each do |progress|
+        %tr
+          %td= progress.user.name
+          %td= progress.number_of_attempts
+          %td TBC

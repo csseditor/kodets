@@ -69,6 +69,8 @@ class CodeLessonsController < ApplicationController
   def stats
     @code_lesson = CodeLesson.find params[:id]
     @track = @code_lesson.track
+
+    @progresses = @code_lesson.progresses
   end
 
   # The function that code is posted to, to be evaluated
@@ -84,7 +86,7 @@ class CodeLessonsController < ApplicationController
                                         @code['stdout'],
                                         @cl.correctness_test)
 
-    result = @code['stderr'] == '' && @test['pass'] == "true\n"
+    result = @code[:stderr] == nil && @test[:pass] == "true\n"
 
     # Save the code the user has submitted to database
     make_progress(params[:user_id], params[:organisation_id],
@@ -92,7 +94,7 @@ class CodeLessonsController < ApplicationController
                   result)
 
     # Returns the result of the evaluation and the result of the correctness tests.
-    render json: @code.merge(@test).to_json.inspect
+    render json: @code.merge({ pass: result }).to_json.inspect
   end
 
   def save_progress

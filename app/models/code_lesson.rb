@@ -25,6 +25,10 @@ class CodeLesson < ActiveRecord::Base
     shareable
   end
 
+  def progresses
+    Progress.where(lesson_type: self.class.name, lesson_id: id)
+  end
+
   private
 
     def make_visible

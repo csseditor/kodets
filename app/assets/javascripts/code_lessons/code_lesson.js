@@ -32,6 +32,8 @@ $('#default-run-code-buttom').on('click', function() {
   }).done(function(data) {
     var result = JSON.parse(data);
 
+    console.log(result);
+
     if ($('#console').length > 0) {
       jqconsole.Write(result.stdout, 'jqconsole-output');
 
@@ -39,7 +41,7 @@ $('#default-run-code-buttom').on('click', function() {
         jqconsole.Write(result.stderr);
       }
 
-      if (result.pass == "true\n" && result.stderr == "") {
+      if (result.pass && result.stderr == "") {
         jqconsole.Write("Well done, you passed the lessson!\n", 'jqconsole-success');
         $('#success_bar').slideDown(500);
       } else {

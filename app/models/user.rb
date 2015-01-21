@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :organisation
+  has_many :progresses
 
   validates :name,     presence: true, length: { maximum: 50 }
   validates :username, presence: true, uniqueness: { case_sensitive: false,
@@ -19,6 +20,7 @@ class User < ActiveRecord::Base
   def has_completed?(lesson)
     @progress = Progress.where(lesson_id: lesson.id,
                                lesson_type: lesson.class.name,
-                               user_id: id).present?
+                               user_id: id)
+    @progress.present? && @progress.first.has_passed
   end
 end
