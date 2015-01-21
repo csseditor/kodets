@@ -8,7 +8,14 @@
     <%= item.name %>
   <% end %>
   <% if current_user.has_completed?(item) %>
-    <span class="glyphicon glyphicon-ok"></span>
+    <% if current_user.teacher? %>
+      <span class="glyphicon glyphicon-ok"></span>
+    <% else %>
+      <span class="pull-right">
+        Completed
+        <span class="glyphicon glyphicon-ok"></span>
+      </span>
+    <% end %>
   <% end %>
   <% if !item.visible? && current_user.teacher? %>
     <span class="visible-tooltip visible-tooltip-<%= index %> text-danger" data-placement="top" data-toggle="tooltip" title="You need to add <%= required_empty_fields(item) %>.">
