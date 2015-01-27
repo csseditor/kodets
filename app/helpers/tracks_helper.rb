@@ -1,7 +1,6 @@
 module TracksHelper
 
   # Find other lessons in the current track
-  # Returns @other_lessons object
   def find_lessons_in_same_track(track)
     @other_lessons = CodeLesson.where('track_id = ?', track.id)
                      # VideoLesson.where('track_id = ?', track.id) +

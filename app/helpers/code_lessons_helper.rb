@@ -6,7 +6,7 @@ module CodeLessonsHelper
     fields = %w[name language_id lesson_content instructions order]
     missing = []
     fields.each do |field|
-      missing.push(field.humanize) if code_lesson.read_attribute(field) == "" || code_lesson.read_attribute(field) == nil
+      missing.push(field.humanize) if code_lesson.read_attribute(field).blank?
     end
 
     missing.any? ? missing.to_sentence : 'nothing'

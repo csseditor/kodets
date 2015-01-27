@@ -15,7 +15,7 @@ module ApplicationHelper
 
   # Assign current_org to the organisation that current_user belongs to
   def current_org
-    current_user ? Organisation.find(current_user.organisation_id) : nil
+    user_signed_in? ? Organisation.find(current_user.organisation_id) : nil
   end
 
   # Renders long or short footer
@@ -66,21 +66,21 @@ module ApplicationHelper
   end
 
   # Links to next lesson in path, or back to track
-  def link_to_next_lesson(item, options = {})
+  def link_to_next_lesson(item, options = { link_text: 'Next Lesson' })
     track = item.track
     track_items = track.items.sort_by! { |i| i.order }
     next_item = track_items.find { |i| i.order > item.order && i.visible? } if track_items
 
     if next_item
-      link_text = options[:link_text] || 'Next Lesson'
-
-      link_to link_text, path_for_lesson(item),
-                         class: "btn btn-success next-lesson-button #{options[:class]}",
-                         id: options[:id]
+      link_to options[:link_text],
+              path_for_lesson(item),
+              class: "btn btn-success next-lesson-button #{options[:class]}",
+              id: options[:id]
     else
-      link_to 'Back to Track', track_path(track),
-                               class: "btn btn-primary next-lesson-button #{options[:class]}",
-                               id: options[:id]
+      link_to 'Back to Track',
+              track_path(track),
+              class: "btn btn-primary next-lesson-button #{options[:class]}",
+              id: options[:id]
     end
   end
 
