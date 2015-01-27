@@ -1,5 +1,9 @@
 <% if current_user.has_completed?(item) %>
 <li class="list-group-item has-completed">
+  <div class="tick pull-right">
+    <span class="glyphicon glyphicon-ok"></span>
+    Completed
+  </div>
 <% else %>
 <li class="list-group-item">
 <% end %>
