@@ -1,22 +1,35 @@
-<% provide :title, @code_lesson.name %>
+<% provide :title, "#{@progress.user.name}'s Submission - #{@code_lesson.name}" %>
 
 <%= render 'code_lessons/ace_editor' %>
 
 <div id="code_lesson_sidebar">
-  <% unless @code_lesson.visible? %>
-    <div class="container hidden-lesson-container">
-      <span class="mega-octicon octicon-lock hidden-icon"></span>
-      <span class="visible-tooltip label label-hidden" data-placement="right" data-toggle="tooltip" title="You need to add <%= required_empty_fields(@code_lesson) %> to make this lesson visible.">
-        Hidden Lesson
-      </span>
-    </div>
-  <% end %>
   <div class="container">
-    <% if params[:defaultcode] == 'true' %>
-      <%= link_to 'Reset to Your Saved Code', request.path, class: 'btn btn-primary' %>
-    <% elsif @progress.count > 0 && @progress.first.content != @code_lesson.starting_code %>
-      <%= link_to 'Reset to Default Lesson Code', "#{request.original_url}?defaultcode=true", class: 'btn btn-primary' %>
-    <% end %>
+    <div class="alert alert-success submission-info" role="alert">
+      <div class="fact">
+        Viewing Submission for:<br>
+        <span class="alert-link">
+          <%= link_to @progress.user.name, @progress.user %>
+        </span>
+      </div>
+
+      <div class="fact">
+        Attempts Needed to Complete:<br>
+        <span class="alert-link">
+          <%= @progress.number_of_attempts %>
+        </span>
+      </div>
+
+      <div class="fact">
+        Time of Completion:<br>
+        <span class="alert-link">
+          <%= @progress.time_completed.strftime("%b #{@progress.time_completed.day.ordinalize}, %Y - %H:%M") %>
+          <br>
+          (<%= time_ago_in_words @progress.time_completed %> ago)
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="container">
     <h1>
       <%= @code_lesson.name %>
     </h1>
@@ -47,10 +60,9 @@
       <%= link_to @creator.name, @creator %>
     </div>
     <div class="container">
-      <%= link_to 'Edit Lesson', edit_code_lesson_path(@code_lesson), class: 'btn btn-primary' %>
-      <%= link_to code_lesson_stats_path(@code_lesson), class: 'btn btn-primary' do %>
+      <%= link_to code_lesson_path(@code_lesson), class: 'btn btn-primary' do %>
         <span class="octicon octicon-organization"></span>
-        Show Lessons Statistics
+        Show Original Lesson
       <% end %>
     </div>
   <% end %>

@@ -4,20 +4,24 @@
     <iframe id="html_view">The iframe was unable to load.</iframe>
   </div>
 <% else %>
-  <% if params[:defaultcode] == 'true' %>
-    <div id="editor"><%= @code_lesson.starting_code %></div>
-  <% elsif @progress.length > 0 %>
-    <div id="editor"><%= @progress.first.content %></div>
+  <% if on_page 'code_lessons', 'submission' %>
+    <div id="editor"><%= @progress.content %></div>
   <% else %>
-    <div id="editor"><%= @code_lesson.starting_code %></div>
+    <% if params[:defaultcode] == 'true' %>
+      <div id="editor"><%= @code_lesson.starting_code %></div>
+    <% elsif @progress.length > 0 %>
+      <div id="editor"><%= @progress.first.content %></div>
+    <% else %>
+      <div id="editor"><%= @code_lesson.starting_code %></div>
+    <% end %>
+    <div id="success_bar" style="display:none;">
+      <div class="pull-right">
+        <%= link_to_next_lesson @code_lesson %>
+      </div>
+      <div class="success-text">
+        Well Done! You passed the lesson, click the button to move on...
+      </div>
+    </div>
   <% end %>
-  <div id="success_bar" style="display:none;">
-    <div class="pull-right">
-      <%= link_to_next_lesson @code_lesson %>
-    </div>
-    <div class="success-text">
-      Well Done! You passed the lesson, click the button to move on...
-    </div>
-  </div>
   <div id="console"></div>
 <% end %>

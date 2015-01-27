@@ -13,6 +13,7 @@
         %th User
         %th Attempts to Complete
         %th Time of Completion
+        %th View Code
     %tbody
       - @progresses.each do |progress|
         %tr
@@ -25,3 +26,4 @@
               = surround "(", ")" do
                 = time_ago_in_words progress.time_completed
                 ago
+          %td= link_to 'View Code', code_lesson_submission_path(@code_lesson, progress)

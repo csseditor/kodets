@@ -1,4 +1,4 @@
-<% if on_page 'code_lessons', 'show' %>
+<% if on_page('code_lessons', 'show') || on_page('code_lessons', 'submission') %>
   <script>
     <% if @language.ace_slug == 'html' || @language.ace_slug == 'markdown' %>
       var editor_id = 'html_editor';

@@ -1,7 +1,8 @@
 class CodeLessonsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authenticate_teacher!, only: :submission
 
-  layout 'code_lesson', only: :show
+  layout 'code_lesson', only: [:show, :submission]
 
   def new
     @code_lesson = CodeLesson.new
@@ -71,6 +72,14 @@ class CodeLessonsController < ApplicationController
     @track = @code_lesson.track
 
     @progresses = @code_lesson.progresses
+  end
+
+  def submission
+    @code_lesson = CodeLesson.find params[:code_lesson_id]
+    @progress = Progress.find params[:progress_id]
+    @language = @code_lesson.language
+    @creator = User.find @code_lesson.user_id
+    @track = @code_lesson.track
   end
 
   # The function that code is posted to, to be evaluated

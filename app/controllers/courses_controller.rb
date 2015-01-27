@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
-  before_action :authenticate_teacher!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_teacher!, except: [:show, :index]
 
   def new
     @course = Course.new
