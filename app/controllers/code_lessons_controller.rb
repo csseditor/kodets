@@ -82,6 +82,23 @@ class CodeLessonsController < ApplicationController
     @track = @code_lesson.track
   end
 
+  def run_code
+    @cl = CodeLesson.find(params[:lesson_id])
+
+    # Runs user code
+    @sandie = Sandie.new(language: Language.find(@cl.language_id).code_eval_slug)
+    @code = @sandie.evaluate(code: params[:user_code])
+
+    # Evaluates user code against corectness tests
+    @test = evaluate_code_against_tests(params[:user_code],
+                                        @code['stdout'],
+                                        @cl.correctness_test)
+
+    result = @code[:stderr] == nil && @test[:pass] == "true\n"
+
+    render json: @code.merge({ pass: result }).to_json.inspect
+  end
+
   # The function that code is posted to, to be evaluated
   def evaluate
     @cl = CodeLesson.find(params[:lesson_id])

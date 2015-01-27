@@ -73,7 +73,7 @@ module ApplicationHelper
 
     if next_item
       link_to options[:link_text],
-              path_for_lesson(item),
+              path_for_lesson(next_item),
               class: "btn btn-success next-lesson-button #{options[:class]}",
               id: options[:id]
     else

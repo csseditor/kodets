@@ -59,4 +59,5 @@ Rails.application.routes.draw do
   match '/code-lessons/:id',                                   to: 'code_lessons#update',                             via: :patch
   match '/tracks/:id/code-lessons',                            to: 'code_lessons#create',    as: :create_code_lesson, via: :post
   match '/evaluate',                                           to: 'code_lessons#evaluate',  as: :new_submission,     via: :post
+  match '/run-code',                                           to: 'code_lessons#run_code',  as: :new_run_code,       via: :post
 end
