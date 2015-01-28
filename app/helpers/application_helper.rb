@@ -100,4 +100,9 @@ module ApplicationHelper
       nil
     end
   end
+
+  def find_progress_from_item_user(item, user)
+    @progress = Progress.where('user_id = ? AND lesson_type = ? AND lesson_id = ?',
+                               user.id, item.class.name, item.id).first
+  end
 end

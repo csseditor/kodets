@@ -3,3 +3,5 @@ $(document).on("ready page:change", function() {
     $('.visible-tooltip-' + index).tooltip();
   })
 });
+
+$('.complete-lesson-info').tooltip();

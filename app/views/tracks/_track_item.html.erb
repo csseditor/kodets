@@ -1,8 +1,11 @@
 <% if current_user.has_completed?(item) %>
+  <% progress = find_progress_from_item_user(item, current_user) %>
 <li class="list-group-item has-completed">
   <div class="tick pull-right">
-    <span class="glyphicon glyphicon-ok"></span>
-    Completed
+    <span class="complete-lesson-info" data-toggle="tooltip" data-placement="top" title="<%= time_ago_in_words progress.time_completed %> ago &mdash; <%= progress.number_of_attempts %> attempts">
+      <span class="glyphicon glyphicon-ok"></span>
+      Completed
+    </span>
   </div>
 <% else %>
 <li class="list-group-item">
@@ -10,16 +13,6 @@
   <%= link_to item, class: 'black-icon' do %>
     <span class="octicon octicon-terminal"></span>
     <%= item.name %>
-  <% end %>
-  <% if current_user.has_completed?(item) %>
-    <% if current_user.teacher? %>
-      <span class="glyphicon glyphicon-ok"></span>
-    <% else %>
-      <span class="pull-right">
-        Completed
-        <span class="glyphicon glyphicon-ok"></span>
-      </span>
-    <% end %>
   <% end %>
   <% if !item.visible? && current_user.teacher? %>
     <span class="visible-tooltip visible-tooltip-<%= index %> text-danger" data-placement="top" data-toggle="tooltip" title="You need to add <%= required_empty_fields(item) %>.">
