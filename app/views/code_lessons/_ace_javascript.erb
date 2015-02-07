@@ -17,6 +17,20 @@
     editor.getSession().on('change', function() {
       $('#user-code').val(editor.getValue());
     });
+
+    var jqconsole = $('#console').jqconsole('', '');
+
+    var startPrompt = function () {
+      jqconsole.Prompt(true, function (input) {
+        jqconsole.Write(input + '\n', 'jqconsole-output');
+        // Scrolls to bottom when content goes of page
+        $(".jqconsole").animate({
+          scrollTop: $(".jqconsole").height()
+        }, 1000);
+        startPrompt();
+      });
+    };
+    startPrompt();
   </script>
 <% elsif on_page('code_lessons', 'edit') || on_page('code_lessons', 'update') %>
   <script>

@@ -1,17 +1,3 @@
-var jqconsole = $('#console').jqconsole('', '');
-
-var startPrompt = function () {
-  jqconsole.Prompt(true, function (input) {
-    jqconsole.Write(input + '\n', 'jqconsole-output');
-    // Scrolls to bottom when content goes of page
-    $(".jqconsole").animate({
-      scrollTop: $(".jqconsole").height()
-    }, 1000);
-    startPrompt();
-  });
-};
-startPrompt();
-
 // Runs code that user submits to pass a lesson
 $('#default-run-code-buttom').on('click', function() {
   var $that = $(this);
