@@ -1,3 +1,5 @@
+- provide :title, "Edit #{@code_lesson.name}"
+
 .container
   = render 'shared/breadcrumbs'
 
@@ -59,6 +61,8 @@
         - else
           %input#disable_date{type: 'checkbox'}
           %label{for: 'disable_date'} Is this due for a certain date?
+          %br/
+          %br/
           = f.label :date_due, 'Date Due'
           = f.date_field :date_due, placeholder: 'Date Due', class: 'form-control', disabled: 'disabled'
 

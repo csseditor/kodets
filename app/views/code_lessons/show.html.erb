@@ -21,14 +21,14 @@
       <%= @code_lesson.name %>
     </h1>
     <p>
-<% # These must be written like this and in ERB to remove formatting errors %>
+<% # These must be indented like this and in ERB to remove formatting errors %>
 <%= @cl_lesson_content %>
     </p>
   </div>
   <div class="container">
     <h3>Instructions</h3>
     <p>
-<% # These must be written like this and in ERB to remove formatting errors %>
+<% # These must be indented like this and in ERB to remove formatting errors %>
 <%= @cl_instructions %>
     </p>
   </div>
@@ -36,7 +36,7 @@
     <div class="container">
       <h3>Hints</h3>
       <p>
-<% # These must be written like this and in ERB to remove formatting errors %>
+<% # These must be indented like this and in ERB to remove formatting errors %>
 <%= @cl_hints %>
       </p>
     </div>
@@ -46,9 +46,9 @@
       Lesson Created by:
       <%= link_to @creator.name, @creator %>
     </div>
-    <div class="container">
-      <%= link_to 'Edit Lesson', edit_code_lesson_path(@code_lesson), class: 'btn btn-primary' %>
-      <%= link_to code_lesson_stats_path(@code_lesson), class: 'btn btn-primary' do %>
+    <div class="container option-buttons-container">
+      <%= link_to 'Edit Lesson', edit_code_lesson_path(@code_lesson), class: 'btn btn-block btn-primary' %>
+      <%= link_to code_lesson_stats_path(@code_lesson), class: 'btn btn-block btn-primary' do %>
         <span class="octicon octicon-organization"></span>
         Show Lessons Statistics
       <% end %>

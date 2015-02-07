@@ -14,6 +14,10 @@ class Organisation < ActiveRecord::Base
     ref.to_s
   end
 
+  def students
+    users.where("teacher = ?", true)
+  end
+
   private
 
   def set_ref

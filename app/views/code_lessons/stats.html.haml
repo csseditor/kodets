@@ -15,15 +15,20 @@
         %th Time of Completion
         %th View Code
     %tbody
-      - @progresses.each do |progress|
+      - if @progresses.any?
+        - @progresses.each do |progress|
+          %tr
+            %td= link_to "#{progress.user.name} (#{progress.user.username})", user_path(progress.user)
+            %td= progress.number_of_attempts
+            %td
+              = progress.time_completed.strftime("%a %b #{progress.time_completed.day.ordinalize}, %Y - %H:%M")
+              &mdash;
+              %strong
+                = surround "(", ")" do
+                  = time_ago_in_words progress.time_completed
+                  ago
+            %td= link_to 'View Code', code_lesson_submission_path(@code_lesson, progress)
+      - else
         %tr
-          %td= link_to "#{progress.user.name} (#{progress.user.username})", user_path(progress.user)
-          %td= progress.number_of_attempts
-          %td
-            = progress.time_completed.strftime("%a %b #{progress.time_completed.day.ordinalize}, %Y - %H:%M")
-            &mdash;
-            %strong
-              = surround "(", ")" do
-                = time_ago_in_words progress.time_completed
-                ago
-          %td= link_to 'View Code', code_lesson_submission_path(@code_lesson, progress)
+          %td{"colspan" => 4, "style" => 'text-align:center;'}
+            Nobody has completed this lesson.
